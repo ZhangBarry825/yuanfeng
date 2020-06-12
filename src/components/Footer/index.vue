@@ -71,6 +71,7 @@
 
 <style scoped lang="scss">
 .page{
+  min-width: 1200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,6 +79,7 @@
   background-color: #333333;
   align-items: center;
   .center{
+    min-width: 1200px;
     box-sizing: border-box;
     padding: 40px 0;
     color: #fff;
@@ -112,7 +114,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding: 0 30px;
+        padding: 0 35px;
         .title{
           font-size: 16px;
           padding: 15px 0;
