@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <Header></Header>
-
+    <Footer></Footer>
   </div>
 </template>
 
@@ -12,7 +12,8 @@
   export default {
     name: "Home",
     components: {
-      Header
+      Header,
+      Footer
     }
   }
 </script>
