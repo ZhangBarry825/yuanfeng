@@ -1,15 +1,22 @@
 <template>
-<div class="page">
-  <h2>home</h2>
-</div>
+  <div class="page">
+    <Header></Header>
+
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Home"
+  import Header from "../../../components/Header/index";
+  import Footer from "../../../components/Footer/index";
+
+  export default {
+    name: "Home",
+    components: {
+      Header
     }
+  }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
