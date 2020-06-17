@@ -151,7 +151,189 @@
 
     </div>
     <div class="banner">
-
+      <div class="center">
+        <div class="item">
+          <div class="line1">优质选材</div>
+          <div class="line2"></div>
+          <div class="line3">SELECTION</div>
+        </div>
+        <div class="item">
+          <div class="line1">做工精细</div>
+          <div class="line2"></div>
+          <div class="line3">WORKMANSHIP</div>
+        </div>
+        <div class="item">
+          <div class="line1">最佳原材</div>
+          <div class="line2"></div>
+          <div class="line3">MATERIALN</div>
+        </div>
+        <div class="item">
+          <div class="line1">专业制造</div>
+          <div class="line2"></div>
+          <div class="line3">PROFESSIONAL</div>
+        </div>
+      </div>
+    </div>
+    <div class="customer">
+      <div class="title">
+        <div class="text1">
+          客户分布
+        </div>
+        <div class="text2">
+          CLIENT　DISTRIBUTION
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="map">
+        <div class="map-data">
+          <div class="line">
+            <img src="../../../../public/images/dot1.png" alt="">
+            <div class="text">服务过的客户</div>
+          </div>
+          <div class="line">
+            <img src="../../../../public/images/dot2.png" alt="">
+            <div class="text">正在洽谈的合作</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="title">
+        <div class="text1">
+          案例实景
+        </div>
+        <div class="text2">
+          CASE SCENARIO
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">工厂车间操作实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">户外作业实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">农田操作实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">化工设备操作实景</div>
+        </div>
+      </div>
+      <div class="more">查看更多</div>
+    </div>
+    <div class="news">
+      <div class="title">
+        <div class="text1">
+          新闻资讯
+        </div>
+        <div class="text2">
+          NEWS AND INFORMATION
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="lists">
+        <div class="list">
+          <div class="list-title">行业新闻</div>
+          <div class="items">
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <img src="../../../../public/images/right_active.png" alt="">
+          </div>
+        </div>
+        <div class="list">
+          <div class="list-title">公司新闻</div>
+          <div class="items">
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <img src="../../../../public/images/right_active.png" alt="">
+          </div>
+        </div>
+        <div class="list">
+          <div class="list-title">常见问题</div>
+          <div class="items">
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="../../../../public/images/dot0.png" alt="">
+              <div class="right">
+                <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                <div class="time">2020/6</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <img src="../../../../public/images/right_active.png" alt="">
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -235,7 +417,7 @@
         }
 
         .text2 {
-          font-size: 22px;
+          font-size: 20px;
           color: #666;
           display: inline;
         }
@@ -325,7 +507,7 @@
         .text2 {
           padding-top: 10px;
           padding-bottom: 20px;
-          font-size: 22px;
+          font-size: 20px;
           color: #666;
           display: inline;
         }
@@ -339,11 +521,12 @@
       .content {
         width: 100%;
         height: 620px;
-        box-sizing:border-box;
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
+
         .left {
-          box-sizing:border-box;
+          box-sizing: border-box;
 
           width: 50%;
           height: 100%;
@@ -352,6 +535,7 @@
           display: flex;
           flex-direction: column;
           justify-content: space-around;
+
           .item {
             position: relative;
             left: 31px;
@@ -359,7 +543,8 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            .img1{
+
+            .img1 {
               margin-left: 7%;
               background-image: url("../../../../public/images/item1.png");
               background-size: cover;
@@ -368,7 +553,8 @@
               height: 60px;
               border-radius: 50%;
             }
-            .img2{
+
+            .img2 {
               margin-left: 7%;
               background-image: url("../../../../public/images/item2.png");
               background-size: cover;
@@ -377,7 +563,8 @@
               height: 60px;
               border-radius: 50%;
             }
-            .img3{
+
+            .img3 {
               margin-left: 7%;
               background-image: url("../../../../public/images/item3.png");
               background-size: cover;
@@ -386,7 +573,8 @@
               height: 60px;
               border-radius: 50%;
             }
-            .img4{
+
+            .img4 {
               margin-left: 7%;
               background-image: url("../../../../public/images/item4.png");
               background-size: cover;
@@ -395,16 +583,19 @@
               height: 60px;
               border-radius: 50%;
             }
-            .text0{
+
+            .text0 {
               width: 60%;
               text-align: right;
-              .text1{
+
+              .text1 {
                 font-size: 22px;
                 color: #fff;
                 position: relative;
                 padding-bottom: 10px;
                 color: rgba(255, 255, 255, 0.9);
-                .num{
+
+                .num {
                   position: absolute;
                   font-size: 40px;
                   color: rgba(239, 239, 239, 0.5);
@@ -412,7 +603,8 @@
                   top: -25px;
                 }
               }
-              .text2{
+
+              .text2 {
                 color: rgba(255, 255, 255, 0.8);
                 font-size: 14px;
                 color: #fff;
@@ -427,7 +619,7 @@
         }
 
         .right {
-          box-sizing:border-box;
+          box-sizing: border-box;
           width: 50%;
           height: 100%;
           background-image: url("../../../../public/images/advantage.png");
@@ -437,8 +629,9 @@
       }
     }
 
-    .products{
-      margin-top: 100px;
+    .products {
+      background-color: #f5f5f5;
+      padding-top: 100px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -459,7 +652,7 @@
         .text2 {
           padding-top: 10px;
           padding-bottom: 20px;
-          font-size: 22px;
+          font-size: 20px;
           color: #666;
           display: inline;
         }
@@ -470,54 +663,61 @@
         }
       }
 
-      .menus{
+      .menus {
         width: 1200px;
         border-bottom: 2px solid rgba(204, 204, 204, 0.5);
         display: flex;
         flex-direction: row;
         justify-content: center;
-        .menu{
+
+        .menu {
           cursor: pointer;
-          color:#343434;
+          color: #343434;
           font-size: 20px;
           padding: 20px 0;
           margin: 0 5%;
         }
-        .selected{
+
+        .selected {
           color: #3652B6;
           border-bottom: 2px solid #3652B6;
         }
       }
-      .items{
+
+      .items {
         width: 1200px;
         padding: 50px 0;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        .item{
+
+        .item {
           border-top: 3px solid #fff;
           width: 272px;
           height: 349px;
           box-shadow: 0 0 10px rgba(136, 148, 164, 0.2);
           display: flex;
           flex-direction: column;
-          .pic{
+
+          .pic {
             height: 290px;
             overflow: hidden;
-            .img{
+
+            .img {
               height: 100%;
               width: 100%;
               background-image: url("../../../../public/images/product.png");
               background-size: cover;
               background-position: center center;
 
-              transition:all .4s;
-              -moz-transition:all .4s;
-              -webkit-transition:all .4s;
-              -o-transition:all .4s;
+              transition: all .4s;
+              -moz-transition: all .4s;
+              -webkit-transition: all .4s;
+              -o-transition: all .4s;
             }
           }
-          .text{
+
+          .text {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -527,20 +727,24 @@
             border-top: 1px solid rgba(238, 238, 238, 1);
           }
         }
-        .item:hover{
-          box-sizing:border-box;
+
+        .item:hover {
+          box-sizing: border-box;
           cursor: pointer;
           box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
           border-top: 3px solid #3652B6;
-          .pic>.img{
-            transform:scale(1.1);
+
+          .pic > .img {
+            transform: scale(1.1);
           }
-          .text{
+
+          .text {
             color: #3652B6;
           }
         }
       }
-      .more{
+
+      .more {
         color: #DE2023;
         font-size: 24px;
         border: 1px solid #DE2023;
@@ -551,12 +755,331 @@
       }
     }
 
-    .banner{
+    .banner {
       width: 100%;
       height: 261px;
       background-image: url("../../../../public/images/b.png");
       background-size: cover;
       background-position: center center;
+      display: flex;
+      justify-content: center;
+      .center{
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .item {
+          height: 155px;
+          width: 155px;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .line{
+            font-size: 24px;
+          }
+          .line2{
+            width: 32px;
+            border-bottom: 2px solid #fff;
+            margin: 15px;
+          }
+          .line3{
+            font-size: 14px;
+          }
+
+        }
+      }
+
+    }
+
+    .customer{
+      margin-top: 100px;
+      padding-bottom: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      .title {
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .text1 {
+          font-size: 32px;
+          color: #343434;
+          padding-bottom: 10px;
+        }
+        .text2 {
+          padding-top: 10px;
+          padding-bottom: 20px;
+          font-size: 20px;
+          color: #343434;
+          display: inline;
+        }
+        .border {
+          width: 53px;
+          border-bottom: 4px solid #3652B6;
+        }
+      }
+
+      .map{
+        width: 1200px;
+        height: 614px;
+        background-image: url("../../../../public/images/map.png");
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        .map-data{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 240px;
+          height: 120px;
+          box-shadow: 0 0 15px rgba(136, 148, 164, 0.2);
+          background-color: #fff;
+          padding: 25px;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          .line{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            img{
+              width: 22px;
+              height: 22px;
+              margin-right: 20px;
+            }
+            .text{
+              color: #343434;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+
+    .case{
+      background-color: #f5f5f5;
+      padding-top: 100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .title {
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 32px;
+          color: #333333;
+          padding-bottom: 10px;
+        }
+
+        .text2 {
+          padding-top: 10px;
+          padding-bottom: 20px;
+          font-size: 20px;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 53px;
+          border-bottom: 4px solid #3652B6;
+        }
+      }
+      .items {
+        width: 1200px;
+        padding: 50px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .pic {
+            width: 272px;
+            height: 349px;
+            overflow: hidden;
+
+            .img {
+              height: 100%;
+              width: 100%;
+              background-image: url("../../../../public/images/case1.png");
+              background-size: cover;
+              background-position: center center;
+
+              transition: all .4s;
+              -moz-transition: all .4s;
+              -webkit-transition: all .4s;
+              -o-transition: all .4s;
+            }
+          }
+
+          .text {
+            background-color: #fff;
+            width: 212px;
+            height: 81px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: rgba(52, 52, 52, 1);
+          }
+        }
+
+        .item:hover {
+          box-sizing: border-box;
+          cursor: pointer;
+          .pic{
+            box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
+          }
+          .pic > .img {
+            transform: scale(1.1);
+          }
+
+          .text {
+            color: #3652B6;
+            box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
+          }
+        }
+      }
+      .more {
+        color: #DE2023;
+        font-size: 24px;
+        border: 1px solid #DE2023;
+        padding: 10px 50px;
+        margin: 20px 0;
+        margin-bottom: 100px;
+        cursor: pointer;
+      }
+    }
+
+    .news{
+      background-color: #fff;
+      padding: 100px 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .title {
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 32px;
+          color: #333333;
+          padding-bottom: 10px;
+        }
+
+        .text2 {
+          padding-top: 10px;
+          padding-bottom: 20px;
+          font-size: 20px;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 53px;
+          border-bottom: 4px solid #3652B6;
+        }
+      }
+
+      .lists{
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        .list{
+          border-bottom: 2px solid #fff;
+          box-shadow: 0 0 15px rgba(136, 148, 164, 0.2);
+          width: 380px;
+          .list-title{
+            width: 100%;
+            height: 86px;
+            background-color: #3652b6;
+            font-size: 28px;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0px;
+          }
+          .items{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .item{
+              cursor: pointer;
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 0 20px;
+              box-sizing: border-box;
+              img{
+                width: 10px;
+                height: 10px;
+                margin-right:10px;
+              }
+              .right{
+                height: 57px;
+                width: calc(100% - 10px);
+                border-bottom: 1px solid #E5E5E5;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .text{
+                  font-size: 16px;
+                  max-width: 100%;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+                  overflow: hidden;
+                }
+                .time{
+                  font-size: 12px;
+                  color: #9A9A9A;
+                }
+              }
+            }
+            .item:hover{
+              >.right{
+                >.text{
+                  color: #3653B6;
+                }
+              }
+            }
+          }
+          .bottom{
+            padding: 0 30px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            img{
+              cursor: pointer;
+            }
+          }
+        }
+        .list:hover{
+          border-bottom: 2px solid #3653B6;
+        }
+      }
     }
   }
 </style>
