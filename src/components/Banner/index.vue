@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <el-carousel indicator-position="none" height="767px" direction="vertical" :autoplay="true">
+    <el-carousel indicator-position="none" height="585px" direction="vertical" :autoplay="true">
       <el-carousel-item v-for="item in 3" :key="item">
         <div class="backBox">
           <div class="center">
@@ -34,19 +34,19 @@
     .backBox{
       min-width: 1200px;
       width: 100%;
-      height: 767px;
+      height: 585px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url("../../../public/images/banner.jpg");
+      background-image: url("../../../public/images/banner.png");
       display: flex;
       justify-content: center;
       .center{
         width: 1200px;
         padding-top: 85px;
         .left{
-          width: 282px;
-          height: 445px;
+          width: 225px;
+          height: 356px;
           border-top: 6px solid #fff;
           border-left: 6px solid #fff;
           border-bottom: 6px solid #fff;
@@ -58,14 +58,14 @@
           box-sizing: border-box;
           position: relative;
           .border1{
-            height: 50px;
+            height: 40px;
             border-right: 6px solid #fff;
             position: absolute;
             bottom: 0;
             right: 0;
           }
           .border2{
-            height: 50px;
+            height: 40px;
             border-right: 6px solid #fff;
             position: absolute;
             top: 0;
@@ -75,19 +75,19 @@
             width: 300%;
           }
           .line1{
-            font-size: 40px;
+            font-size: 35px;
           }
           .line2{
             font-size: 22px;
-            padding-top:50px ;
-            padding-bottom:90px ;
+            padding-top:40px ;
+            padding-bottom:40px ;
           }
           .line3{
-            font-size: 20px;
+            font-size: 18px;
             box-sizing: border-box;
             border: 2px solid #fff;
-            width: 154px;
-            height: 52px;
+            width: 123px;
+            height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
