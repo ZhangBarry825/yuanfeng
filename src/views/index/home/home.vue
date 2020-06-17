@@ -359,12 +359,13 @@
 <style scoped lang="scss">
   .page {
     width: 100%;
+    min-width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .data {
-      width: 1200px;
+      min-width:1200px;
       height: 200px;
       position: relative;
       top: -100px;
@@ -400,7 +401,7 @@
     }
 
     .aboutUs {
-      width: 1200px;
+      min-width:1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -430,6 +431,7 @@
 
       .content {
         width: 100%;
+        min-width: 1200px;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -488,6 +490,7 @@
     .advantages {
       margin-top: 100px;
       width: 100%;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -520,6 +523,7 @@
 
       .content {
         width: 100%;
+        min-width: 1200px;
         height: 620px;
         box-sizing: border-box;
         display: flex;
@@ -633,6 +637,7 @@
       background-color: #f5f5f5;
       padding-top: 100px;
       width: 100%;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -664,7 +669,7 @@
       }
 
       .menus {
-        width: 1200px;
+        min-width:1200px;
         border-bottom: 2px solid rgba(204, 204, 204, 0.5);
         display: flex;
         flex-direction: row;
@@ -685,7 +690,7 @@
       }
 
       .items {
-        width: 1200px;
+        min-width:1200px;
         padding: 50px 0;
         display: flex;
         justify-content: space-between;
@@ -757,6 +762,7 @@
 
     .banner {
       width: 100%;
+      min-width: 1200px;
       height: 261px;
       background-image: url("../../../../public/images/b.png");
       background-size: cover;
@@ -764,7 +770,7 @@
       display: flex;
       justify-content: center;
       .center{
-        width: 1200px;
+        min-width:1200px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -799,6 +805,7 @@
       margin-top: 100px;
       padding-bottom: 100px;
       width: 100%;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -826,7 +833,7 @@
       }
 
       .map{
-        width: 1200px;
+        min-width:1200px;
         height: 614px;
         background-image: url("../../../../public/images/map.png");
         background-position: center center;
@@ -867,6 +874,7 @@
       background-color: #f5f5f5;
       padding-top: 100px;
       width: 100%;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -897,7 +905,7 @@
         }
       }
       .items {
-        width: 1200px;
+        min-width:1200px;
         padding: 50px 0;
         display: flex;
         justify-content: space-between;
@@ -969,6 +977,7 @@
       background-color: #fff;
       padding: 100px 0;
       width: 100%;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -1000,7 +1009,7 @@
       }
 
       .lists{
-        width: 1200px;
+        min-width:1200px;
         display: flex;
         justify-content: space-between;
         .list{
