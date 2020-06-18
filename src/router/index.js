@@ -59,9 +59,46 @@ export const constantRoutes = [
     component: () => import('@/views/index/home/home'),
     hidden: true
   },
-
-
-
+  {
+    path: '/product-center',
+    component: () => import('@/views/index/product/product-center'),
+    hidden: true
+  },
+  {
+    path: '/product-detail',
+    component: () => import('@/views/index/product/product-detail'),
+    hidden: true
+  },
+  {
+    path: '/case-list',
+    component: () => import('@/views/index/case/case-list'),
+    hidden: true
+  },
+  {
+    path: '/case-detail',
+    component: () => import('@/views/index/case/case-detail'),
+    hidden: true
+  },
+  {
+    path: '/news-list',
+    component: () => import('@/views/index/news/list'),
+    hidden: true
+  },
+  {
+    path: '/news-detail',
+    component: () => import('@/views/index/news/list-detail'),
+    hidden: true
+  },
+  {
+    path: '/about-us',
+    component: () => import('@/views/index/about-us/about-us'),
+    hidden: true
+  },
+  {
+    path: '/contact-us',
+    component: () => import('@/views/index/contact-us/contact-us'),
+    hidden: true
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

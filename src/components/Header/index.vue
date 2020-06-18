@@ -3,12 +3,12 @@
     <div class="center">
         <div class="left">河南沅奉机械设备有限公司</div>
         <div class="right">
-          <div class="item selected">网站首页 <div class="bottom"></div></div>
-          <div class="item">产品中心 <div class="bottom"></div></div>
-          <div class="item">案例实景 <div class="bottom"></div></div>
-          <div class="item">新闻动态 <div class="bottom"></div></div>
-          <div class="item">关于我们 <div class="bottom"></div></div>
-          <div class="item">联系我们 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===1}" @click="goPage('/home')">网站首页 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===2}" @click="goPage('/product-center')">产品中心 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===3}" @click="goPage('/case-list')">案例实景 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===4}" @click="goPage('/news-list')">新闻动态 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===5}" @click="goPage('/about-us')">关于我们 <div class="bottom"></div></div>
+          <div class="item" :class="{selected:menuId===6}" @click="goPage('/contact-us')">联系我们 <div class="bottom"></div></div>
         </div>
     </div>
   </div>
@@ -19,6 +19,24 @@
 
   export default {
     name: "Header",
+    data(){
+      return{
+
+      }
+    },
+    props:{
+      menuId:{
+          default:1,
+          type:Number
+      }
+    },
+    methods:{
+      goPage(path){
+        this.$router.push({
+          path:path
+        })
+      }
+    }
 
   }
 </script>
@@ -28,6 +46,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: #fff;
     .center{
       height: 100px;
       width: 1200px;

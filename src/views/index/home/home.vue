@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Header></Header>
+    <Header :menu-id="1"></Header>
     <Banner></Banner>
     <div class="data">
       <div class="item">
@@ -365,16 +365,16 @@
     align-items: center;
 
     .data {
-      min-width:1200px;
-      height: 200px;
+      min-width: 1200px;
+      height: 230px;
       position: relative;
-      top: -100px;
+      top: -120px;
       z-index: 999;
       background-color: #fff;
       display: flex;
       flex-direction: row;
       align-items: center;
-      box-shadow: 0 0 15px gainsboro;
+      box-shadow: 0 1px 35px 0 rgba(64, 101, 194, 0.2);
 
       .item {
         width: calc(25% - 1px);
@@ -389,7 +389,7 @@
         }
 
         .line2 {
-          font-size: 20px;
+          font-size: 16px;
           color: #333333;
         }
       }
@@ -401,7 +401,7 @@
     }
 
     .aboutUs {
-      min-width:1200px;
+      min-width: 1200px;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -669,7 +669,7 @@
       }
 
       .menus {
-        min-width:1200px;
+        min-width: 1200px;
         border-bottom: 2px solid rgba(204, 204, 204, 0.5);
         display: flex;
         flex-direction: row;
@@ -690,7 +690,7 @@
       }
 
       .items {
-        min-width:1200px;
+        min-width: 1200px;
         padding: 50px 0;
         display: flex;
         justify-content: space-between;
@@ -769,11 +769,13 @@
       background-position: center center;
       display: flex;
       justify-content: center;
-      .center{
-        min-width:1200px;
+
+      .center {
+        min-width: 1200px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .item {
           height: 155px;
           width: 155px;
@@ -784,15 +786,18 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          .line{
+
+          .line {
             font-size: 24px;
           }
-          .line2{
+
+          .line2 {
             width: 32px;
             border-bottom: 2px solid #fff;
             margin: 15px;
           }
-          .line3{
+
+          .line3 {
             font-size: 14px;
           }
 
@@ -801,7 +806,7 @@
 
     }
 
-    .customer{
+    .customer {
       margin-top: 100px;
       padding-bottom: 100px;
       width: 100%;
@@ -809,16 +814,19 @@
       display: flex;
       align-items: center;
       flex-direction: column;
+
       .title {
         padding-bottom: 50px;
         display: flex;
         flex-direction: column;
         align-items: center;
+
         .text1 {
           font-size: 32px;
           color: #343434;
           padding-bottom: 10px;
         }
+
         .text2 {
           padding-top: 10px;
           padding-bottom: 20px;
@@ -826,20 +834,22 @@
           color: #343434;
           display: inline;
         }
+
         .border {
           width: 53px;
           border-bottom: 4px solid #3652B6;
         }
       }
 
-      .map{
-        min-width:1200px;
+      .map {
+        min-width: 1200px;
         height: 614px;
         background-image: url("../../../../public/images/map.png");
         background-position: center center;
         background-size: cover;
         position: relative;
-        .map-data{
+
+        .map-data {
           position: absolute;
           bottom: 0;
           left: 0;
@@ -852,16 +862,19 @@
           display: flex;
           flex-direction: column;
           justify-content: space-around;
-          .line{
+
+          .line {
             width: 100%;
             display: flex;
             flex-direction: row;
-            img{
+
+            img {
               width: 22px;
               height: 22px;
               margin-right: 20px;
             }
-            .text{
+
+            .text {
               color: #343434;
               font-size: 18px;
             }
@@ -870,7 +883,7 @@
       }
     }
 
-    .case{
+    .case {
       background-color: #f5f5f5;
       padding-top: 100px;
       width: 100%;
@@ -904,8 +917,9 @@
           border-bottom: 4px solid #3652B6;
         }
       }
+
       .items {
-        min-width:1200px;
+        min-width: 1200px;
         padding: 50px 0;
         display: flex;
         justify-content: space-between;
@@ -915,6 +929,7 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .pic {
             width: 272px;
             height: 349px;
@@ -949,9 +964,11 @@
         .item:hover {
           box-sizing: border-box;
           cursor: pointer;
-          .pic{
+
+          .pic {
             box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
           }
+
           .pic > .img {
             transform: scale(1.1);
           }
@@ -962,6 +979,7 @@
           }
         }
       }
+
       .more {
         color: #DE2023;
         font-size: 24px;
@@ -973,7 +991,7 @@
       }
     }
 
-    .news{
+    .news {
       background-color: #fff;
       padding: 100px 0;
       width: 100%;
@@ -1008,15 +1026,17 @@
         }
       }
 
-      .lists{
-        min-width:1200px;
+      .lists {
+        min-width: 1200px;
         display: flex;
         justify-content: space-between;
-        .list{
+
+        .list {
           border-bottom: 2px solid #fff;
           box-shadow: 0 0 15px rgba(136, 148, 164, 0.2);
           width: 380px;
-          .list-title{
+
+          .list-title {
             width: 100%;
             height: 86px;
             background-color: #3652b6;
@@ -1028,11 +1048,13 @@
             align-items: center;
             padding-bottom: 0px;
           }
-          .items{
+
+          .items {
             width: 100%;
             display: flex;
             flex-direction: column;
-            .item{
+
+            .item {
               cursor: pointer;
               width: 100%;
               display: flex;
@@ -1040,19 +1062,22 @@
               align-items: center;
               padding: 0 20px;
               box-sizing: border-box;
-              img{
+
+              img {
                 width: 10px;
                 height: 10px;
-                margin-right:10px;
+                margin-right: 10px;
               }
-              .right{
+
+              .right {
                 height: 57px;
                 width: calc(100% - 10px);
                 border-bottom: 1px solid #E5E5E5;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                .text{
+
+                .text {
                   font-size: 16px;
                   max-width: 100%;
                   display: -webkit-box;
@@ -1060,32 +1085,37 @@
                   -webkit-line-clamp: 1;
                   overflow: hidden;
                 }
-                .time{
+
+                .time {
                   font-size: 12px;
                   color: #9A9A9A;
                 }
               }
             }
-            .item:hover{
-              >.right{
-                >.text{
+
+            .item:hover {
+              > .right {
+                > .text {
                   color: #3653B6;
                 }
               }
             }
           }
-          .bottom{
+
+          .bottom {
             padding: 0 30px;
             height: 57px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            img{
+
+            img {
               cursor: pointer;
             }
           }
         }
-        .list:hover{
+
+        .list:hover {
           border-bottom: 2px solid #3653B6;
         }
       }

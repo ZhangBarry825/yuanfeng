@@ -15,6 +15,11 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import BaiduMap from 'vue-baidu-map'
+Vue.use(BaiduMap, {
+  ak: 'QA66G88fFvwGCjU5qM1LvllAtZu4UDo8'
+});
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

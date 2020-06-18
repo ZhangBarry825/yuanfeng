@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <el-carousel indicator-position="none" height="585px" direction="vertical" :autoplay="true">
+    <el-carousel indicator-position="none" height="725px" direction="vertical" :autoplay="true">
       <el-carousel-item v-for="item in 3" :key="item">
         <div class="backBox">
           <div class="center">
@@ -34,7 +34,7 @@
     .backBox{
       min-width: 1200px;
       width: 100%;
-      height: 585px;
+      height: 725px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -46,7 +46,7 @@
         padding-top: 85px;
         .left{
           width: 225px;
-          height: 356px;
+          height: 370px;
           border-top: 6px solid #fff;
           border-left: 6px solid #fff;
           border-bottom: 6px solid #fff;
@@ -72,15 +72,15 @@
             right: 0;
           }
           .line1,.line2{
-            width: 300%;
+            width: 500%;
           }
           .line1{
             font-size: 35px;
           }
           .line2{
             font-size: 22px;
-            padding-top:40px ;
-            padding-bottom:40px ;
+            padding-top:50px ;
+            padding-bottom:70px ;
           }
           .line3{
             font-size: 18px;
