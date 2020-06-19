@@ -75,6 +75,43 @@
       </div>
     </div>
     <div class="experience">
+      <div class="center">
+        <div class="experience-title">
+          <div class="text">发展历程</div>
+          <div class="border"></div>
+        </div>
+        <div class="item item1">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2003年</div>
+          <div class="des">公司刚成立，正在发展阶段</div>
+        </div>
+        <div class="item item2">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2006年</div>
+          <div class="des">公司刚成立，正在发展阶段</div>
+        </div>
+        <div class="item item3">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2010年</div>
+          <div class="des">公司刚成立，正在发展阶段</div>
+        </div>
+        <div class="item item4">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2013年</div>
+          <div class="des">公司刚成立，正在发展阶段</div>
+        </div>
+        <div class="item item5">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2015年</div>
+          <div class="des">公司刚成立，正在发展阶段</div>
+        </div>
+        <div class="item item6">
+          <img src="../../../../public/images/dotdot.png" alt="">
+          <div class="title">2020年</div>
+          <div class="des">公司发展成熟，服务过268+客户</div>
+        </div>
+      </div>
+
 
     </div>
 
@@ -135,13 +172,13 @@
       display: flex;
       justify-content: flex-end;
       width: 1200px;
-      padding: 50px 0;
+      padding: 80px 0;
       position: relative;
 
       .left {
         position: absolute;
         left: 0;
-        top: 140px;
+        top: 165px;
         width: 543px;
         height: 515px;
         box-shadow: 0px 1px 35px 0px rgba(135, 148, 164, 0.31);
@@ -281,49 +318,56 @@
 
     .service {
       width: 1200px;
-      .title{
+
+      .title {
         display: flex;
         flex-direction: column;
         align-items: center;
-        .text{
-          font-size:32px;
-          font-weight:400;
-          color:rgba(51,51,51,1);
-          line-height:38px;
+
+        .text {
+          font-size: 32px;
+          font-weight: 400;
+          color: rgba(51, 51, 51, 1);
+          line-height: 38px;
         }
-        .border{
+
+        .border {
           margin-top: 10px;
-          width:53px;
-          height:4px;
-          background:rgba(54,82,182,1);
+          width: 53px;
+          height: 4px;
+          background: rgba(54, 82, 182, 1);
         }
       }
-      .service-item{
+
+      .service-item {
         padding: 80px 0;
         width: 100%;
         display: flex;
         justify-content: space-between;
-        .item{
+
+        .item {
           display: flex;
           flex-direction: column;
           align-items: center;
-          img{
-            width:175px;
-            height:175px;
-            border-radius:50%;
+
+          img {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
           }
-          .title{
-            font-size:20px;
-            font-weight:400;
-            color:rgba(51,51,51,1);
-            line-height:38px;
+
+          .title {
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: 38px;
             padding: 30px 0;
           }
         }
       }
     }
 
-    .experience{
+    .experience {
       width: 100%;
       min-width: 1200px;
       height: 684px;
@@ -331,6 +375,85 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+
+      .center {
+        width: 1200px;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        .experience-title{
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          left: 45%;
+          top: 15%;
+          .text{
+            font-size:32px;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            line-height:38px;
+          }
+          .border{
+            margin: 10px 0;
+            width:53px;
+            height:4px;
+            background:rgba(255,255,255,1);
+          }
+        }
+        .item {
+          width: 130px;
+          display: flex;
+          flex-direction: column;
+          color: #fff;
+          align-items: center;
+
+          img {
+            width: 22px;
+            height: 22px;
+          }
+
+          .title {
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: 38px;
+            padding: 10px 0;
+          }
+
+          .des {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: 24px;
+
+          }
+        }
+        .item1{
+          margin-top: 380px;
+        }
+        .item2{
+          margin-top: 337px;
+        }
+        .item3{
+          margin-top: 322px;
+        }
+        .item4{
+          margin-top: 360px;
+        }
+        .item5{
+          margin-top: 383px;
+        }
+        .item6{
+          margin-top: 345px;
+        }
+      }
+
+
     }
 
 
