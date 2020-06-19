@@ -27,6 +27,7 @@
 
 <style scoped lang="scss">
   .page{
+    width: 100%;
     .el-carousel {
       width: 100%;
       min-width: 1200px;
