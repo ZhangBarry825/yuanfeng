@@ -482,6 +482,7 @@
             }
 
             .bottom {
+              font-size: 15px;
               color: #DE1F22;
               border: 1px solid #DE1F22;
               width: 117px;
@@ -796,7 +797,7 @@
             justify-content: center;
             align-items: center;
 
-            .line {
+            .line1 {
               font-size: 24px;
             }
 

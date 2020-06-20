@@ -1,25 +1,1127 @@
 <template>
   <div class="mobile-home">
-    <h2>hello</h2>
+    <MobileBanner></MobileBanner>
+    <div class="data">
+      <div class="item">
+        <div class="line1">2003</div>
+        <div class="line2">成立于2003年</div>
+      </div>
+      <div class="border"></div>
+      <div class="item">
+        <div class="line1">17</div>
+        <div class="line2">17年经验积累</div>
+      </div>
+      <div class="border"></div>
+      <div class="item">
+        <div class="line1">50+</div>
+        <div class="line2">产品种类</div>
+      </div>
+      <div class="border"></div>
+      <div class="item">
+        <div class="line1">268</div>
+        <div class="line2">服务客户</div>
+      </div>
+    </div>
+    <div class="about-us">
+      <div class="title">
+        <div class="text1">
+          公司简介
+        </div>
+        <div class="text2">
+          ABOUT US
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="img"></div>
+      <div class="text-box">
+        <div class="text">
+          河南沅奉机械设备有限公司位于河南省郑州市，这里东临烟台，南临青岛，与大连、天津隔海相望，是国内著名的汽车零部件加工基地。集团公司始建于2003年，占地面积68万平方米，是国家级大型工业企业、国家高新技术企业。是国内著名的汽车零部件加工基地。集团公司始建于2003年，占地面积68万平方米，是国家级大型工业企业。
+        </div>
+      </div>
+      <div class="more">查看详情</div>
+    </div>
+    <div class="advantages">
+      <div class="title">
+        <div class="text1">
+          我们的优势
+        </div>
+        <div class="text2">
+          OUR STRENGTHS
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="img"></div>
+      <div class="items">
+        <div class="item">
+          <div class="img img1"></div>
+          <div class="text0">
+            <div class="text1">
+              <div class="num">01</div>
+              <div class="text">十余年的行业经验</div>
+            </div>
+            <div class="text2">
+              公司成立于2003年7月，是一家从事磨料磨具的生产及服务商。磨具磨料领域融合十几年的经验。
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="img img2"></div>
+          <div class="text0">
+            <div class="text1">
+              <div class="num">02</div>
+              <div class="text">合作行业广泛</div>
+            </div>
+            <div class="text2">
+              不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="img img3"></div>
+          <div class="text0">
+            <div class="text1">
+              <div class="num">03</div>
+              <div class="text">强大的制造能力</div>
+            </div>
+            <div class="text2">
+              近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="img img4"></div>
+          <div class="text0">
+            <div class="text1">
+              <div class="num">04</div>
+              <div class="text">完善的售后服务</div>
+            </div>
+            <div class="text2">
+              本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系。让客户放心购买我们的产品。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product">
+      <div class="title">
+        <div class="text1">
+          产品中心
+        </div>
+        <div class="text2">
+          PRODUCT CENTER
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="menus">
+        <div class="menu selected">搅拌设备</div>
+        <div class="menu">化工设备</div>
+        <div class="menu">分离设备</div>
+        <div class="menu">农作类设备</div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">螺栓和螺母</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">螺栓和螺母</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">螺栓和螺母</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">螺栓和螺母</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">螺栓和螺母</div>
+        </div>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="center">
+        <div class="item">
+          <div class="line1">优质选材</div>
+          <div class="line2"></div>
+          <div class="line3">SELECTION</div>
+        </div>
+        <div class="item">
+          <div class="line1">做工精细</div>
+          <div class="line2"></div>
+          <div class="line3">WORKMANSHIP</div>
+        </div>
+        <div class="item">
+          <div class="line1">最佳原材</div>
+          <div class="line2"></div>
+          <div class="line3">MATERIALN</div>
+        </div>
+        <div class="item">
+          <div class="line1">专业制造</div>
+          <div class="line2"></div>
+          <div class="line3">PROFESSIONAL</div>
+        </div>
+      </div>
+    </div>
+    <div class="customer">
+      <div class="title">
+        <div class="text1">
+          客户分布
+        </div>
+        <div class="text2">
+          CLIENT　DISTRIBUTION
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="map">
+
+      </div>
+      <div class="map-data">
+        <div class="line">
+          <img src="../../../../public/images/dot1.png" alt="">
+          <div class="text">服务过的客户</div>
+        </div>
+        <div class="line">
+          <img src="../../../../public/images/dot2.png" alt="">
+          <div class="text">正在洽谈的合作</div>
+        </div>
+      </div>
+    </div>
+    <div class="case">
+      <div class="title">
+        <div class="text1">
+          案例实景
+        </div>
+        <div class="text2">
+          CASE SCENARIO
+        </div>
+        <div class="border"></div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">工厂车间操作实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">户外作业实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">工厂车间操作实景</div>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <div class="img"></div>
+          </div>
+          <div class="text">户外作业实景</div>
+        </div>
+      </div>
+      <div class="more">查看更多</div>
+    </div>
+    <div class="news">
+      <div class="title">
+        <div class="text1">
+          新闻资讯
+        </div>
+        <div class="text2">
+          NEWS AND INFORMATION
+        </div>
+        <div class="border"></div>
+      </div>
+
+      <swiper class="swiper-box" ref="mySwiper" :options="swiperOptions">
+        <swiper-slide class="swiper-box-item">
+          <div class="list">
+            <div class="list-title">行业新闻</div>
+            <div class="items">
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom">
+              <img src="../../../../public/images/right_active.png" alt="">
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="swiper-box-item">
+          <div class="list">
+            <div class="list-title">行业新闻</div>
+            <div class="items">
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom">
+              <img src="../../../../public/images/right_active.png" alt="">
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide class="swiper-box-item">
+          <div class="list">
+            <div class="list-title">行业新闻</div>
+            <div class="items">
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="../../../../public/images/dot0.png" alt="">
+                <div class="right">
+                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
+                  <div class="time">2020/6</div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom">
+              <img src="../../../../public/images/right_active.png" alt="">
+            </div>
+          </div>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+    <MobileFooter></MobileFooter>
   </div>
 </template>
 
 <script>
-
+  import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+  import 'swiper/css/swiper.css'
+  import MobileBanner from "../../../components/MobileBanner/index";
+  import MobileFooter from "../../../components/MobileFooter/index";
 
   export default {
     name: "Home",
     components: {
+      MobileBanner,
+      MobileFooter,
+      Swiper,
+      SwiperSlide
+    },
+    directives: {
+      swiper: directive
+    },
+    data(){
+      return{
+        swiperOptions: {
 
+          // Some Swiper option/callback...
+        }
+      }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.$swiper
+      }
     },
     mounted() {
-
+      document.documentElement.style.fontSize = '5vw'
+      this.swiper.slideTo(2, 4000, false)
     },
   }
 </script>
 
 <style scoped lang="scss">
-  .mobile-home{
+  .mobile-home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    .data {
+      width: 100%;
+      height: 3rem;
+      margin: 1rem 0;
+      z-index: 999;
+      background-color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      .item {
+        width: calc(25% - 1px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .line1 {
+          font-size: .8rem;
+          color: #3552B5;
+          padding-bottom: .2rem;
+        }
+
+        .line2 {
+          font-size: .5rem;
+          color: #333333;
+        }
+      }
+
+      .border {
+        height: 60%;
+        border-right: 1px solid #E5E5E5;
+
+      }
+    }
+
+    .about-us {
+      background-color: #fff;
+      padding: 1rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+
+      .img {
+        width: 90%;
+        height: 8rem;
+        background-image: url("../../../../public/images/company.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .text-box {
+        width: 95%;
+        padding: .7rem .5rem;
+
+        .text {
+          width: 100%;
+          font-size: .7rem;
+          line-height: 1.5;
+          box-sizing: border-box;
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 6;
+          overflow: hidden;
+        }
+      }
+
+      .more {
+        font-size: .6rem;
+        color: #DE1F22;
+        border: 1px solid #DE1F22;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: .3rem 1rem;
+        cursor: pointer;
+      }
+    }
+
+    .advantages {
+
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+
+      .img {
+        width: 90%;
+        height: 10rem;
+        background-image: url("../../../../public/images/advantage.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .items {
+        box-sizing: border-box;
+        width: 90%;
+        background-color: #3652B6;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .item {
+          position: relative;
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding: .5rem 0;
+
+          .img {
+            width: 2rem;
+            height: 2rem;
+            background-size: cover;
+            background-position: center center;
+            border-radius: 50%;
+            margin-right: 1rem;
+          }
+
+          .img1 {
+            margin-left: 7%;
+            background-image: url("../../../../public/images/item1.png");
+          }
+
+          .img2 {
+            margin-left: 7%;
+            background-image: url("../../../../public/images/item2.png");
+          }
+
+          .img3 {
+            margin-left: 7%;
+            background-image: url("../../../../public/images/item3.png");
+          }
+
+          .img4 {
+            margin-left: 7%;
+            background-image: url("../../../../public/images/item4.png");
+          }
+
+          .text0 {
+            width: 70%;
+            text-align: left;
+
+            .text1 {
+              font-size: .8rem;
+              color: #fff;
+              position: relative;
+              padding-bottom: .3rem;
+              color: rgba(255, 255, 255, 0.9);
+
+              .num {
+                display: none;
+                position: absolute;
+                font-size: 40px;
+                color: rgba(239, 239, 239, 0.5);
+                right: -30px;
+                top: -25px;
+              }
+            }
+
+            .text2 {
+              color: rgba(255, 255, 255, 0.8);
+              font-size: .6rem;
+              color: #fff;
+              line-height: 1.5;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+
+    .product{
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: #fff;
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+      .menus {
+        width: 100%;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .menu {
+          cursor: pointer;
+          color: #343434;
+          font-size: .65rem;
+          padding: .5rem 0;
+          margin: 0 4.5%;
+        }
+
+        .selected {
+          color: #3652B6;
+          border-bottom: 1px solid #3652B6;
+        }
+      }
+      .items {
+        width: 100%;
+        padding: 1rem .5rem;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .item {
+          border-top: 3px solid #fff;
+          width: 5.5rem;
+          box-shadow: 0 0 5px rgba(136, 148, 164, 0.2);
+          display: flex;
+          flex-direction: column;
+          margin: .25rem .3rem;
+
+          .pic {
+            height: 5rem;
+            overflow: hidden;
+            .img {
+              cursor: pointer;
+              height: 100%;
+              width: 100%;
+              background-image: url("../../../../public/images/product.png");
+              background-size: cover;
+              background-position: center center;
+
+              transition: all .4s;
+              -moz-transition: all .4s;
+              -webkit-transition: all .4s;
+              -o-transition: all .4s;
+            }
+          }
+
+          .text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .7rem;
+            color: rgba(52, 52, 52, 1);
+            height: 2rem;
+            border-top: 1px solid rgba(238, 238, 238, 1);
+          }
+        }
+
+        .item:hover {
+          box-sizing: border-box;
+          cursor: pointer;
+          box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
+          border-top: 3px solid #3652B6;
+
+          .pic > .img {
+            transform: scale(1.1);
+          }
+
+          .text {
+            color: #3652B6;
+          }
+        }
+      }
+    }
+
+    .banner {
+      width: 100%;
+      height: 6rem;
+      background-image: url("../../../../public/images/b.png");
+      background-size: cover;
+      background-position: center center;
+      display: flex;
+      justify-content: center;
+
+      .center {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .item {
+          height: 4.5rem;
+          width: 4.5rem;
+          border-radius: 50%;
+          border: 1px solid #fff;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          .line1 {
+            font-size: .7rem;
+          }
+
+          .line2 {
+            width: 2rem;
+            border-bottom: 1px solid #fff;
+            margin: .2rem;
+          }
+
+          .line3 {
+            font-size: .45rem;
+          }
+
+        }
+      }
+
+    }
+
+    .customer {
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: #fff;
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+      .map {
+        width: 80%;
+        height:9rem;
+        background-image: url("../../../../public/images/map.png");
+        background-position: center center;
+        background-size: contain;
+        position: relative;
+      }
+
+      .map-data {
+        background-color: #FFF;
+        padding: 1rem 1.5rem;
+        align-self: flex-start;
+        margin-top: 0.2rem;
+        width: 100%;
+        height: 2rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .line {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+
+          img {
+            width: .7rem;
+            height: .7rem;
+            margin-right: 20px;
+          }
+
+          .text {
+            color: #343434;
+            font-size: .6rem;
+          }
+        }
+      }
+    }
+
+    .case {
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgba(245,245,245,0.8);
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+
+      .items {
+        width: 100%;
+        padding: .5rem .5rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .item {
+          width:8rem ;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0 3%;
+          margin-bottom: .3rem;
+          .pic {
+            width: 100%;
+            height: 6rem;
+            overflow: hidden;
+            .img {
+              height: 100%;
+              width: 100%;
+              background-image: url("../../../../public/images/case1.png");
+              background-size: cover;
+              background-position: center center;
+
+              transition: all .4s;
+              -moz-transition: all .4s;
+              -webkit-transition: all .4s;
+              -o-transition: all .4s;
+            }
+          }
+
+          .text {
+            overflow: hidden;
+            background-color: #fff;
+            padding: .3rem 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .7rem;
+            color: rgba(52, 52, 52, 1);
+          }
+        }
+      }
+
+      .more {
+        color: #DE2023;
+        font-size: .7rem;
+        border: 1px solid #DE2023;
+        padding: .2rem .5rem;
+        margin: .2rem 0;
+        margin-bottom: 1rem;
+        cursor: pointer;
+      }
+    }
+
+    .news {
+      padding: 2rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: #fff;
+
+      .title {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text1 {
+          font-size: 1rem;
+          color: #333333;
+        }
+
+        .text2 {
+          font-size: .6rem;
+          padding: .3rem 0;
+          color: #666;
+          display: inline;
+        }
+
+        .border {
+          width: 2rem;
+          border-bottom: 2px solid #3652B6;
+        }
+      }
+
+      .swiper-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .swiper-box-item{
+          padding: 0 1rem;
+          box-sizing: border-box;
+        }
+
+        .storeActivity-list .swiper-slide{
+          width: 90%!important;
+          margin: 0 5%;
+        }
+        .swiper-slide-prev{
+          right:-8%;
+        }
+        .swiper-slide-next {
+          left: -8%;
+        }
+
+        .list {
+          border-bottom: 1px solid #fff;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          .list-title {
+            width: 100%;
+            height: 2rem;
+            background-color: #3652b6;
+            font-size: 1rem;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0px;
+          }
+
+          .items {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .item {
+              cursor: pointer;
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 0 .5rem;
+              box-sizing: border-box;
+
+              img {
+                width: .3rem;
+                height: .3rem;
+                margin-right: 0.2rem;
+              }
+
+              .right {
+                height: 2rem;
+                width: calc(100% - 10px);
+                border-bottom: 1px solid #E5E5E5;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .text {
+                  font-size: .7rem;
+                  max-width: 100%;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+                  overflow: hidden;
+                }
+
+                .time {
+                  display: none;
+                  font-size: 12px;
+                  color: #9A9A9A;
+                }
+              }
+            }
+
+            .item:hover {
+              > .right {
+                > .text {
+                  color: #3653B6;
+                }
+              }
+            }
+          }
+
+          .bottom {
+            padding: 0 30px;
+            height: 57px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            img {
+              width: .8rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 </style>
