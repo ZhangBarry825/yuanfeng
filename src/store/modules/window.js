@@ -10,7 +10,7 @@ const mutations = {
   },
   CHANGE_WIDTH:(state, data)=>{
     state.screenWidth=data.screenWidth
-    if(data.screenWidth>1200){
+    if(data.screenWidth>900){
       state.isMobile=false
     }else {
       state.isMobile=true
