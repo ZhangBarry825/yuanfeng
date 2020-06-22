@@ -1,15 +1,12 @@
 <template>
-  <div class="mobile-product">
-    <MobileHeader title="产品中心" :menuId="2"></MobileHeader>
+  <div class="case-page">
+    <MobileHeader title="案例实景" :menuId="3"></MobileHeader>
     <div class="center">
       <div class="menus">
-        <div class="menu selected">搅拌设备</div>
+        <div class="menu selected">工厂车间</div>
+        <div class="menu">户外作业</div>
+        <div class="menu">农田作业</div>
         <div class="menu">化工设备</div>
-        <div class="menu">分离设备</div>
-        <div class="menu">农作类设备</div>
-        <div class="menu">化工设备</div>
-        <div class="menu">分离设备</div>
-        <div class="menu">农作类设备</div>
       </div>
       <div class="items">
         <div class="item">
@@ -60,6 +57,7 @@
           </div>
           <div class="text">螺栓和螺母</div>
         </div>
+
       </div>
       <div class="pagination">
         <img class="left" src="../../../../public/images/btn_more_none_l.png" >
@@ -76,19 +74,16 @@
   import MobileHeader from "@/components/MobileHeader/index";
 
   export default {
-    name: "MobileProductCenter",
+    name: "MobileCaseList",
     components: {
       MobileFooter,
       MobileHeader
-    },
-    mounted() {
-      document.documentElement.style.fontSize = '5vw'
     }
   }
 </script>
 
 <style scoped lang="scss">
-  .mobile-product {
+  .case-page {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -96,16 +91,13 @@
     background-color: #f5f5f5;
 
     .center {
-      margin-top: 30px;
-      width:100%;
+      margin-top: 1rem;
+      width: 100%;
 
       display: flex;
       align-items: center;
       flex-direction: column;
 
-      .menus::-webkit-scrollbar{
-        display: none;
-      }
       .menus {
         width: 100%;
         border-bottom: 2px solid rgba(204, 204, 204, 0.5);
@@ -216,8 +208,6 @@
         }
       }
     }
-
-
   }
 
 </style>

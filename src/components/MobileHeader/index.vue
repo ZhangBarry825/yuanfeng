@@ -59,6 +59,12 @@
     mounted() {
       if (this.menuId == 2) {
         this.imageUrl = require('../../../public/images/banner_product.png')
+      }else if (this.menuId == 3) {
+        this.imageUrl = require('../../../public/images/case_banner.png')
+      }else if (this.menuId == 4) {
+        this.imageUrl = require('../../../public/images/banner_news.png')
+      }else if (this.menuId == 5) {
+        this.imageUrl = require('../../../public/images/about_us.png')
       }
     }
   }

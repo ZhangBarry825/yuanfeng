@@ -1,6 +1,6 @@
 <template>
     <div class="map-page">
-      <baidu-map class="map" :center="map.center" :zoom="map.zoom" @ready="handler">
+      <baidu-map class="map" :style="'height: '+height+';'" :center="map.center" :zoom="map.zoom" @ready="handler">
         <!--缩放-->
         <bm-navigation anchor="BMAP_ANCHOR_TOP_LEFT"></bm-navigation>
         <!--定位-->
@@ -8,7 +8,7 @@
         <!--点-->
         <bm-marker :position="map.center" :dragging="map.dragging" animation="BMAP_ANIMATION_DROP">
           <!--提示信息-->
-          <bm-info-window :show="map.show">我们在这里</bm-info-window>
+          <bm-info-window  style="font-size: 15px" :show="!isMobile">我们在这里</bm-info-window>
         </bm-marker>
       </baidu-map>
     </div>
@@ -25,6 +25,7 @@
         dragging: true
       },
     }),
+    props:['height','isMobile'],
     methods: {
       handler ({BMap, map}) {
         let me = this;
@@ -43,7 +44,6 @@
 <style scoped lang="scss">
 .map{
   width: 100%;
-  height: 500px;
   .map{
     width: 100%;
     height: 100%;

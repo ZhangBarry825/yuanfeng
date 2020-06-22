@@ -1,145 +1,154 @@
 <template>
   <div class="about-page">
-    <Header :menu-id="5"></Header>
-    <div class="banner">
-      <div class="text">关于我们</div>
-      <div class="text2">致力于研发更好用的产品</div>
-    </div>
+    <div class="pc" v-if="!isMobile">
+      <Header :menu-id="5"></Header>
+      <div class="banner">
+        <div class="text">关于我们</div>
+        <div class="text2">致力于研发更好用的产品</div>
+      </div>
 
-    <div class="introduction">
+      <div class="introduction">
 
-      <div class="left"></div>
-      <div class="right">
-        <div class="title">
-          <div class="text">公司简介</div>
-          <div class="border"></div>
-        </div>
-        <div class="content">
-          河南沅奉机械设备有限公司成立于2003年7月，是一家从事磨料磨具的生产及服务商，磨具磨料领域融合十几年的经验。
-          河南沅奉机械设备有限公司位于河南省郑州市，集团占地面积68万平方米，是国家级大型工业企业、国家高新技术企业。
-          <br> <br>
-          沅奉十分注重研发投入，已经拥有多项国家发明，软件著作权和实用新型专利。不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升的生产制造能力。
-          <br> <br>
-          本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系，让客户放心购买我们的产品。
-        </div>
-        <div class="bottom">
-          <div class="border"></div>
-          <div class="text">ABOUT US</div>
+        <div class="left"></div>
+        <div class="right">
+          <div class="title">
+            <div class="text">公司简介</div>
+            <div class="border"></div>
+          </div>
+          <div class="content">
+            河南沅奉机械设备有限公司成立于2003年7月，是一家从事磨料磨具的生产及服务商，磨具磨料领域融合十几年的经验。
+            河南沅奉机械设备有限公司位于河南省郑州市，集团占地面积68万平方米，是国家级大型工业企业、国家高新技术企业。
+            <br> <br>
+            沅奉十分注重研发投入，已经拥有多项国家发明，软件著作权和实用新型专利。不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升的生产制造能力。
+            <br> <br>
+            本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系，让客户放心购买我们的产品。
+          </div>
+          <div class="bottom">
+            <div class="border"></div>
+            <div class="text">ABOUT US</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="culture">
-      <div class="text">企业文化</div>
-      <div class="border"></div>
-    </div>
-    <div class="items">
-      <div class="item">
-        <img src="../../../../public/images/c1.png" alt="">
-        <div class="line1">诚实守信</div>
-        <div class="line2">忠诚爱国，崇尚公平正义，敬畏法纪、尊重制度，坚守法律和道德底线。</div>
-      </div>
-      <div class="item">
-        <img src="../../../../public/images/c2.png" alt="">
-        <div class="line1">创新发展</div>
-        <div class="line2">顺时应势，主动变革。坚持客户导向，不断寻求商业模式、技术、管理、产品与服务的全新突破。</div>
-      </div>
-      <div class="item">
-        <img src="../../../../public/images/c3.png" alt="">
-        <div class="line1">以人为本</div>
-        <div class="line2">尊重人的价值，开发人的潜能，升华人的心灵，为员工构建价值实现的平台，共享发展成果。</div>
-      </div>
-    </div>
-    <div class="service">
-      <div class="title">
-        <div class="text">服务理念</div>
+      <div class="culture">
+        <div class="text">企业文化</div>
         <div class="border"></div>
       </div>
-      <div class="service-item">
+      <div class="items">
         <div class="item">
-          <img src="../../../../public/images/s1.png" alt="">
-          <div class="title">响应式的售前咨询团队</div>
+          <img src="../../../../public/images/c1.png" alt="">
+          <div class="line1">诚实守信</div>
+          <div class="line2">忠诚爱国，崇尚公平正义，敬畏法纪、尊重制度，坚守法律和道德底线。</div>
         </div>
         <div class="item">
-          <img src="../../../../public/images/s2.png" alt="">
-          <div class="title">一对一的销售支持团队</div>
+          <img src="../../../../public/images/c2.png" alt="">
+          <div class="line1">创新发展</div>
+          <div class="line2">顺时应势，主动变革。坚持客户导向，不断寻求商业模式、技术、管理、产品与服务的全新突破。</div>
         </div>
         <div class="item">
-          <img src="../../../../public/images/s3.png" alt="">
-          <div class="title">专业化的生产制造团队</div>
-        </div>
-        <div class="item">
-          <img src="../../../../public/images/s4.png" alt="">
-          <div class="title">管家式的售后服务团队</div>
+          <img src="../../../../public/images/c3.png" alt="">
+          <div class="line1">以人为本</div>
+          <div class="line2">尊重人的价值，开发人的潜能，升华人的心灵，为员工构建价值实现的平台，共享发展成果。</div>
         </div>
       </div>
-    </div>
-    <div class="experience">
-      <div class="center">
-        <div class="experience-title">
-          <div class="text">发展历程</div>
+      <div class="service">
+        <div class="title">
+          <div class="text">服务理念</div>
           <div class="border"></div>
         </div>
-        <div class="item item1">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2003年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item2">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2006年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item3">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2010年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item4">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2013年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item5">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2015年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item6">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2020年</div>
-          <div class="des">公司发展成熟，服务过268+客户</div>
+        <div class="service-item">
+          <div class="item">
+            <img src="../../../../public/images/s1.png" alt="">
+            <div class="title">响应式的售前咨询团队</div>
+          </div>
+          <div class="item">
+            <img src="../../../../public/images/s2.png" alt="">
+            <div class="title">一对一的销售支持团队</div>
+          </div>
+          <div class="item">
+            <img src="../../../../public/images/s3.png" alt="">
+            <div class="title">专业化的生产制造团队</div>
+          </div>
+          <div class="item">
+            <img src="../../../../public/images/s4.png" alt="">
+            <div class="title">管家式的售后服务团队</div>
+          </div>
         </div>
       </div>
+      <div class="experience">
+        <div class="center">
+          <div class="experience-title">
+            <div class="text">发展历程</div>
+            <div class="border"></div>
+          </div>
+          <div class="item item1">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2003年</div>
+            <div class="des">公司刚成立，正在发展阶段</div>
+          </div>
+          <div class="item item2">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2006年</div>
+            <div class="des">公司刚成立，正在发展阶段</div>
+          </div>
+          <div class="item item3">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2010年</div>
+            <div class="des">公司刚成立，正在发展阶段</div>
+          </div>
+          <div class="item item4">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2013年</div>
+            <div class="des">公司刚成立，正在发展阶段</div>
+          </div>
+          <div class="item item5">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2015年</div>
+            <div class="des">公司刚成立，正在发展阶段</div>
+          </div>
+          <div class="item item6">
+            <img src="../../../../public/images/dotdot.png" alt="">
+            <div class="title">2020年</div>
+            <div class="des">公司发展成熟，服务过268+客户</div>
+          </div>
+        </div>
 
 
+      </div>
+
+      <Footer></Footer>
     </div>
-
-    <Footer></Footer>
+    <MobileAboutUs v-if="isMobile"></MobileAboutUs>
   </div>
 </template>
 
 <script>
   import Header from "@/components/Header/index";
   import Footer from "@/components/Footer/index";
-
+  import MobileAboutUs from "@/views/mobile/about-us/about-us";
   export default {
     name: "AboutUs",
     components: {
       Header,
-      Footer
-    }
+      Footer,
+      MobileAboutUs
+    },
+    props: ['isMobile'],
   }
 </script>
 
 <style scoped lang="scss">
   .about-page {
     width: 100%;
-    min-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff;
+    .pc{
+
+      min-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ffffff;
+
+
 
     .banner {
       min-width: 1200px;
@@ -385,26 +394,30 @@
         flex-direction: row;
         justify-content: space-between;
         position: relative;
-        .experience-title{
+
+        .experience-title {
           position: absolute;
           display: flex;
           flex-direction: column;
           align-items: center;
           left: 45%;
           top: 15%;
-          .text{
-            font-size:32px;
-            font-weight:400;
-            color:rgba(255,255,255,1);
-            line-height:38px;
+
+          .text {
+            font-size: 32px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: 38px;
           }
-          .border{
+
+          .border {
             margin: 10px 0;
-            width:53px;
-            height:4px;
-            background:rgba(255,255,255,1);
+            width: 53px;
+            height: 4px;
+            background: rgba(255, 255, 255, 1);
           }
         }
+
         .item {
           width: 130px;
           display: flex;
@@ -433,22 +446,28 @@
 
           }
         }
-        .item1{
+
+        .item1 {
           margin-top: 380px;
         }
-        .item2{
+
+        .item2 {
           margin-top: 337px;
         }
-        .item3{
+
+        .item3 {
           margin-top: 322px;
         }
-        .item4{
+
+        .item4 {
           margin-top: 360px;
         }
-        .item5{
+
+        .item5 {
           margin-top: 383px;
         }
-        .item6{
+
+        .item6 {
           margin-top: 345px;
         }
       }
@@ -456,7 +475,7 @@
 
     }
 
-
+    }
   }
 
 </style>

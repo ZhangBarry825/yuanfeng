@@ -1,9 +1,6 @@
 <template>
   <div class="p-page">
-    <Header :menu-id="2"></Header>
-    <div class="banner">
-      <div class="text">产品中心</div>
-    </div>
+    <MobileHeader title="产品中心" :menuId="2"></MobileHeader>
     <div class="center">
       <div class="item0">
         <div class="title-box">
@@ -47,19 +44,19 @@
       </div>
     </div>
 
-    <Footer></Footer>
+    <MobileFooter></MobileFooter>
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header/index'
-  import Footer from '@/components/Footer/index'
+  import MobileFooter from "@/components/MobileFooter/index";
+  import MobileHeader from "@/components/MobileHeader/index";
 
   export default {
-    name: "ProductDetail",
+    name: "MobileProductDetail",
     components: {
-      Header,
-      Footer
+      MobileFooter,
+      MobileHeader
     }
   }
 </script>
@@ -67,69 +64,49 @@
 <style scoped lang="scss">
   .p-page {
     width: 100%;
-    min-width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #f5f5f5;
 
-    .banner {
-      min-width: 1200px;
-      width: 100%;
-      height: 350px;
-      background-image: url("../../../../public/images/banner_product.png");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      .text {
-        font-size: 40px;
-        color: #fff;
-      }
-    }
 
     .center {
-      margin-top: 30px;
-      width: 1200px;
+      margin-top: 1rem;
+      width: 100%;
 
       display: flex;
       align-items: center;
       flex-direction: column;
 
       .item0{
-        margin: 20px 0;
+        margin: 1rem 0;
         width: 100%;
         .title-box{
           width: 100%;
-          height: 70px;
+          height: 2rem;
           display: flex;
           align-items: center;
-          padding: 20px;
+          padding: 1rem;
           box-sizing: border-box;
           .title{
-            font-size: 20px;
+            font-size: .73rem;
             color:#333333;
             border-left: 4px solid #DE1F22;
-            padding-left: 20px;
+            padding-left: .5rem;
           }
         }
         .content-box{
-          padding: 20px;
+          padding: 1rem;
           box-sizing: border-box;
           color: #333333;
-          font-size: 16px;
+          font-size: .7rem;
           line-height: 1.7;
           display: flex;
           flex-direction: row;
-          height: 486px;
+          height: 15.5rem;
           .left{
             height: 100%;
-            width: calc(70% - 30px);
+            width: calc(100% - 5rem);
             background-image: url("../../../../public/images/product1.png");
             background-repeat: no-repeat;
             background-position: center center;
@@ -139,54 +116,51 @@
           .right{
             height: 100%;
             width: 25%;
-            margin-left: 30px;
+            margin-left: .5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             .pic{
-              border:2px solid #f5f5f5;
+              border:1px solid #f5f5f5;
               cursor: pointer;
               background-image: url("../../../../public/images/product1.png");
               background-repeat: no-repeat;
               background-position: center center;
               background-size: cover;
 
-              height: 137px;
-              width: 100%;
+              height: 5rem;
+              width: 5rem;
             }
             .selected{
-              border:2px solid rgba(54,82,182,1);
-            }
-            .pic:hover{
-              border:2px solid rgba(54,82,182,1);
+              border:1px solid rgba(54,82,182,1);
             }
           }
         }
       }
       .item{
-        margin: 20px 0;
+        margin: .5rem 0;
         width: 100%;
         border: 1px solid #E5E5E5;
         .title-box{
           width: 100%;
-          height: 70px;
+          height: 2rem;
           border-bottom: 1px solid #E5E5E5;
           display: flex;
           align-items: center;
-          padding: 20px;
+          padding: 1rem;
           box-sizing: border-box;
           .title{
-            font-size: 20px;
+            font-size: .73rem;
             color:#333333;
             border-left: 4px solid #DE1F22;
-            padding-left: 20px;
+            padding-left: .5rem;
           }
         }
         .content-box{
 
           box-sizing: border-box;
           color: #333333;
-          font-size: 16px;
+          font-size: .55rem;
           line-height: 1.7;
           .text{
             width: 100%;
@@ -194,11 +168,12 @@
           }
           .pic{
             width: 100%;
-            height: 654px;
+            max-width: 100%;
+            height: 10rem;
             background-image: url("../../../../public/images/product2.png");
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: cover;
+            background-size: contain;
           }
         }
       }
