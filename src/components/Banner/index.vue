@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <el-carousel indicator-position="none" height="725px" direction="vertical" :autoplay="true">
+    <el-carousel indicator-position="none" :interval="3000" height="725px" direction="vertical" :autoplay="true">
       <el-carousel-item v-for="item in 3" :key="item">
         <div class="backBox">
           <div class="center">
