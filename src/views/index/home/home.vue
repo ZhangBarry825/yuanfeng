@@ -2,26 +2,11 @@
   <div class="home-page">
     <div class="pc" v-if="!isMobile">
       <Header :menu-id="1"></Header>
-      <Banner></Banner>
+      <Banner :bannerList="bannerList"></Banner>
       <div class="data">
-        <div class="item">
-          <div class="line1">2003</div>
-          <div class="line2">成立于2003年</div>
-        </div>
-        <div class="border"></div>
-        <div class="item">
-          <div class="line1">17</div>
-          <div class="line2">17年经验积累</div>
-        </div>
-        <div class="border"></div>
-        <div class="item">
-          <div class="line1">50+</div>
-          <div class="line2">产品种类</div>
-        </div>
-        <div class="border"></div>
-        <div class="item">
-          <div class="line1">268</div>
-          <div class="line2">服务客户</div>
+        <div class="item" v-for="item in companyDataList" :key="companyDataList.id">
+          <div class="line1">{{item.detail}}</div>
+          <div class="line2">{{item.title}}</div>
         </div>
       </div>
       <div class="aboutUs">
@@ -32,12 +17,12 @@
           <div class="border"></div>
         </div>
         <div class="content">
-          <div class="left"></div>
+          <div class="left" ></div>
           <div class="right">
             <div class="top">
-              河南沅奉机械设备有限公司位于河南省郑州市，这里东临烟台，南临青岛，与大连、天津隔海相望，是国内著名的汽车零部件加工基地。集团公司始建于2003年，占地面积68万平方米，是国家级大型工业企业、国家高新技术企业。是国内著名的汽车零部件加工基地。集团公司始建于2003年，占地面积68万平方米，是国家级大型工业企业。
+              {{aboutUsList.detail}}
             </div>
-            <div class="bottom">查看详情</div>
+            <div class="bottom" @click="$router.push({path:'/about-us'})">查看详情</div>
           </div>
         </div>
       </div>
@@ -53,53 +38,17 @@
         </div>
         <div class="content">
           <div class="left">
-            <div class="item">
+            <div class="item" v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
               <div class="text0">
                 <div class="text1">
-                  <div class="num">01</div>
-                  <div class="text">十余年的行业经验</div>
+                  <div class="num">0{{index+1}}</div>
+                  <div class="text">{{item.title}}</div>
                 </div>
                 <div class="text2">
-                  公司成立于2003年7月，是一家从事磨料磨具的生产及服务商。磨具磨料领域融合十几年的经验。
+                  {{item.detail}}
                 </div>
               </div>
-              <div class="img1"></div>
-            </div>
-            <div class="item">
-              <div class="text0">
-                <div class="text1">
-                  <div class="num">02</div>
-                  <div class="text">合作行业广泛</div>
-                </div>
-                <div class="text2">
-                  不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!
-                </div>
-              </div>
-              <div class="img2"></div>
-            </div>
-            <div class="item">
-              <div class="text0">
-                <div class="text1">
-                  <div class="num">03</div>
-                  <div class="text">强大的制造能力</div>
-                </div>
-                <div class="text2">
-                  近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升
-                </div>
-              </div>
-              <div class="img3"></div>
-            </div>
-            <div class="item">
-              <div class="text0">
-                <div class="text1">
-                  <div class="num">04</div>
-                  <div class="text">完善的售后服务</div>
-                </div>
-                <div class="text2">
-                  本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系。让客户放心购买我们的产品。
-                </div>
-              </div>
-              <div class="img4"></div>
+              <div :class="'img'+(index+1)"></div>
             </div>
           </div>
           <div class="right"></div>
@@ -116,39 +65,18 @@
           <div class="border"></div>
         </div>
         <div class="menus">
-          <div class="menu selected">搅拌设备</div>
-          <div class="menu">化工设备</div>
-          <div class="menu">分离设备</div>
-          <div class="menu">农作类设备</div>
+          <div class="menu" @click="changeGroup(index,'product')" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
         </div>
         <div class="items">
-          <div class="item">
+          <div class="item" v-for="(item,index) in productList" :key="item.id">
             <div class="pic">
-              <div class="img"></div>
+              <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
+            <div class="text">{{item.productName}}</div>
           </div>
         </div>
 
-        <div class="more">更多产品</div>
+        <div class="more" @click="$router.push({path:'/product-center'})">更多产品</div>
 
       </div>
       <div class="banner">
@@ -185,7 +113,7 @@
           </div>
           <div class="border"></div>
         </div>
-        <div class="map">
+        <div class="map" :style="'background-image: url('+baseUrl+customerMap+')'">
           <div class="map-data">
             <div class="line">
               <img src="../../../../public/images/dot1.png" alt="">
@@ -208,33 +136,18 @@
           </div>
           <div class="border"></div>
         </div>
+        <div class="menus">
+          <div class="menu" @click="changeGroup(index,'case')" :class="{'selected':index==nowCaseGroupIndex}" v-for="(item,index) in caseGroupList">{{item}}</div>
+        </div>
         <div class="items">
-          <div class="item">
+          <div class="item" v-for="(item,index) in caseList">
             <div class="pic">
               <div class="img"></div>
             </div>
-            <div class="text">工厂车间操作实景</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">户外作业实景</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">农田操作实景</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">化工设备操作实景</div>
+            <div class="text">{{item.title}}</div>
           </div>
         </div>
-        <div class="more">查看更多</div>
+        <div class="more" @click="$router.push({path:'/case-list'})">查看更多</div>
       </div>
       <div class="news">
         <div class="title">
@@ -247,96 +160,24 @@
           <div class="border"></div>
         </div>
         <div class="lists">
-          <div class="list">
-            <div class="list-title">行业新闻</div>
+          <div class="list" v-for="(item,index) in newsList" :key="item.id">
+            <div class="list-title">{{item.newsGroupName}}</div>
             <div class="items">
-              <div class="item">
+              <div class="item" v-for="(item2,index2) in item.newsTitle">
                 <img src="../../../../public/images/dot0.png" alt="">
                 <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
+                  <div class="text">{{item2.title}}</div>
+                  <div class="time">{{item2.addtime}}</div>
                 </div>
               </div>
             </div>
             <div class="bottom">
-              <img src="../../../../public/images/right_active.png" alt="">
-            </div>
-          </div>
-          <div class="list">
-            <div class="list-title">公司新闻</div>
-            <div class="items">
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-            </div>
-            <div class="bottom">
-              <img src="../../../../public/images/right_active.png" alt="">
-            </div>
-          </div>
-          <div class="list">
-            <div class="list-title">常见问题</div>
-            <div class="items">
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-            </div>
-            <div class="bottom">
-              <img src="../../../../public/images/right_active.png" alt="">
+              <img @click="$router.push({path:'/news-list'})" src="../../../../public/images/right_active.png" alt="">
             </div>
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer :footerList="footerList"></Footer>
     </div>
     <MobileHome v-if="isMobile"></MobileHome>
   </div>
@@ -347,6 +188,13 @@
   import Footer from "../../../components/Footer/index";
   import Banner from "../../../components/Banner/index";
   import MobileHome from "../../mobile/home/home";
+  import {
+    fetchAboutUsList,
+    fetchAdvantageList,
+    fetchBannerList, fetchCaseGroupList, fetchCaseList, fetchCustomerList,
+    fetchDataList,
+    fetchProductGroupList, fetchProductList, fetchNewsList, fetchFooterList
+  } from "@/api/home";
 
   export default {
     name: "Home",
@@ -357,8 +205,66 @@
       MobileHome
     },
     props: ['isMobile'],
-    mounted() {
+    data(){
+      return{
+        baseUrl:this.$imgBaseUrl,
+        nowProductGroupIndex:0,
+        nowCaseGroupIndex:0,
+        bannerList:[],
+        companyDataList:[],
+        aboutUsList:[],
+        advantageList:[],
+        productList:[],
+        productGroupList:[],
+        customerMap:'',
+        caseList:[],
+        caseGroupList:[],
+        newsList:[],
+        footerList:[],
+      }
+    },
+    methods:{
+      async fetchData(){
+        let bannerList= await fetchBannerList()
+        this.bannerList=bannerList.data
+        let companyDataList= await fetchDataList()
+        this.companyDataList=companyDataList.data
+        let aboutUsList= await fetchAboutUsList()
+        this.aboutUsList=aboutUsList.data[0]
+        let advantageList= await fetchAdvantageList()
+        this.advantageList=advantageList.data
+        let productGroupList= await fetchProductGroupList()
+        this.productGroupList=productGroupList.data
+        let productList= await fetchProductList({groupName:this.productGroupList[0]})
+        this.productList=productList.data
+        let customerMap= await fetchCustomerList()
+        this.customerMap=customerMap.data
+        let caseGroupList= await fetchCaseGroupList()
+        this.caseGroupList=caseGroupList.data
+        let caseList= await fetchCaseList({groupName:this.caseGroupList[0]})
+        this.caseList=caseList.data
+        let newsList= await fetchNewsList()
+        this.newsList=newsList.data
+        let footerList= await fetchFooterList()
+        this.footerList=footerList.data
+      },
+      async changeGroup(index,type){
+        if(type==='product'){
+          this.nowProductGroupIndex=index
+          let productList= await fetchProductList({groupName:this.productGroupList[index]})
+          this.productList=productList.data
+        }else if(type==='case'){
+          this.nowCaseGroupIndex=index
+          let caseList= await fetchCaseList({groupName:this.caseGroupList[index]})
+          this.caseList=caseList.data
+        }else {
 
+        }
+
+      }
+    },
+    mounted() {
+      this.fetchData()
     },
   }
 </script>
@@ -700,6 +606,7 @@
         }
 
         .items {
+          background-color: #f5f5f5;
           min-width: 1200px;
           padding: 50px 0;
           display: flex;
@@ -707,7 +614,8 @@
           flex-direction: row;
 
           .item {
-            border-top: 3px solid #fff;
+            border-top: 3px solid rgba(255,255,255,0);
+            box-sizing: border-box;
             width: 272px;
             height: 349px;
             box-shadow: 0 0 10px rgba(136, 148, 164, 0.2);
@@ -733,6 +641,7 @@
             }
 
             .text {
+              background-color: #fff;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -744,6 +653,7 @@
           }
 
           .item:hover {
+            padding-top: 0;
             box-sizing: border-box;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(136, 148, 164, 0.5);
@@ -927,7 +837,26 @@
             border-bottom: 4px solid #3652B6;
           }
         }
+        .menus {
+          min-width: 1200px;
+          border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
 
+          .menu {
+            cursor: pointer;
+            color: #343434;
+            font-size: 20px;
+            padding: 20px 0;
+            margin: 0 5%;
+          }
+
+          .selected {
+            color: #3652B6;
+            border-bottom: 2px solid #3652B6;
+          }
+        }
         .items {
           min-width: 1200px;
           padding: 50px 0;

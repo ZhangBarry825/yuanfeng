@@ -4,9 +4,9 @@
       <div class="left">
         <div class="title">联系方式</div>
         <div class="red"></div>
-        <div class="line">电话：12345678910</div>
-        <div class="line">QQ：123456789</div>
-        <div class="line">地址:河南省郑州市金水区绿地新都会</div>
+        <div class="line">电话：{{footerList.phoneNumber}}</div>
+        <div class="line">Email：{{footerList.email}}</div>
+        <div class="line">地址：{{footerList.address}}</div>
       </div>
       <div class="right">
         <div class="item">
@@ -65,7 +65,14 @@
 
   export default {
     name: "Footer",
-
+    props:{
+      footerList:{
+        type:Object,
+        default:()=>{
+          return {}
+        }
+      }
+    }
   }
 </script>
 
@@ -93,6 +100,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      max-width: 300px;
       .title{
         font-size: 24px;
       }
@@ -102,6 +110,7 @@
       }
       .line{
         font-size: 14px;
+        line-height: 1.3;
       }
     }
     .right{
