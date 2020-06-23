@@ -9,7 +9,7 @@
           <div class="line2">{{item.title}}</div>
         </div>
       </div>
-      <div class="aboutUs">
+      <div class="aboutUs" id="about-us">
         <div class="title">
           <div class="text">公司简介/
             <div class="text2">ABOUT US</div>
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="advantages">
+      <div class="advantages" id="advantage">
         <div class="title">
           <div class="text1">
             我们的优势
@@ -54,7 +54,7 @@
           <div class="right"></div>
         </div>
       </div>
-      <div class="products">
+      <div class="products"  id="product">
         <div class="title">
           <div class="text1">
             产品中心
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="customer">
+      <div class="customer"  id="customer">
         <div class="title">
           <div class="text1">
             客户分布
@@ -126,7 +126,7 @@
           </div>
         </div>
       </div>
-      <div class="case">
+      <div class="case" id="case">
         <div class="title">
           <div class="text1">
             案例实景
@@ -149,7 +149,7 @@
         </div>
         <div class="more" @click="$router.push({path:'/case-list'})">查看更多</div>
       </div>
-      <div class="news">
+      <div class="news"  id="news">
         <div class="title">
           <div class="text1">
             新闻资讯
@@ -177,7 +177,7 @@
           </div>
         </div>
       </div>
-      <Footer :footerList="footerList"></Footer>
+      <Footer :footerList="footerList" :dataDetail="dataDetail"></Footer>
     </div>
     <MobileHome v-if="isMobile"></MobileHome>
   </div>
@@ -220,7 +220,16 @@
         caseList:[],
         caseGroupList:[],
         newsList:[],
-        footerList:[],
+        footerList: {},
+      }
+    },
+    computed:{
+      dataDetail:function (){
+        return {
+          productGroupList:this.productGroupList,
+          caseGroupList:this.caseGroupList,
+          newsList:this.newsList,
+        }
       }
     },
     methods:{
@@ -260,7 +269,6 @@
         }else {
 
         }
-
       }
     },
     mounted() {

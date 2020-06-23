@@ -11,12 +11,12 @@
       <div class="right">
         <div class="item">
           <div class="title">公司首页</div>
-          <div class="line">公司简介</div>
-          <div class="line">我们的优势</div>
-          <div class="line">产品中心</div>
-          <div class="line">客户分布</div>
-          <div class="line">案例实景</div>
-          <div class="line">新闻资讯</div>
+          <div class="line" @click="goAnchor('#about-us')">公司简介</div>
+          <div class="line" @click="goAnchor('#advantage')">我们的优势</div>
+          <div class="line" @click="goAnchor('#product')">产品中心</div>
+          <div class="line" @click="goAnchor('#customer')">客户分布</div>
+          <div class="line" @click="goAnchor('#case')">案例实景</div>
+          <div class="line" @click="goAnchor('#news')">新闻资讯</div>
         </div>
         <div class="white"></div>
         <div class="item">
@@ -71,7 +71,18 @@
         default:()=>{
           return {}
         }
+      },
+      dataDetail:{
+        type:Object,
+        default:()=>{
+          return {}
+        }
       }
+    },
+    methods:{
+      goAnchor(selector) {
+        document.querySelector(selector).scrollIntoView(true);
+      },
     }
   }
 </script>
