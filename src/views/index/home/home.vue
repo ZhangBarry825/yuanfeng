@@ -177,7 +177,7 @@
           </div>
         </div>
       </div>
-      <Footer :footerList="footerList" :dataDetail="dataDetail"></Footer>
+      <Footer ></Footer>
     </div>
     <MobileHome v-if="isMobile"></MobileHome>
   </div>
@@ -256,6 +256,14 @@
         this.newsList=newsList.data
         let footerList= await fetchFooterList()
         this.footerList=footerList.data
+
+
+        localStorage.setItem('dataList',JSON.stringify({
+          productGroupList:this.productGroupList,
+          caseGroupList:this.caseGroupList,
+          newsList:this.newsList,
+          footerList:this.footerList,
+        }))
       },
       async changeGroup(index,type){
         if(type==='product'){
@@ -272,6 +280,12 @@
       }
     },
     mounted() {
+      let that = this
+      if(that.$route.query.selector){
+        setTimeout(()=>{
+          document.querySelector("#"+that.$route.query.selector).scrollIntoView(true);
+        },100)
+      }
       this.fetchData()
     },
   }

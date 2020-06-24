@@ -4,42 +4,34 @@
       <div class="left">
         <div class="title">联系方式</div>
         <div class="red"></div>
-        <div class="line">电话：{{footerList.phoneNumber}}</div>
-        <div class="line">Email：{{footerList.email}}</div>
-        <div class="line">地址：{{footerList.address}}</div>
+        <div class="line">电话：{{dataList.footerList.phoneNumber}}</div>
+        <div class="line">Email：{{dataList.footerList.email}}</div>
+        <div class="line">地址：{{dataList.footerList.address}}</div>
       </div>
       <div class="right">
         <div class="item">
           <div class="title">公司首页</div>
-          <div class="line" @click="goAnchor('#about-us')">公司简介</div>
-          <div class="line" @click="goAnchor('#advantage')">我们的优势</div>
-          <div class="line" @click="goAnchor('#product')">产品中心</div>
-          <div class="line" @click="goAnchor('#customer')">客户分布</div>
-          <div class="line" @click="goAnchor('#case')">案例实景</div>
-          <div class="line" @click="goAnchor('#news')">新闻资讯</div>
+          <div class="line" @click="goAnchor('about-us')">公司简介</div>
+          <div class="line" @click="goAnchor('advantage')">我们的优势</div>
+          <div class="line" @click="goAnchor('product')">产品中心</div>
+          <div class="line" @click="goAnchor('customer')">客户分布</div>
+          <div class="line" @click="goAnchor('case')">案例实景</div>
+          <div class="line" @click="goAnchor('news')">新闻资讯</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">产品中心</div>
-          <div class="line">搅拌设备</div>
-          <div class="line">分离设备</div>
-          <div class="line">化工设备</div>
-          <div class="line">农作物设备</div>
+          <div class="line" @click="$router.push({path:'/product-center'})" v-for="(item,index) in dataList.productGroupList" v-if="index<4">{{item}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">案例实景</div>
-          <div class="line">工厂车间</div>
-          <div class="line">户外作业</div>
-          <div class="line">农田作业</div>
-          <div class="line">化工设备</div>
+          <div class="line" @click="$router.push({path:'/case-list'})" v-for="(item,index) in dataList.caseGroupList" v-if="index<4">{{item}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">新闻动态</div>
-          <div class="line">行业新闻</div>
-          <div class="line">公司新闻</div>
-          <div class="line">常见问题</div>
+          <div class="line" @click="$router.push({path:'/news-list'})" v-for="(item,index) in dataList.newsList" v-if="index<4">{{item.newsGroupName}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
@@ -65,24 +57,28 @@
 
   export default {
     name: "Footer",
-    props:{
-      footerList:{
-        type:Object,
-        default:()=>{
-          return {}
-        }
-      },
-      dataDetail:{
-        type:Object,
-        default:()=>{
-          return {}
+    data(){
+      return{
+        dataList:{
+          footerList:{
+            phoneNumber:'',
+            email:'',
+            address:'',
+          }
         }
       }
     },
     methods:{
       goAnchor(selector) {
-        document.querySelector(selector).scrollIntoView(true);
+        if(this.$route.path!=='/home'){
+          this.$router.push({path:'/home?selector='+selector})
+        }else {
+          document.querySelector(selector).scrollIntoView(true);
+        }
       },
+    },
+    mounted() {
+      this.dataList=JSON.parse(localStorage.getItem('dataList'))
     }
   }
 </script>
