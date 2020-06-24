@@ -7,67 +7,26 @@
       </div>
       <div class="center">
         <div class="menus">
-          <div class="menu selected">工厂车间</div>
-          <div class="menu">户外作业</div>
-          <div class="menu">农田作业</div>
-          <div class="menu">化工设备</div>
+          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowCaseGroupIndex}" v-for="(item,index) in caseGroupList">{{item}}</div>
         </div>
-        <div class="items">
-          <div class="item">
+        <div class="items"  v-loading="loading">
+          <div class="item" v-for="(item,index) in caseList" :key="item.id" @click="$router.push({path:'/case-detail?id='+item.id})">
             <div class="pic">
-              <div class="img"></div>
+              <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
+            <div class="text-box">
+              <div class="text">{{item.title}}</div>
             </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
 
+          </div>
         </div>
         <el-pagination
           class="pagination"
           background
           layout="prev, pager, next"
-          :total="1000">
+          @current-change="pageChange"
+          :page-size="pageSize"
+          :total="totalNum">
         </el-pagination>
       </div>
 
@@ -81,6 +40,7 @@
   import Header from "@/components/Header/index";
   import Footer from "@/components/Footer/index";
   import MobileCaseList from "@/views/mobile/case/case-list";
+  import {fetchCaseGroupList, fetchCaseList} from "@/api/case";
 
   export default {
     name: "CaseList",
@@ -90,6 +50,57 @@
       MobileCaseList
     },
     props: ['isMobile'],
+    data(){
+      return{
+        loading:false,
+        pageSize:8,
+        pageNum:1,
+        baseUrl:this.$imgBaseUrl,
+        nowCaseGroupIndex:0,
+        caseGroupList:[],
+        caseList:[],
+        totalNum:0,
+      }
+    },
+    methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
+      },
+      async fetchData(){
+        this.loading=true
+        let caseGroupList=await fetchCaseGroupList()
+        this.caseGroupList=caseGroupList.data
+        let caseList=await fetchCaseList({groupName:caseGroupList[0],pageSize:this.pageSize,pageNum:1})
+        this.caseList=caseList.data.list
+        this.totalNum=caseList.data.total
+        setTimeout(()=>{
+          this.loading=false
+        },200)
+      },
+      async pageChange(nowPage){
+        this.loading=true
+        let caseList=await fetchCaseList({groupName:this.caseGroupList[this.nowCaseGroupIndex],pageSize:this.pageSize,pageNum:nowPage})
+        this.caseList=caseList.data.list
+        this.pageNum=nowPage
+        setTimeout(()=>{
+          this.loading=false
+        },200)
+      },
+      async changeGroup(index){
+        this.loading=true
+        this.nowCaseGroupIndex=index
+        this.pageNum=1
+        let caseList= await fetchCaseList({groupName:this.caseGroupList[this.nowCaseGroupIndex],pageSize:this.pageSize,pageNum:this.pageNum})
+        this.caseList=caseList.data.list
+        this.totalNum=caseList.data.total
+        setTimeout(()=>{
+          this.loading=false
+        },200)
+      }
+    },
+    mounted() {
+      this.fetchData()
+    }
   }
 </script>
 
@@ -195,7 +206,8 @@
               }
             }
 
-            .text {
+            .text-box{
+              background-color: #fff;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -203,7 +215,15 @@
               color: rgba(52, 52, 52, 1);
               height: 59px;
               border-top: 1px solid rgba(238, 238, 238, 1);
+              .text {
+                text-align: center;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+              }
             }
+
           }
 
           .item:hover {

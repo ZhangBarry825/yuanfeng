@@ -7,10 +7,13 @@
       </div>
       <div class="center">
         <div class="menus">
-          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
+          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}"
+               v-for="(item,index) in productGroupList">{{item}}
+          </div>
         </div>
-        <div class="items">
-          <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
+        <div class="items" v-loading="loading">
+          <div class="item" v-for="(item,index) in productList" :key="item.id"
+               @click="$router.push({path:'/product-detail?id='+item.id})">
             <div class="pic">
               <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
@@ -36,7 +39,8 @@
   import Header from '@/components/Header/index'
   import Footer from '@/components/Footer/index'
   import MobileProduct from "../../mobile/product/product-center";
-  import {fetchProductGroupList,fetchProductList} from "@/api/product";
+  import {fetchProductGroupList, fetchProductList} from "@/api/product";
+
   export default {
     name: "ProductCenter",
     components: {
@@ -45,39 +49,60 @@
       MobileProduct
     },
     props: ['isMobile'],
-    data(){
-      return{
-        pageSize:8,
-        pageNum:1,
-        baseUrl:this.$imgBaseUrl,
-        nowProductGroupIndex:0,
-        productGroupList:[],
-        productList:[],
-        totalNum:0,
+    data() {
+      return {
+        loading: false,
+        pageSize: 8,
+        pageNum: 1,
+        baseUrl: this.$imgBaseUrl,
+        nowProductGroupIndex: 0,
+        productGroupList: [],
+        productList: [],
+        totalNum: 0,
       }
     },
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
       },
-      async fetchData(){
-        let productGroupList=await fetchProductGroupList()
-        this.productGroupList=productGroupList.data
-        let productList=await fetchProductList({groupName:productGroupList[0],pageSize:this.pageSize,pageNum:1})
-        this.productList=productList.data.list
-        this.totalNum=productList.data.total
+      async fetchData() {
+        this.loading = true
+        let productGroupList = await fetchProductGroupList()
+        this.productGroupList = productGroupList.data
+        let productList = await fetchProductList({groupName: productGroupList[0], pageSize: this.pageSize, pageNum: 1})
+        this.productList = productList.data.list
+        this.totalNum = productList.data.total
+        setTimeout(() => {
+          this.loading = false
+        }, 200)
       },
-      async pageChange(nowPage){
-        let productList=await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:nowPage})
-        this.productList=productList.data.list
-        this.pageNum=nowPage
+      async pageChange(nowPage) {
+        this.loading = true
+        let productList = await fetchProductList({
+          groupName: this.productGroupList[this.nowProductGroupIndex],
+          pageSize: this.pageSize,
+          pageNum: nowPage
+        })
+        this.productList = productList.data.list
+        this.pageNum = nowPage
+        setTimeout(() => {
+          this.loading = false
+        }, 200)
       },
-      async changeGroup(index){
-          this.nowProductGroupIndex=index
-          this.pageNum=1
-          let productList= await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:this.pageNum})
-          this.productList=productList.data.list
-          this.totalNum=productList.data.total
+      async changeGroup(index) {
+        this.loading = true
+        this.nowProductGroupIndex = index
+        this.pageNum = 1
+        let productList = await fetchProductList({
+          groupName: this.productGroupList[this.nowProductGroupIndex],
+          pageSize: this.pageSize,
+          pageNum: this.pageNum
+        })
+        this.productList = productList.data.list
+        this.totalNum = productList.data.total
+        setTimeout(() => {
+          this.loading = false
+        }, 200)
       }
     },
     mounted() {
@@ -89,13 +114,15 @@
 <style scoped lang="scss">
   .p-page {
     width: 100%;
-    .pc{
+
+    .pc {
       width: 100%;
       min-width: 1200px;
       display: flex;
       flex-direction: column;
       align-items: center;
       background-color: #f5f5f5;
+
       .banner {
         min-width: 1200px;
         width: 100%;
@@ -219,7 +246,6 @@
         }
       }
     }
-
 
 
   }
