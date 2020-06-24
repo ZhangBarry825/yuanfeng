@@ -149,13 +149,13 @@
           display: flex;
           flex-direction: column;
 
-          .in > > > .el-input__inner {
+          .in >>> .el-input__inner {
             background-color: #F7F7F7 !important;
             border: none;
             padding: 20px;
           }
 
-          .el-textarea > > > .el-textarea__inner {
+          .el-textarea >>> .el-textarea__inner {
             background-color: #F7F7F7 !important;
             border: none;
           }
