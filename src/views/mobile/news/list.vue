@@ -30,8 +30,21 @@
     </div>
 
     <div class="pagination">
-      <img class="left" src="../../../../public/images/btn_more_none_l.png" />
-      <img class="right" src="../../../../public/images/btn_more_r.png" />
+      <img
+        class="left"
+        v-if="newsobj.hasPreviousPage"
+        @click="nextclick"
+        src="../../../../public/images/btn_more_l.png"
+      />
+      <img class="left" v-else src="../../../../public/images/btn_more_none_l.png" />
+
+      <img
+        class="right"
+        @click="prevclick"
+        v-if="newsobj.hasNextPage"
+        src="../../../../public/images/btn_more_r.png"
+      />
+      <img class="right" v-else src="../../../../public/images/btn_more_none_r.png" />
     </div>
     <MobileFooter></MobileFooter>
   </div>
@@ -54,13 +67,21 @@ export default {
       pageSize: 4,
       pageNum: 1,
       loading: false,
-      groupName: "行业新闻"
+      groupName: "行业新闻",
     }
   },
   created () {
     this.retrieveData()
   },
   methods: {
+    prevclick () {
+      this.pageNum += 1
+      this.retrieveData()
+    },
+    nextclick () {
+      this.pageNum -= 1
+      this.retrieveData()
+    },
     switchNews (text) {
       this.groupName = text
       this.pageNum = 1
