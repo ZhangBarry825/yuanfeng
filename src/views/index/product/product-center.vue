@@ -7,66 +7,23 @@
       </div>
       <div class="center">
         <div class="menus">
-          <div class="menu selected">搅拌设备</div>
-          <div class="menu">化工设备</div>
-          <div class="menu">分离设备</div>
-          <div class="menu">农作类设备</div>
+          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
         </div>
         <div class="items">
-          <div class="item">
+          <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
             <div class="pic">
-              <div class="img"></div>
+              <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
-          </div>
-          <div class="item">
-            <div class="pic">
-              <div class="img"></div>
-            </div>
-            <div class="text">螺栓和螺母</div>
+            <div class="text">{{item.productName}}</div>
           </div>
         </div>
         <el-pagination
           class="pagination"
           background
           layout="prev, pager, next"
-          :total="1000">
+          @current-change="pageChange"
+          :page-size="pageSize"
+          :total="totalNum">
         </el-pagination>
       </div>
       <Footer></Footer>
@@ -79,6 +36,7 @@
   import Header from '@/components/Header/index'
   import Footer from '@/components/Footer/index'
   import MobileProduct from "../../mobile/product/product-center";
+  import {fetchProductGroupList,fetchProductList} from "@/api/product";
   export default {
     name: "ProductCenter",
     components: {
@@ -89,13 +47,41 @@
     props: ['isMobile'],
     data(){
       return{
-
+        pageSize:8,
+        pageNum:1,
+        baseUrl:this.$imgBaseUrl,
+        nowProductGroupIndex:0,
+        productGroupList:[],
+        productList:[],
+        totalNum:0,
       }
     },
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      async fetchData(){
+        let productGroupList=await fetchProductGroupList()
+        this.productGroupList=productGroupList.data
+        let productList=await fetchProductList({groupName:productGroupList[0],pageSize:this.pageSize,pageNum:1})
+        this.productList=productList.data.list
+        this.totalNum=productList.data.total
+      },
+      async pageChange(nowPage){
+        let productList=await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:nowPage})
+        this.productList=productList.data.list
+        this.pageNum=nowPage
+      },
+      async changeGroup(index){
+          this.nowProductGroupIndex=index
+          this.pageNum=1
+          let productList= await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:this.pageNum})
+          this.productList=productList.data.list
+          this.totalNum=productList.data.total
       }
+    },
+    mounted() {
+      this.fetchData()
     }
   }
 </script>
@@ -201,6 +187,7 @@
             }
 
             .text {
+              background-color: #fff;
               display: flex;
               justify-content: center;
               align-items: center;

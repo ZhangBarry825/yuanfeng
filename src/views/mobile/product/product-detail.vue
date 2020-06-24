@@ -4,14 +4,12 @@
     <div class="center">
       <div class="item0">
         <div class="title-box">
-          <div class="title">机械齿轮与扳手</div>
+          <div class="title">{{dataDetail.productName}}</div>
         </div>
         <div class="content-box">
-          <div class="left"></div>
+          <div class="left" :style="'background-image: url('+baseUrl+dataDetail.smallImages[selectedIndex]+')'"></div>
           <div class="right">
-            <div class="pic selected"></div>
-            <div class="pic"></div>
-            <div class="pic"></div>
+            <div class="pic" v-if="index<3" :class="{'selected':index==selectedIndex}" @click="selectedIndex=index"  v-for="(item,index) in dataDetail.smallImages" :style="'background-image: url('+baseUrl+item+')'"></div>
           </div>
         </div>
       </div>
@@ -19,27 +17,15 @@
         <div class="title-box">
           <div class="title">产品详情</div>
         </div>
-        <div class="content-box">
-          <div class="text">
-
-            1、专业级铬钒钢精工锻造，高硬度、高扭矩、更强韧，高硬度、高扭矩、更强韧；<br>
-            2、抛光更好，二代升级扳手，加厚表面抛光不易生锈；<br>
-            3、标准弧形开口，流线弧度标准，更好的吻合型，减少摩擦磨损，使用更方便；<br>
-            4、铬钒钢强扭矩，高品质铬钒钢硬度高，扭矩强不易打滑；<br>
-
-
-          </div>
+        <div class="content-box" v-html="dataDetail.productDetail">
         </div>
       </div>
       <div class="item">
         <div class="title-box">
           <div class="title">产品介绍</div>
         </div>
-        <div class="content-box">
-          <div class="text">
-            5083铝卷是很有前途的合金，其优良的抗腐蚀性能使5083铝卷广泛用于海事用途如船舶，以及汽车、飞机焊接件、地铁轻轨等，以及需严格防火的压力容器(如液体罐车、冷藏车、冷藏集装箱)、制冷装置、电视塔、钻探设备、交通运输用铝等。以及汽车、飞机焊接件、地铁轻轨等，以及需严格防火的压力容器(如液体罐车、冷藏车、冷藏集装箱)、制冷装置。
-          </div>
-          <div class="pic"></div>
+        <div class="content-box" v-html="dataDetail.productPre">
+
         </div>
       </div>
     </div>
@@ -51,12 +37,31 @@
 <script>
   import MobileFooter from "@/components/MobileFooter/index";
   import MobileHeader from "@/components/MobileHeader/index";
+  import {fetchProductDetail} from "@/api/product";
 
   export default {
     name: "MobileProductDetail",
     components: {
       MobileFooter,
       MobileHeader
+    },
+    data(){
+      return{
+        baseUrl:this.$imgBaseUrl,
+        dataDetail:{
+          smallImages:[]
+        },
+        selectedIndex:0
+      }
+    },
+    methods:{
+      async fetchData(id){
+        let dataDetail=await fetchProductDetail({id:id})
+        this.dataDetail=dataDetail.data
+      }
+    },
+    mounted() {
+      this.fetchData(this.$route.query.id)
     }
   }
 </script>
@@ -96,7 +101,7 @@
           }
         }
         .content-box{
-          padding: 1rem;
+          padding: .5rem;
           box-sizing: border-box;
           color: #333333;
           font-size: .7rem;
@@ -157,7 +162,7 @@
           }
         }
         .content-box{
-
+          padding: .5rem;
           box-sizing: border-box;
           color: #333333;
           font-size: .55rem;

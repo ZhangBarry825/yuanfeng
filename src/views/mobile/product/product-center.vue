@@ -3,67 +3,21 @@
     <MobileHeader title="产品中心" :menuId="2"></MobileHeader>
     <div class="center">
       <div class="menus">
-        <div class="menu selected">搅拌设备</div>
-        <div class="menu">化工设备</div>
-        <div class="menu">分离设备</div>
-        <div class="menu">农作类设备</div>
-        <div class="menu">化工设备</div>
-        <div class="menu">分离设备</div>
-        <div class="menu">农作类设备</div>
+        <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
       </div>
       <div class="items">
-        <div class="item">
+        <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
           <div class="pic">
-            <div class="img"></div>
+            <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
           </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
-        </div>
-        <div class="item">
-          <div class="pic">
-            <div class="img"></div>
-          </div>
-          <div class="text">螺栓和螺母</div>
+          <div class="text">{{item.productName}}</div>
         </div>
       </div>
       <div class="pagination">
-        <img class="left" src="../../../../public/images/btn_more_none_l.png" >
-        <img class="right" src="../../../../public/images/btn_more_r.png" />
+        <img class="left" v-if="hasPrevious" src="../../../../public/images/btn_more_l.png"  @click="pageChange(-1)">
+        <img class="left" v-if="!hasPrevious" src="../../../../public/images/btn_more_none_l.png" >
+        <img class="right" v-if="hasNext" src="../../../../public/images/btn_more_r.png" @click="pageChange(+1)" />
+        <img class="right" v-if="!hasNext" src="../../../../public/images/btn_more_none_r.png" />
       </div>
     </div>
 
@@ -74,6 +28,7 @@
 <script>
   import MobileFooter from "@/components/MobileFooter/index";
   import MobileHeader from "@/components/MobileHeader/index";
+  import {fetchProductGroupList, fetchProductList} from "@/api/product";
 
   export default {
     name: "MobileProductCenter",
@@ -81,8 +36,49 @@
       MobileFooter,
       MobileHeader
     },
+    data(){
+      return{
+        pageSize:8,
+        pageNum:1,
+        baseUrl:this.$imgBaseUrl,
+        nowProductGroupIndex:0,
+        productGroupList:[],
+        productList:[],
+        hasNext:false,
+        hasPrevious:false,
+      }
+    },
+    methods:{
+      async fetchData(){
+        let productGroupList=await fetchProductGroupList()
+        this.productGroupList=productGroupList.data
+        let productList=await fetchProductList({groupName:productGroupList[0],pageSize:this.pageSize,pageNum:1})
+        this.productList=productList.data.list
+        this.totalNum=productList.data.total
+        this.hasNext=productList.data.hasNextPage
+        this.hasPrevious=productList.data.hasPreviousPage
+
+      },
+      async pageChange(num){
+        let productList=await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:this.pageNum+num})
+        this.productList=productList.data.list
+        this.pageNum=this.pageNum+num
+        this.hasNext=productList.data.hasNextPage
+        this.hasPrevious=productList.data.hasPreviousPage
+      },
+      async changeGroup(index){
+        this.nowProductGroupIndex=index
+        this.pageNum=1
+        let productList= await fetchProductList({groupName:this.productGroupList[this.nowProductGroupIndex],pageSize:this.pageSize,pageNum:this.pageNum})
+        this.productList=productList.data.list
+        this.totalNum=productList.data.total
+        this.hasNext=productList.data.hasNextPage
+        this.hasPrevious=productList.data.hasPreviousPage
+      }
+    },
     mounted() {
       document.documentElement.style.fontSize = '5vw'
+      this.fetchData()
     }
   }
 </script>
@@ -133,24 +129,22 @@
         }
       }
 
-      /*.items::after{*/
-      /*  height: 0;*/
-      /*  content: '';*/
-      /*  width:272px ;*/
-      /*  max-width: 272px;*/
-      /*}*/
+      .items::after{
+        height: 0;
+        content: '';
+        width: 8.5rem;
+      }
       .items {
 
         width: 100%;
         padding: 1rem 0;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
 
         .item {
-          margin: 0.5rem auto;
-          border-top: 3px solid #fff;
+          margin: 0.5rem 0;
           width: 8.5rem;
           height: 10rem;
           box-shadow: 0 0 10px rgba(136, 148, 164, 0.2);
@@ -176,12 +170,13 @@
           }
 
           .text {
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 0.7rem;
             color: rgba(52, 52, 52, 1);
-            height: 1.2rem;
+            height: 1.5rem;
             border-top: 1px solid rgba(238, 238, 238, 1);
           }
         }
@@ -206,6 +201,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        padding-bottom: 1rem;
         .left,.right{
           margin: 0.3rem;
           width: 2rem;
