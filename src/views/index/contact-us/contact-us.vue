@@ -33,19 +33,19 @@
               <el-form-item prop="name">
                 <el-input class="in" v-model="ruleForm.name" placeholder="姓名"></el-input>
               </el-form-item>
-              <el-form-item prop="tel">
-                <el-input class="in" v-model="ruleForm.tel" placeholder="电话"></el-input>
+              <el-form-item prop="phoneNumber">
+                <el-input class="in" v-model="ruleForm.phoneNumber" placeholder="电话"></el-input>
               </el-form-item>
               <el-form-item prop="email">
                 <el-input class="in" v-model="ruleForm.email" placeholder="邮箱"></el-input>
               </el-form-item>
-              <el-form-item prop="message">
+              <el-form-item prop="detail">
                 <el-input
                   class="in"
                   type="textarea"
                   :autosize="{ minRows: 5, maxRows: 10}"
                   placeholder="请输入留言内容"
-                  v-model="ruleForm.message"
+                  v-model="ruleForm.detail"
                 ></el-input>
               </el-form-item>
               <el-row class="submit-row">
@@ -82,8 +82,8 @@ export default {
       ruleForm: {
         name: '',
         email: '',
-        tel: '',
-        message: '',
+        phoneNumber: '',
+        detail: '',
       },
       rules: {
         name: [
@@ -93,10 +93,10 @@ export default {
           { required: true, message: '请输入邮箱', trigger: 'blur' },
           { type: 'email', message: '请输入邮箱', trigger: ['blur', 'change'] }
         ],
-        tel: [
+        phoneNumber: [
           { required: true, message: '请输入电话号码', trigger: 'blur' }
         ],
-        message: [
+        detail: [
           { required: true, message: '请输入留言内容', trigger: 'blur' },
           { min: 0, max: 500, message: '留言内容不能超过500个字符', trigger: 'blur' }
         ],
@@ -109,14 +109,14 @@ export default {
         if (valid) {
           let formData = new FormData();
           formData.append('email', this.ruleForm.email)
-          formData.append('phone', this.ruleForm.tel)
-          formData.append('message', this.ruleForm.message)
+          formData.append('phone', this.ruleForm.phoneNumber)
+          formData.append('detail', this.ruleForm.detail)
           formData.append('name', this.ruleForm.name)
-
-          contactUs(formData).then(res => {
+          console.log(this.ruleForm)
+          CompanyCulList(this.ruleForm).then(res => {
             //console.log(res,2222)
             this.$message({
-              message: 'submit successfully',
+              message: res.msg,
               type: 'success'
             })
           })
@@ -126,13 +126,13 @@ export default {
         }
       });
     },
-    async retrieveData () {
-      let { data } = await CompanyCulList() 
-      console.log(data,"123")
+    retrieveData () {
+      CompanyCulList()
+      console.log(data, "123")
     },
   },
-  created(){
-    this.retrieveData()
+  created () {
+
   }
 }
 </script>

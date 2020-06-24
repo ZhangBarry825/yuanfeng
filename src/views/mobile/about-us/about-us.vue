@@ -7,14 +7,15 @@
           <div class="text">公司简介</div>
           <div class="border"></div>
         </div>
-        <div class="left"></div>
+        <div class="left" :style="`background-image: url(${baseUrl}${theCompany.imageUrl});`"></div>
         <div class="content">
-          河南沅奉机械设备有限公司成立于2003年7月，是一家从事磨料磨具的生产及服务商，磨具磨料领域融合十几年的经验。
+          <!-- 河南沅奉机械设备有限公司成立于2003年7月，是一家从事磨料磨具的生产及服务商，磨具磨料领域融合十几年的经验。
           河南沅奉机械设备有限公司位于河南省郑州市，集团占地面积68万平方米，是国家级大型工业企业、国家高新技术企业。
-          <br> <br>
-          沅奉十分注重研发投入，已经拥有多项国家发明，软件著作权和实用新型专利。不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升的生产制造能力。
-          <br> <br>
-          本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系，让客户放心购买我们的产品。
+          <br />
+          <br />沅奉十分注重研发投入，已经拥有多项国家发明，软件著作权和实用新型专利。不论是传统的制造业还是高科技产业甚至至到远瞻新兴行业，都可以为其设计，研发，生产!近几年经过自身的努力研发并保持与国外同行业的技术合作，不断的提升的生产制造能力。
+          <br />
+          <br />本公司拥有完善的售后服务体系和专业的技术人员为用户提供售后服务，和客户保持紧密的合作关系，让客户放心购买我们的产品。-->
+          {{theCompany.detail}}
         </div>
         <div class="bottom">
           <div class="border"></div>
@@ -28,20 +29,10 @@
       <div class="border"></div>
     </div>
     <div class="items">
-      <div class="item">
-        <img src="../../../../public/images/c1.png" alt="">
-        <div class="line1">诚实守信</div>
-        <div class="line2">忠诚爱国，崇尚公平正义，敬畏法纪、尊重制度，坚守法律和道德底线。</div>
-      </div>
-      <div class="item">
-        <img src="../../../../public/images/c2.png" alt="">
-        <div class="line1">创新发展</div>
-        <div class="line2">顺时应势，主动变革。坚持客户导向，不断寻求商业模式、技术、管理、产品与服务的全新突破。</div>
-      </div>
-      <div class="item">
-        <img src="../../../../public/images/c3.png" alt="">
-        <div class="line1">以人为本</div>
-        <div class="line2">尊重人的价值，开发人的潜能，升华人的心灵，为员工构建价值实现的平台，共享发展成果。</div>
+      <div class="item" v-for="(item, index) in Culture" :key="index">
+        <img :src="baseUrl+item.imageUrl" alt />
+        <div class="line1">{{item.title}}</div>
+        <div class="line2">{{item.detail}}</div>
       </div>
     </div>
     <div class="service">
@@ -50,21 +41,9 @@
         <div class="border"></div>
       </div>
       <div class="service-item">
-        <div class="item">
-          <img src="../../../../public/images/s1.png" alt="">
-          <div class="title">响应式的售前咨询团队</div>
-        </div>
-        <div class="item">
-          <img src="../../../../public/images/s2.png" alt="">
-          <div class="title">一对一的销售支持团队</div>
-        </div>
-        <div class="item">
-          <img src="../../../../public/images/s3.png" alt="">
-          <div class="title">专业化的生产制造团队</div>
-        </div>
-        <div class="item">
-          <img src="../../../../public/images/s4.png" alt="">
-          <div class="title">管家式的售后服务团队</div>
+        <div class="item" v-for="(item, index) in service" :key="index">
+          <img :src="baseUrl+item.imageUrl" alt />
+          <div class="title">{{item.title}}</div>
         </div>
       </div>
     </div>
@@ -75,35 +54,10 @@
       </div>
       <div class="center">
         <div class="border"></div>
-        <div class="item item1">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2003年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item2">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2006年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item3">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2010年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item4">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2013年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item5">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2015年</div>
-          <div class="des">公司刚成立，正在发展阶段</div>
-        </div>
-        <div class="item item6">
-          <img src="../../../../public/images/dotdot.png" alt="">
-          <div class="title">2020年</div>
-          <div class="des">公司发展成熟，服务过268+客户</div>
+        <div class="item" :class="'item'+index" v-for="(item, index) in Profile" :key="index">
+          <img src="../../../../public/images/dotdot.png" alt />
+          <div class="title">{{item.time}}</div>
+          <div class="des">{{item.detail}}</div>
         </div>
       </div>
     </div>
@@ -113,291 +67,317 @@
 </template>
 
 <script>
-  import MobileFooter from "@/components/MobileFooter/index";
-  import MobileHeader from "@/components/MobileHeader/index";
+import MobileFooter from "@/components/MobileFooter/index";
+import MobileHeader from "@/components/MobileHeader/index";
+import { CompanyCulList, getDamn, getCulture, queryAboutUs } from '@/api/About';
 
-  export default {
-    name: "MobileAboutUs",
-    components: {
-      MobileHeader,
-      MobileFooter
+export default {
+  name: "MobileAboutUs",
+  components: {
+    MobileHeader,
+    MobileFooter
+  },
+  data () {
+    return {
+      baseUrl: this.$imgBaseUrl,
+      service: [],
+      Culture: [],
+      Profile: [],
+      theCompany: {}
     }
-  }
+  },
+  created () {
+    this.retrieveData()
+  },
+  methods: {
+    async retrieveData () {
+      let res2 = await queryAboutUs()
+      console.log(res2, "123")
+      this.theCompany = res2.data[0]
+
+      // 企业文化
+      let res = await getDamn()
+      this.Culture = res.data
+
+      // 发展历程
+      let res1 = await getCulture()
+      this.Profile = res1.data.slice(-6)
+
+      // 服务理念
+      let { data } = await CompanyCulList()
+      this.service = data
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
-  .about-page {
+.about-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+
+  .introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 100%;
+    padding: 1rem 0;
+    .right {
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      padding: 0 0.5rem;
+      .title {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .border {
+        margin-top: 0.5rem;
+        width: 3rem;
+        height: 2px;
+        background: rgba(54, 82, 182, 1);
+      }
+      .left {
+        width: 100%;
+        height: 10rem;
+        box-shadow: 0px 1px 35px 0px rgba(135, 148, 164, 0.31);
+
+        background-image: url('../../../../public/images/us_img.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .content {
+        padding: 1rem 0;
+        box-sizing: border-box;
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        line-height: 1.7;
+      }
+
+      .bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 2rem;
+        .border {
+          width: 3rem;
+          height: 0;
+          margin: 0 0.8rem;
+          border-bottom: 1px solid rgba(222, 31, 34, 1);
+        }
+        .text {
+          font-size: 0.7rem;
+          color: rgba(222, 31, 34, 1);
+        }
+      }
+    }
+  }
+
+  .culture {
+    width: 100%;
+    height: 10rem;
+    background-image: url('../../../../public/images/culture.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
+    padding-top: 1rem;
 
-    .introduction {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      width: 100%;
-      padding: 1rem 0;
-      .right {
-        width: 100%;
-        background: rgba(255, 255, 255, 1);
-        padding: 0 0.5rem;
-        .title {
-          font-size: .8rem;
-          font-weight: 400;
-          color: rgba(51, 51, 51, 1);
-          padding: 1rem 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        .border {
-          margin-top: .5rem;
-          width: 3rem;
-          height: 2px;
-          background: rgba(54, 82, 182, 1);
-        }
-        .left {
-          width: 100%;
-          height: 10rem;
-          box-shadow: 0px 1px 35px 0px rgba(135, 148, 164, 0.31);
-
-          background-image: url("../../../../public/images/us_img.png");
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        .content {
-          padding: 1rem 0;
-          box-sizing: border-box;
-          font-size: .7rem;
-          font-weight: 400;
-          color: rgba(51, 51, 51, 1);
-          line-height: 1.7;
-        }
-
-        .bottom {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: flex-end;
-          padding-bottom: 2rem;
-          .border {
-            width: 3rem;
-            height: 0;
-            margin: 0 .8rem;
-            border-bottom: 1px solid rgba(222, 31, 34, 1);
-          }
-          .text {
-            font-size: .7rem;
-            color: rgba(222, 31, 34, 1);
-          }
-
-        }
-      }
+    .text {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 38px;
     }
 
-    .culture {
-      width: 100%;
-      height: 10rem;
-      background-image: url("../../../../public/images/culture.png");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+    .border {
+      background: rgba(255, 255, 255, 1);
+      margin-top: 0.5rem;
+      width: 3rem;
+      height: 2px;
+    }
+  }
 
+  .items {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: -4rem;
+
+    .item {
+      background-color: #fff;
+      padding: 1rem 0.3rem;
+      padding-top: 1.5rem;
+      box-sizing: border-box;
+      width: 32%;
+      box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
+      position: relative;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: -20px;
+        box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
+        border-radius: 50%;
+      }
+
+      .line1 {
+        font-size: 0.8rem;
+        font-weight: 400;
+        padding: 0.2rem 0;
+        color: rgba(51, 51, 51, 1);
+      }
+
+      .line2 {
+        font-size: 0.6rem;
+        font-weight: 400;
+        color: rgba(102, 102, 102, 1);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .service {
+    width: 100%;
+
+    .title {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 1rem;
 
       .text {
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: 400;
-        color: rgba(255, 255, 255, 1);
-        line-height: 38px;
+        color: rgba(51, 51, 51, 1);
       }
 
       .border {
-        background: rgba(255, 255, 255, 1);
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         width: 3rem;
         height: 2px;
+        background: rgba(54, 82, 182, 1);
       }
     }
 
-    .items {
+    .service-item {
+      padding: 2rem 0;
       width: 100%;
       display: flex;
       justify-content: space-around;
-      position: relative;
-      top: -4rem;
 
       .item {
-        background-color: #fff;
-        padding: 1rem .3rem;
-        padding-top: 1.5rem;
-        box-sizing: border-box;
-        width: 32%;
-        box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         img {
-          width: 2rem;
-          height: 2rem;
-          position: absolute;
-          top: -20px;
-          box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
+          width: 4rem;
+          height: 4rem;
           border-radius: 50%;
         }
 
-        .line1 {
-          font-size: .8rem;
-          font-weight: 400;
-          padding: 0.2rem 0;
-          color: rgba(51, 51, 51, 1);
-        }
-
-        .line2 {
-          font-size: .6rem;
-          font-weight: 400;
-          color: rgba(102, 102, 102, 1);
-          line-height: 1.5;
-        }
-      }
-    }
-
-    .service {
-      width: 100%;
-
-      .title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .text {
-          font-size: .8rem;
+        .title {
+          font-size: 0.6rem;
           font-weight: 400;
           color: rgba(51, 51, 51, 1);
-        }
-
-        .border {
-          margin-top: .5rem;
-          width: 3rem;
-          height: 2px;
-          background: rgba(54, 82, 182, 1);
-        }
-      }
-
-      .service-item {
-        padding: 2rem 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-
-        .item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          img {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-          }
-
-          .title {
-            font-size: .6rem;
-            font-weight: 400;
-            color: rgba(51, 51, 51, 1);
-            padding: 1rem .8rem;
-            text-align: center;
-          }
+          padding: 1rem 0.8rem;
+          text-align: center;
         }
       }
     }
-
-    .experience {
-      width: 100%;
-      background-image: url("../../../../public/images/experience1.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-bottom: 1rem;
-      .experience-title{
-        margin-top: 2rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .text{
-          font-size:.8rem;
-          font-weight:400;
-          color:rgba(255,255,255,1);
-        }
-        .border{
-          margin-top: .5rem;
-          width:3rem;
-          height:2px;
-          background:rgba(255,255,255,1);
-        }
-      }
-      .center {
-        width: 100%;
-        height: calc(100% - 5rem);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        position: relative;
-        margin-top: 1rem;
-
-        .border{
-          border-right: 2px solid rgba(255,255,255,.6);
-          position: absolute;
-          height: 100%;
-          top: 0;
-          left: 26px;
-          z-index: 1;
-        }
-        .item {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          color: #fff;
-          align-items: center;
-
-          img {
-            margin-left: 20px;
-            z-index: 2;
-            width: 15px;
-            height: 15px;
-          }
-
-          .title {
-            margin: 0 .5rem;
-            font-size: .7rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 1);
-            line-height: 38px;
-            padding: .5rem 0;
-          }
-          .des {
-            font-size: .6rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 1);
-          }
-        }
-      }
-
-
-    }
-
-
   }
 
+  .experience {
+    width: 100%;
+    background-image: url('../../../../public/images/experience1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 1rem;
+    .experience-title {
+      margin-top: 2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .text {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+      }
+      .border {
+        margin-top: 0.5rem;
+        width: 3rem;
+        height: 2px;
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+    .center {
+      width: 100%;
+      height: calc(100% - 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      margin-top: 1rem;
+
+      .border {
+        border-right: 2px solid rgba(255, 255, 255, 0.6);
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 26px;
+        z-index: 1;
+      }
+      .item {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        color: #fff;
+        align-items: center;
+
+        img {
+          margin-left: 20px;
+          z-index: 2;
+          width: 15px;
+          height: 15px;
+        }
+
+        .title {
+          margin: 0 0.5rem;
+          font-size: 0.7rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 38px;
+          padding: 0.5rem 0;
+        }
+        .des {
+          font-size: 0.6rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+  }
+}
 </style>
