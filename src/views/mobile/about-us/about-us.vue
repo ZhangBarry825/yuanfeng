@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="service">
-      <div class="title">
+      <div class="service-title">
         <div class="text">服务理念</div>
         <div class="border"></div>
       </div>
@@ -187,7 +187,7 @@ export default {
 
   .culture {
     width: 100%;
-    height: 10rem;
+    height: 13rem;
     background-image: url('../../../../public/images/culture.png');
     background-size: cover;
     background-position: center center;
@@ -196,7 +196,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     .text {
       font-size: 0.8rem;
@@ -225,27 +225,30 @@ export default {
       padding: 1rem 0.3rem;
       padding-top: 1.5rem;
       box-sizing: border-box;
-      width: 32%;
+      width: 30%;
       box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
       position: relative;
 
       img {
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
         position: absolute;
-        top: -20px;
+        top: -1.2rem;
+        left: 29%;
         box-shadow: 0px 1px 30px 0px rgba(135, 148, 164, 0.21);
         border-radius: 50%;
       }
 
       .line1 {
+        text-align: center;
         font-size: 0.8rem;
         font-weight: 400;
-        padding: 0.2rem 0;
+        padding: 0.4rem 0;
         color: rgba(51, 51, 51, 1);
       }
 
       .line2 {
+        text-align: justify;
         font-size: 0.6rem;
         font-weight: 400;
         color: rgba(102, 102, 102, 1);
@@ -257,11 +260,12 @@ export default {
   .service {
     width: 100%;
 
-    .title {
+    .service-title {
       display: flex;
       flex-direction: column;
       align-items: center;
-
+      position: relative;
+      top: -1.5rem;
       .text {
         font-size: 0.8rem;
         font-weight: 400;
@@ -277,24 +281,26 @@ export default {
     }
 
     .service-item {
-      padding: 2rem 0;
+      position: relative;
+      top: -.5rem;
+      padding: 1rem 0;
       width: 100%;
       display: flex;
       justify-content: space-around;
-
+      flex-wrap: wrap;
       .item {
         display: flex;
         flex-direction: column;
         align-items: center;
 
         img {
-          width: 4rem;
-          height: 4rem;
+          width: 6rem;
+          height: 6rem;
           border-radius: 50%;
         }
 
         .title {
-          font-size: 0.6rem;
+          font-size: 0.7rem;
           font-weight: 400;
           color: rgba(51, 51, 51, 1);
           padding: 1rem 0.8rem;

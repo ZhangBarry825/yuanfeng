@@ -214,7 +214,7 @@
             color: #333333;
             font-size: 16px;
             line-height: 1.7;
-            ::v-deep image{
+            ::v-deep img{
               max-width: 100%;
             }
             .text {

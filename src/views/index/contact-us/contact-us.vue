@@ -14,15 +14,15 @@
           <div class="left-title">联系我们</div>
           <div class="line">
             <img src="../../../../public/images/phone.png" alt />
-            <div class="text">电话：12345678965</div>
+            <div class="text">电话：{{footerList.contactUs.phoneNumber}}</div>
           </div>
           <div class="line line2">
             <img src="../../../../public/images/email.png" alt />
-            <div class="text">邮箱：12345678965@163.com</div>
+            <div class="text">邮箱：{{footerList.contactUs.email}}</div>
           </div>
           <div class="line">
             <img src="../../../../public/images/address.png" alt />
-            <div class="text">地址：河南省郑州市金水区绿地新都会</div>
+            <div class="text">地址：{{footerList.contactUs.address}}</div>
           </div>
         </div>
         <div class="right">
@@ -67,6 +67,7 @@ import Footer from "@/components/Footer/index";
 import Map from "@/components/Map/index";
 import MobileContactUs from "@/views/mobile/contact-us/contact-us";
 import { CompanyCulList } from '@/api/mobile'
+import {fetchFooterList} from "@/api/home";
 
 export default {
   name: "ContactUs",
@@ -85,6 +86,7 @@ export default {
         phoneNumber: '',
         detail: '',
       },
+      footerList:{},
       rules: {
         name: [
           { required: true, message: '请输入姓名', trigger: 'blur' }
@@ -103,7 +105,14 @@ export default {
       }
     }
   },
+  mounted() {
+    this.fetchData()
+  },
   methods: {
+    async fetchData(){
+      let footerList=await fetchFooterList()
+      this.footerList=footerList.data
+    },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
