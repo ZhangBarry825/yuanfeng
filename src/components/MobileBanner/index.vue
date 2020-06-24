@@ -1,12 +1,12 @@
 <template>
   <div class="page">
     <el-carousel indicator-position="none" height="45vw" direction="vertical" :autoplay="true">
-      <el-carousel-item v-for="item in 3" :key="item">
-        <div class="backBox">
+      <el-carousel-item v-for="item in bannerList" :key="item.id">
+        <div class="backBox" :style="'background-image: url('+baseUrl+item.imageUrl+')'">
           <div class="center">
-            <div class="line1">努力研发 · 不断提升</div>
-            <div class="line2">十几年行业经验，专业的机械设备制造商</div>
-            <div class="line3" @click="goDetail">了解更多</div>
+            <div class="line1">{{item.title}}</div>
+            <div class="line2">{{item.details}}</div>
+            <div class="line3" @click="goAboutUs">了解更多</div>
           </div>
         </div>
       </el-carousel-item>
@@ -34,7 +34,16 @@
     name: "MobileBanner",
     data() {
       return {
-        ifShow: false
+        ifShow: false,
+        baseUrl:this.$imgBaseUrl
+      }
+    },
+    props:{
+      bannerList: {
+        type:Array,
+        default:()=>{
+          return []
+        }
       }
     },
     mounted() {
@@ -46,8 +55,8 @@
           path:path
         })
       },
-      goDetail(){
-        console.log(12312)
+      goAboutUs(){
+        this.$router.push({path: '/about-us'})
       },
       toggleShow() {
         this.ifShow = !this.ifShow

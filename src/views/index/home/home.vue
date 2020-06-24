@@ -68,7 +68,7 @@
           <div class="menu" @click="changeGroup(index,'product')" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
         </div>
         <div class="items">
-          <div class="item" v-for="(item,index) in productList" :key="item.id">
+          <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
             <div class="pic">
               <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
@@ -140,9 +140,9 @@
           <div class="menu" @click="changeGroup(index,'case')" :class="{'selected':index==nowCaseGroupIndex}" v-for="(item,index) in caseGroupList">{{item}}</div>
         </div>
         <div class="items">
-          <div class="item" v-for="(item,index) in caseList">
+          <div class="item" v-for="(item,index) in caseList" @click="$router.push({path:'/case-detail?id='+item.id})">
             <div class="pic">
-              <div class="img"></div>
+              <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
             <div class="text">{{item.title}}</div>
           </div>
@@ -163,7 +163,7 @@
           <div class="list" v-for="(item,index) in newsList" :key="item.id">
             <div class="list-title">{{item.newsGroupName}}</div>
             <div class="items">
-              <div class="item" v-for="(item2,index2) in item.newsTitle">
+              <div class="item" v-for="(item2,index2) in item.newsTitle" v-if="index2<5" @click="$router.push({path:'/news-detail?id='+item2.id})">
                 <img src="../../../../public/images/dot0.png" alt="">
                 <div class="right">
                   <div class="text">{{item2.title}}</div>
@@ -179,7 +179,7 @@
       </div>
       <Footer ></Footer>
     </div>
-    <MobileHome v-if="isMobile"></MobileHome>
+    <MobileHome :pcData="pcData" v-if="isMobile"></MobileHome>
   </div>
 </template>
 
@@ -224,9 +224,16 @@
       }
     },
     computed:{
-      dataDetail:function (){
+      pcData:function (){
         return {
+          bannerList:this.bannerList,
+          companyDataList:this.companyDataList,
+          aboutUsList:this.aboutUsList,
+          advantageList:this.advantageList,
           productGroupList:this.productGroupList,
+          productList:this.productList,
+          customerMap:this.customerMap,
+          caseList:this.caseList,
           caseGroupList:this.caseGroupList,
           newsList:this.newsList,
         }
@@ -254,16 +261,7 @@
         this.caseList=caseList.data
         let newsList= await fetchNewsList()
         this.newsList=newsList.data
-        let footerList= await fetchFooterList()
-        this.footerList=footerList.data
 
-
-        localStorage.setItem('dataList',JSON.stringify({
-          productGroupList:this.productGroupList,
-          caseGroupList:this.caseGroupList,
-          newsList:this.newsList,
-          footerList:this.footerList,
-        }))
       },
       async changeGroup(index,type){
         if(type==='product'){

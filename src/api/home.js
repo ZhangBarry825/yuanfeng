@@ -72,7 +72,7 @@ export function fetchNewsList(data) {
 }
 export function fetchFooterList(data) {
   return request({
-    url: '/webfront-index/queryContactUs',
+    url: '/webfront-index/queryBottomInfo',
     method: 'get',
     params: data
   })

@@ -4,9 +4,9 @@
       <div class="left">
         <div class="title">联系方式</div>
         <div class="red"></div>
-        <div class="line">电话：{{dataList.footerList.phoneNumber}}</div>
-        <div class="line">Email：{{dataList.footerList.email}}</div>
-        <div class="line">地址：{{dataList.footerList.address}}</div>
+        <div class="line">电话：{{footerList.contactUs.phoneNumber}}</div>
+        <div class="line">Email：{{footerList.contactUs.email}}</div>
+        <div class="line">地址：{{footerList.contactUs.address}}</div>
       </div>
       <div class="right">
         <div class="item">
@@ -21,17 +21,17 @@
         <div class="white"></div>
         <div class="item">
           <div class="title">产品中心</div>
-          <div class="line" @click="$router.push({path:'/product-center'})" v-for="(item,index) in dataList.productGroupList" v-if="index<4">{{item}}</div>
+          <div class="line" @click="$router.push({path:'/product-center?type='+item+'&index='+index})" v-for="(item,index) in footerList.menuGroups[0].groupName" v-if="index<4">{{item}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">案例实景</div>
-          <div class="line" @click="$router.push({path:'/case-list'})" v-for="(item,index) in dataList.caseGroupList" v-if="index<4">{{item}}</div>
+          <div class="line" @click="$router.push({path:'/case-list?type='+item+'&index='+index})" v-for="(item,index) in footerList.menuGroups[1].groupName" v-if="index<4">{{item}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">新闻动态</div>
-          <div class="line" @click="$router.push({path:'/news-list'})" v-for="(item,index) in dataList.newsList" v-if="index<4">{{item.newsGroupName}}</div>
+          <div class="line" @click="$router.push({path:'/news-list?type='+item+'&index='+index})" v-for="(item,index) in footerList.menuGroups[2].groupName" v-if="index<4">{{item}}</div>
         </div>
         <div class="white"></div>
         <div class="item">
@@ -55,16 +55,19 @@
 <script>
 
 
+  import {fetchFooterList} from "@/api/home";
+
   export default {
     name: "Footer",
     data(){
       return{
-        dataList:{
-          footerList:{
-            phoneNumber:'',
-            email:'',
-            address:'',
-          }
+        footerList:{
+          contactUs:{},
+          menuGroups:[
+            {groupName:''},
+            {groupName:''},
+            {groupName:''},
+          ]
         }
       }
     },
@@ -73,12 +76,17 @@
         if(this.$route.path!=='/home'){
           this.$router.push({path:'/home?selector='+selector})
         }else {
-          document.querySelector(selector).scrollIntoView(true);
+          document.querySelector("#"+selector).scrollIntoView(true);
         }
       },
+      async fetchData(){
+        let footerList=await fetchFooterList()
+        this.footerList=footerList.data
+      }
     },
     mounted() {
       this.dataList=JSON.parse(localStorage.getItem('dataList'))
+      this.fetchData()
     }
   }
 </script>

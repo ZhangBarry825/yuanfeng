@@ -4,9 +4,9 @@
       <div class="left">
         <div class="title">联系方式</div>
         <div class="red"></div>
-        <div class="line">电话：12345678910</div>
-        <div class="line">QQ：123456789</div>
-        <div class="line">地址:河南省郑州市金水区绿地新都会</div>
+        <div class="line">电话：{{footerList.contactUs.phoneNumber}}</div>
+        <div class="line">Email：{{footerList.contactUs.email}}</div>
+        <div class="line">地址：{{footerList.contactUs.address}}</div>
       </div>
     </div>
     <div class="bottom">豫ICP备06100159号技术支持:正尚科技</div>
@@ -14,15 +14,26 @@
 </template>
 
 <script>
+  import {fetchFooterList} from "@/api/home";
+
   export default {
     name: "MobileFooter",
     data() {
       return {
-        ifShow: false
+        ifShow: false,
+        footerList:{
+          contactUs:{},
+          menuGroups:[
+            {groupName:''},
+            {groupName:''},
+            {groupName:''},
+          ]
+        }
       }
     },
     mounted() {
       document.documentElement.style.fontSize = '5vw'
+      this.fetchData()
     },
     methods: {
       goPage(path){
@@ -32,6 +43,10 @@
       },
       toggleShow() {
         this.ifShow = !this.ifShow
+      },
+      async fetchData(){
+        let footerList=await fetchFooterList()
+        this.footerList=footerList.data
       }
     }
   }
