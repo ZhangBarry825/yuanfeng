@@ -102,13 +102,24 @@ export const constantRoutes = [
 
 
   {
-    path: '/admin',
+    path: '/admin-banner',
     component: Layout,
+    meta: { title: '轮播管理', icon: 'dashboard' },
     children: [{
-      path: 'banner',
-      name: 'Banner',
-      component: () => import('@/views/admin/banner/index'),
-      meta: { title: '轮播', icon: 'dashboard' }
+      path: 'list',
+      name: 'AdminBannerList',
+      component: () => import('@/views/admin/banner/list'),
+      meta: { title: '轮播列表', icon: 'dashboard' }
+    },{
+      path: 'create',
+      name: 'AdminBannerCreate',
+      component: () => import('@/views/admin/banner/create'),
+      meta: { title: '轮播列表', icon: 'dashboard' }
+    },{
+      path: 'edit',
+      name: 'AdminBannerEdit',
+      component: () => import('@/views/admin/banner/edit'),
+      meta: { title: '编辑轮播', icon: 'dashboard' }
     }]
   },
 
@@ -176,12 +187,12 @@ export const constantRoutes = [
     }]
   },
   {
-    path: '/admin-history',
+    path: '/admin-data',
     component: Layout,
     children: [{
       path: 'data',
       name: 'HistoryData',
-      component: () => import('@/views/admin/history/index'),
+      component: () => import('@/views/admin/data/index'),
       meta: { title: '公司数据', icon: 'dashboard' }
     }]
   },
@@ -203,6 +214,27 @@ export const constantRoutes = [
       name: 'Advantage',
       component: () => import('@/views/admin/advantage/index'),
       meta: { title: '公司优势', icon: 'dashboard' }
+    }]
+  },
+  {
+    path: '/admin-history',
+    component: Layout,
+    meta: { title: '发展历程', icon: 'dashboard' },
+    children: [{
+      path: 'history-list',
+      name: 'HistoryList',
+      component: () => import('@/views/admin/history/list'),
+      meta: { title: '历程列表', icon: 'dashboard' },
+    },{
+      path: 'history-create',
+      name: 'HistoryCreate',
+      component: () => import('@/views/admin/history/create'),
+      meta: { title: '新增历程', icon: 'dashboard' }
+    },{
+      path: 'history-edit',
+      name: 'HistoryEdit',
+      component: () => import('@/views/admin/history/edit'),
+      meta: { title: '编辑历程', icon: 'dashboard' }
     }]
   },
   {
