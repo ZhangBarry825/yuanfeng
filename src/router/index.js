@@ -114,7 +114,7 @@ export const constantRoutes = [
       path: 'create',
       name: 'AdminBannerCreate',
       component: () => import('@/views/admin/banner/create'),
-      meta: { title: '创建轮播', icon: 'create' }
+      meta: { title: '新增轮播', icon: 'create' }
     },{
       path: 'edit',
       name: 'AdminBannerEdit',
