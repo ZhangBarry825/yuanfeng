@@ -23,9 +23,17 @@
       </div>
 
       <div class="pagination">
-        <div class="line1" v-if="details.beforeId!=null">上一篇：{{details.beforeTitle}}</div>
+        <div
+          class="line1"
+          v-if="details.beforeId!=null"
+          @click="article(details.beforeId)"
+        >上一篇：{{details.beforeTitle}}</div>
         <div class="line2">
-          <div class="left" v-if="details.nextId!=null">下一篇：{{details.nextTitle}}</div>
+          <div
+            class="left"
+            v-if="details.nextId!=null"
+            @click="article(details.nextId)"
+          >下一篇：{{details.nextTitle}}</div>
           <div class="right" @click="$router.push({  path: '/news-list' })">返回列表 ></div>
         </div>
       </div>
@@ -61,9 +69,12 @@ export default {
   },
   methods: {
     async retrieveData () {
-      let { data } = await queryById({ id: JSON.parse(this.$route.query.item).id })
+      let { data } = await queryById({ id })
       this.details = data
       console.log(data, "110  ")
+    },
+    article (id) {
+      this.retrieveData(id)
     }
   }
 }
