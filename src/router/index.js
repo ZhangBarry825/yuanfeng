@@ -104,44 +104,44 @@ export const constantRoutes = [
   {
     path: '/admin-banner',
     component: Layout,
-    meta: { title: '轮播管理', icon: 'dashboard' },
+    meta: { title: '轮播管理', icon: 'tv' },
     children: [{
       path: 'list',
       name: 'AdminBannerList',
       component: () => import('@/views/admin/banner/list'),
-      meta: { title: '轮播列表', icon: 'dashboard' }
+      meta: { title: '轮播列表', icon: 'list' }
     },{
       path: 'create',
       name: 'AdminBannerCreate',
       component: () => import('@/views/admin/banner/create'),
-      meta: { title: '轮播列表', icon: 'dashboard' }
+      meta: { title: '创建轮播', icon: 'create' }
     },{
       path: 'edit',
       name: 'AdminBannerEdit',
       component: () => import('@/views/admin/banner/edit'),
-      meta: { title: '编辑轮播', icon: 'dashboard' }
+      meta: { title: '编辑轮播', icon: 'create' }
     }]
   },
 
   {
     path: '/admin-product',
     component: Layout,
-    meta: { title: '产品管理', icon: 'dashboard' },
+    meta: { title: '产品管理', icon: 'example' },
     children: [{
       path: 'product-list',
       name: 'ProductList',
       component: () => import('@/views/admin/product/list'),
-      meta: { title: '产品列表', icon: 'dashboard' },
+      meta: { title: '产品列表', icon: 'list' },
     },{
       path: 'product-create',
       name: 'ProductCreate',
       component: () => import('@/views/admin/product/create'),
-      meta: { title: '新增产品', icon: 'dashboard' }
+      meta: { title: '新增产品', icon: 'create' }
     },{
       path: 'product-edit',
       name: 'ProductEdit',
       component: () => import('@/views/admin/product/edit'),
-      meta: { title: '编辑产品', icon: 'dashboard' }
+      meta: { title: '编辑产品', icon: 'create' }
     }]
   },
   {
@@ -152,38 +152,38 @@ export const constantRoutes = [
       path: 'case-list',
       name: 'CaseList',
       component: () => import('@/views/admin/case/list'),
-      meta: { title: '案例列表', icon: 'dashboard' },
+      meta: { title: '案例列表', icon: 'list' },
     },{
       path: 'case-create',
       name: 'CaseCreate',
       component: () => import('@/views/admin/case/create'),
-      meta: { title: '新增案例', icon: 'dashboard' }
+      meta: { title: '新增案例', icon: 'create' }
     },{
       path: 'case-edit',
       name: 'CaseEdit',
       component: () => import('@/views/admin/case/edit'),
-      meta: { title: '编辑案例', icon: 'dashboard' }
+      meta: { title: '编辑案例', icon: 'create' }
     }]
   },
   {
     path: '/admin-news',
     component: Layout,
-    meta: { title: '新闻管理', icon: 'dashboard' },
+    meta: { title: '新闻管理', icon: 'building' },
     children: [{
       path: 'news-list',
       name: 'NewsList',
       component: () => import('@/views/admin/news/list'),
-      meta: { title: '新闻列表', icon: 'dashboard' },
+      meta: { title: '新闻列表', icon: 'list' },
     },{
       path: 'news-create',
       name: 'NewsCreate',
       component: () => import('@/views/admin/news/create'),
-      meta: { title: '新增新闻', icon: 'dashboard' }
+      meta: { title: '新增新闻', icon: 'create' }
     },{
       path: 'news-edit',
       name: 'NewsEdit',
       component: () => import('@/views/admin/news/edit'),
-      meta: { title: '编辑新闻', icon: 'dashboard' }
+      meta: { title: '编辑新闻', icon: 'create' }
     }]
   },
   {
@@ -193,48 +193,48 @@ export const constantRoutes = [
       path: 'data',
       name: 'HistoryData',
       component: () => import('@/views/admin/data/index'),
-      meta: { title: '公司数据', icon: 'dashboard' }
+      meta: { title: '公司数据', icon: 'data' }
     }]
   },
   {
     path: '/admin-customer',
     component: Layout,
     children: [{
-      path: 'data',
+      path: 'customer',
       name: 'Customer',
       component: () => import('@/views/admin/customer/index'),
-      meta: { title: '客户分布', icon: 'dashboard' }
+      meta: { title: '客户分布', icon: 'map' }
     }]
   },
   {
     path: '/admin-advantage',
     component: Layout,
     children: [{
-      path: 'data',
+      path: 'advantage',
       name: 'Advantage',
       component: () => import('@/views/admin/advantage/index'),
-      meta: { title: '公司优势', icon: 'dashboard' }
+      meta: { title: '公司优势', icon: 'advantage' }
     }]
   },
   {
     path: '/admin-history',
     component: Layout,
-    meta: { title: '发展历程', icon: 'dashboard' },
+    meta: { title: '发展历程', icon: 'history' },
     children: [{
       path: 'history-list',
       name: 'HistoryList',
       component: () => import('@/views/admin/history/list'),
-      meta: { title: '历程列表', icon: 'dashboard' },
+      meta: { title: '历程列表', icon: 'list' },
     },{
       path: 'history-create',
       name: 'HistoryCreate',
       component: () => import('@/views/admin/history/create'),
-      meta: { title: '新增历程', icon: 'dashboard' }
+      meta: { title: '新增历程', icon: 'create' }
     },{
       path: 'history-edit',
       name: 'HistoryEdit',
       component: () => import('@/views/admin/history/edit'),
-      meta: { title: '编辑历程', icon: 'dashboard' }
+      meta: { title: '编辑历程', icon: 'create' }
     }]
   },
   {
@@ -244,7 +244,7 @@ export const constantRoutes = [
       path: 'list',
       name: 'Message',
       component: () => import('@/views/admin/message/index'),
-      meta: { title: '留言管理', icon: 'dashboard' },
+      meta: { title: '留言管理', icon: 'message' },
     }]
   },
   {
@@ -254,7 +254,7 @@ export const constantRoutes = [
       path: 'about-us',
       name: 'AboutUs',
       component: () => import('@/views/admin/news/list'),
-      meta: { title: '关于我们', icon: 'dashboard' },
+      meta: { title: '关于我们', icon: 'users' },
     }]
   },
   // 404 page must be placed at the end !!!
