@@ -119,7 +119,8 @@ export const constantRoutes = [
       path: 'edit',
       name: 'AdminBannerEdit',
       component: () => import('@/views/admin/banner/edit'),
-      meta: { title: '编辑轮播', icon: 'create' }
+      meta: { title: '编辑轮播', icon: 'create' },
+      hidden:true
     }]
   },
 
@@ -128,17 +129,17 @@ export const constantRoutes = [
     component: Layout,
     meta: { title: '产品管理', icon: 'example' },
     children: [{
-      path: 'product-list',
+      path: 'list',
       name: 'ProductList',
       component: () => import('@/views/admin/product/list'),
       meta: { title: '产品列表', icon: 'list' },
     },{
-      path: 'product-create',
+      path: 'create',
       name: 'ProductCreate',
       component: () => import('@/views/admin/product/create'),
       meta: { title: '新增产品', icon: 'create' }
     },{
-      path: 'product-edit',
+      path: 'edit',
       name: 'ProductEdit',
       component: () => import('@/views/admin/product/edit'),
       meta: { title: '编辑产品', icon: 'create' }
@@ -149,17 +150,17 @@ export const constantRoutes = [
     component: Layout,
     meta: { title: '案例管理', icon: 'dashboard' },
     children: [{
-      path: 'case-list',
+      path: 'list',
       name: 'CaseList',
       component: () => import('@/views/admin/case/list'),
       meta: { title: '案例列表', icon: 'list' },
     },{
-      path: 'case-create',
+      path: 'create',
       name: 'CaseCreate',
       component: () => import('@/views/admin/case/create'),
       meta: { title: '新增案例', icon: 'create' }
     },{
-      path: 'case-edit',
+      path: 'edit',
       name: 'CaseEdit',
       component: () => import('@/views/admin/case/edit'),
       meta: { title: '编辑案例', icon: 'create' }
@@ -170,17 +171,17 @@ export const constantRoutes = [
     component: Layout,
     meta: { title: '新闻管理', icon: 'building' },
     children: [{
-      path: 'news-list',
+      path: 'list',
       name: 'NewsList',
       component: () => import('@/views/admin/news/list'),
       meta: { title: '新闻列表', icon: 'list' },
     },{
-      path: 'news-create',
+      path: 'create',
       name: 'NewsCreate',
       component: () => import('@/views/admin/news/create'),
       meta: { title: '新增新闻', icon: 'create' }
     },{
-      path: 'news-edit',
+      path: 'edit',
       name: 'NewsEdit',
       component: () => import('@/views/admin/news/edit'),
       meta: { title: '编辑新闻', icon: 'create' }

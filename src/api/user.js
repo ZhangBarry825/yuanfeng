@@ -16,9 +16,10 @@ export function getInfo(token) {
   })
 }
 
-export function logout() {
+export function logout(data) {
   return request({
     url: '/background-login/outLogin',
-    method: 'post'
+    method: 'post',
+    data
   })
 }

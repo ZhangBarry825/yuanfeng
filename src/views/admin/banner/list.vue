@@ -36,11 +36,11 @@
       <el-table-column
         prop="imageUrl"
         label="图片">
-        <template slot-scope="scope">
+        <template  #default="{row}">
           <el-image
             class="miniImg"
-            :src="baseImgUrl+scope.row.imageUrl"
-            :preview-src-list="[baseImgUrl+scope.row.imageUrl]">
+            :src="baseImgUrl+row.imageUrl"
+            :preview-src-list="[baseImgUrl+row.imageUrl]">
           </el-image>
         </template>
       </el-table-column>
@@ -126,10 +126,7 @@
             }
           })
         }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: 'cancel'
-          });
+
         });
       },
       handleDelete(id){
@@ -151,10 +148,6 @@
             }
           })
         }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: 'cancel'
-          });
         });
       },
       switchState(data){

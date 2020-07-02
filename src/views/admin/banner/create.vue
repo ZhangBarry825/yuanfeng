@@ -6,28 +6,28 @@
       <el-form-item label="标题" prop="title">
         <el-input v-model="ruleForm.title"></el-input>
       </el-form-item>
-      <el-form-item label="状态" prop="state">
-        <el-switch
-          :active-value="1"
-          :inactive-value="0"
-          v-model="ruleForm.state"></el-switch>
-      </el-form-item>
+<!--      <el-form-item label="状态" prop="status">-->
+<!--        <el-switch-->
+<!--          active-value="1"-->
+<!--          inactive-value="0"-->
+<!--          v-model="ruleForm.status"></el-switch>-->
+<!--      </el-form-item>-->
       <el-form-item label="排序" prop="sort">
         <el-input type="number" v-model="ruleForm.sort"></el-input>
       </el-form-item>
       <el-form-item label="图片" prop="imageUrl">
         <Uploader :limitNum="1" @handSubmit="imgSubmit" @handRemove="imgRemove"></Uploader>
       </el-form-item>
-      <el-form-item label="简述" prop="introduction">
-        <el-input type="textarea" :autosize="{ minRows: 4}" v-model="ruleForm.introduction"></el-input>
+      <el-form-item label="简述" prop="details">
+        <el-input type="textarea" :autosize="{ minRows: 4}" v-model="ruleForm.details"></el-input>
       </el-form-item>
 <!--      <el-form-item label="Content" prop="content">-->
 <!--        &lt;!&ndash;        <el-input type="textarea"  v-model="ruleForm.content"></el-input>&ndash;&gt;-->
 <!--        <Editor v-model="ruleForm.content" :height="300"></Editor>-->
 <!--      </el-form-item>-->
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
-        <el-button @click="resetForm('ruleForm')">Reset</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">新增</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
 
@@ -46,8 +46,8 @@
       return {
         ruleForm: {
           title: '',
-          state: 1,
-          introduction: '',
+          status: '1',
+          details: '',
           content:'',
           imageUrl:'',
           sort:'',
@@ -62,7 +62,7 @@
           sort: [
             {required: true, message: '请输入排序', trigger: 'blur'}
           ],
-          introduction: [
+          details: [
             {required: true, message: '请输入简述', trigger: 'blur'},
             {min: 0, max: 100, message: '最长100字', trigger: 'blur'}
           ],
@@ -82,29 +82,30 @@
     },
     methods:{
       imgSubmit(path){
+        console.log(path,123)
         this.ruleForm.imageUrl = path
       },
       imgRemove(){
         this.ruleForm.imageUrl = ''
       },
       submitForm(formName) {
+        console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData=new FormData()
             formData.append('title',this.ruleForm.title)
             formData.append('imageUrl',this.ruleForm.imageUrl)
             formData.append('sort',this.ruleForm.sort)
-            formData.append('state',this.ruleForm.state)
-            formData.append('introduction',this.ruleForm.introduction)
-            formData.append('content',this.ruleForm.content)
-
+            // formData.append('status',this.ruleForm.status)
+            formData.append('details',this.ruleForm.details)
+            // formData.append('content',this.ruleForm.content)
             addBanner(formData).then(res=>{
               if(res.code && res.code==200){
                 this.$message({
-                  message:'create successfully!',
+                  message:'新增成功!',
                   type:'success'
                 })
-                this.$router.push({path:'/banner/list'})
+                this.$router.push({path:'/admin-banner/list'})
               }
             })
           } else {

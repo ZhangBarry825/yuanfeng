@@ -9,8 +9,8 @@
         :on-remove="handleRemove"
         :file-list="backImgs"
         list-type="picture">
-        <el-button size="small" type="primary">upload</el-button>
-        <div slot="tip" class="el-upload__tip">You can only upload jpg/png,and no more than 2MB</div>
+        <el-button size="small" type="primary">上传</el-button>
+<!--        <div slot="tip" class="el-upload__tip">You can only upload jpg/png,and no more than 2MB</div>-->
       </el-upload>
     </div>
 </template>
@@ -54,11 +54,11 @@
             isLt2M = file.size / 1024 / 1024 < 2;
           // 这里常规检验，看项目需求而定
           if (!isImage) {
-            this.$message.error("You can only select png,jpg and gif!");
+            this.$message.error("文件类型仅限png,jpg和gif!");
             return;
           }
           if (!isLt2M) {
-            this.$message.error("The size of the file must less than 2M");
+            this.$message.error("文件大小必须小于2M");
             return;
           }
           // 根据后台需求数据格式
@@ -67,7 +67,7 @@
           form.append("file", file);
           uploadFile(form).then(res => {
             if (res.data || res.code == 200) {
-              this.$emit('handSubmit',res.data[0])
+              this.$emit('handSubmit',res.data)
               this.ifHidden=true
             }
           }).catch(() => {

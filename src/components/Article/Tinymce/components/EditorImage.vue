@@ -1,7 +1,7 @@
 <template>
   <div class="upload-container">
     <el-button :style="{background:color,borderColor:color}" icon="el-icon-upload" size="mini" type="primary" @click=" dialogVisible=true">
-      upload
+      上传
     </el-button>
     <el-dialog :visible.sync="dialogVisible">
       <el-upload
@@ -16,14 +16,14 @@
         list-type="picture-card"
       >
         <el-button size="small" type="primary">
-          Click upload
+          点击上传
         </el-button>
       </el-upload>
       <el-button @click="dialogVisible = false">
-        Cancel
+        取消
       </el-button>
       <el-button type="primary" @click="handleSubmit">
-        Confirm
+        确认
       </el-button>
     </el-dialog>
   </div>
@@ -44,8 +44,8 @@ export default {
   },
   data() {
     return {
-      uploadUrl:this.$globalData.baseImgUrl+'/image-backend/up',
-      baseImgUrl:this.$globalData.baseImgUrl,
+      uploadUrl:this.$imgBaseUrl+'/image-backend/up',
+      baseImgUrl:this.$imgBaseUrl,
       dialogVisible: false,
       listObj: {},
       fileList: []
@@ -60,11 +60,11 @@ export default {
         isLt2M = file.size / 1024 / 1024 < 2;
       // 这里常规检验，看项目需求而定
       if (!isImage) {
-        this.$message.error("You can only select png,jpg and gif!");
+        this.$message.error("文件类型仅限png,jpg和gif!");
         return;
       }
       if (!isLt2M) {
-        this.$message.error("The size of the file must less than 2M");
+        this.$message.error("文件大小必须小于2M");
         return;
       }
       // 根据后台需求数据格式
@@ -90,7 +90,7 @@ export default {
       console.log(this.listObj)
       const arr = Object.keys(this.listObj).map(v => this.listObj[v])
       if (!this.checkAllSuccess()) {
-        this.$message('Please wait for all images to be uploaded successfully. If there is a network problem, please refresh the page and upload again!')
+        this.$message('请等待所有图片上传完毕，如有问题请刷新后重试!')
         return
       }
       this.$emit('successCBK', arr)
