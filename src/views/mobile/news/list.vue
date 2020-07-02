@@ -20,7 +20,12 @@
     </div>
 
     <div class="items" v-loading="loading">
-      <div class="item" v-for="(item, index) in newsobj.list" :key="index">
+      <div
+        class="item"
+        v-for="(item, index) in newsobj.list"
+        @click="jumpDetails(item)"
+        :key="index"
+      >
         <div class="left" :style="`background-image: url('${baseUrl}${item.imageUrl}')`"></div>
         <div class="right">
           <div class="line1">{{item.title}}</div>
@@ -74,6 +79,15 @@ export default {
     this.retrieveData()
   },
   methods: {
+    jumpDetails (item) {
+      this.$router.push({
+        path: '/news-detail',
+        query: {
+          item: JSON.stringify(item)
+        }
+      })
+      console.log(item, "大")
+    },
     prevclick () {
       this.pageNum += 1
       this.retrieveData()

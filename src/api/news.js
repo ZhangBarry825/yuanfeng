@@ -7,3 +7,11 @@ export function newsAdvisory (data) {
         params: data
     })
 }
+
+export function queryById (data) {
+    return request({
+        url: '/webfront-newsSubpage/queryById',
+        method: 'get',
+        params: data
+    })
+}

@@ -83,6 +83,12 @@ export default {
   },
   methods: {
     jumpDetails (item) {
+      this.$router.push({
+        path: '/news-detail',
+        query: {
+          item: JSON.stringify(item)
+        }
+      })
       console.log(item, "大")
     },
     switchNews (text) {
