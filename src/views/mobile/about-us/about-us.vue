@@ -69,7 +69,7 @@
 <script>
 import MobileFooter from "@/components/MobileFooter/index";
 import MobileHeader from "@/components/MobileHeader/index";
-import { CompanyCulList, getDamn, getCulture, queryAboutUs } from '@/api/About';
+import { CompanyCulList, getDamn, getCulture, queryAboutUs } from '@/api/about';
 
 export default {
   name: "MobileAboutUs",

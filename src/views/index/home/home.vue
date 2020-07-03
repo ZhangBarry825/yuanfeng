@@ -64,9 +64,10 @@
           </div>
           <div class="border"></div>
         </div>
-        <div class="menus">
-          <div class="menu" @click="changeGroup(index,'product')" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in productGroupList">{{item}}</div>
-        </div>
+        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeProductIndex" @click="changeGroup(activeProductIndex,'product')">
+          <Tab v-for="(item,index)  in productGroupList"  :title="item">
+          </Tab>
+        </Tabs>
         <div class="items">
           <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
             <div class="pic">
@@ -114,16 +115,16 @@
           <div class="border"></div>
         </div>
         <div class="map" :style="'background-image: url('+baseUrl+customerMap+')'">
-          <div class="map-data">
-            <div class="line">
-              <img src="../../../../public/images/dot1.png" alt="">
-              <div class="text">服务过的客户</div>
-            </div>
-            <div class="line">
-              <img src="../../../../public/images/dot2.png" alt="">
-              <div class="text">正在洽谈的合作</div>
-            </div>
-          </div>
+<!--          <div class="map-data">-->
+<!--            <div class="line">-->
+<!--              <img src="../../../../public/images/dot1.png" alt="">-->
+<!--              <div class="text">服务过的客户</div>-->
+<!--            </div>-->
+<!--            <div class="line">-->
+<!--              <img src="../../../../public/images/dot2.png" alt="">-->
+<!--              <div class="text">正在洽谈的合作</div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="case" id="case">
@@ -136,9 +137,10 @@
           </div>
           <div class="border"></div>
         </div>
-        <div class="menus">
-          <div class="menu" @click="changeGroup(index,'case')" :class="{'selected':index==nowCaseGroupIndex}" v-for="(item,index) in caseGroupList">{{item}}</div>
-        </div>
+        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeCaseIndex" @click="changeGroup(activeCaseIndex,'case')">
+          <Tab v-for="(item,index)  in caseGroupList"  :title="item">
+          </Tab>
+        </Tabs>
         <div class="items">
           <div class="item" v-for="(item,index) in caseList" @click="$router.push({path:'/case-detail?id='+item.id})">
             <div class="pic">
@@ -196,17 +198,23 @@
     fetchProductGroupList, fetchProductList, fetchNewsList, fetchFooterList
   } from "@/api/home";
 
+  import { Tab, Tabs } from 'vant';
+  import 'vant/lib/tabs/index.css';
+
   export default {
     name: "Home",
     components: {
       Header,
       Footer,
       Banner,
-      MobileHome
+      MobileHome,
+      Tab, Tabs
     },
     props: ['isMobile'],
     data(){
       return{
+        activeProductIndex:0,
+        activeCaseIndex:0,
         baseUrl:this.$imgBaseUrl,
         nowProductGroupIndex:0,
         nowCaseGroupIndex:0,
@@ -1077,6 +1085,16 @@
           .list:hover {
             border-bottom: 2px solid #3653B6;
           }
+        }
+      }
+
+      .tabs{
+        min-width: 1200px;
+        border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+
+        ::v-deep .van-tab__text{
+          padding: 20px 0;
+          font-size: 20px;
         }
       }
     }

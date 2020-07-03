@@ -6,11 +6,17 @@
         <div class="text">产品中心</div>
       </div>
       <div class="center">
-        <div class="menus">
-          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}"
-               v-for="(item,index) in productGroupList">{{item}}
-          </div>
-        </div>
+<!--        <div class="menus">-->
+<!--          <div class="menu" @click="changeGroup(index)" :class="{'selected':index==nowProductGroupIndex}"-->
+<!--               v-for="(item,index) in productGroupList">{{item}}-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeIndex" @click="changeGroup">
+          <Tab v-for="(item,index)  in productGroupList"  :title="item">
+          </Tab>
+        </Tabs>
+
         <div class="items" v-loading="loading">
           <div class="item" v-for="(item,index) in productList" :key="item.id"
                @click="$router.push({path:'/product-detail?id='+item.id})">
@@ -32,6 +38,10 @@
       <Footer></Footer>
     </div>
     <MobileProduct v-if="isMobile"></MobileProduct>
+
+
+
+
   </div>
 </template>
 
@@ -41,16 +51,22 @@
   import MobileProduct from "../../mobile/product/product-center";
   import {fetchProductGroupList, fetchProductList} from "@/api/product";
 
+  import { Tab, Tabs } from 'vant';
+  import 'vant/lib/tabs/index.css';
+
+
   export default {
     name: "ProductCenter",
     components: {
       Header,
       Footer,
-      MobileProduct
+      MobileProduct,
+      Tab, Tabs
     },
     props: ['isMobile'],
     data() {
       return {
+        activeIndex:0,
         loading: false,
         pageSize: 8,
         pageNum: 1,
@@ -89,7 +105,11 @@
           this.loading = false
         }, 200)
       },
-      async changeGroup(index) {
+      // changeTab(e){
+      //   console.log(e)
+      // },
+      async changeGroup() {
+        let index = this.activeIndex
         this.loading = true
         this.nowProductGroupIndex = index
         this.pageNum = 1
@@ -151,14 +171,32 @@
         align-items: center;
         flex-direction: column;
 
+        .menus::-webkit-scrollbar {
+          /*滚动条整体样式*/
+          width : 1px;  /*高宽分别对应横竖滚动条的尺寸*/
+          height: 3px;
+        }
+        .menus::-webkit-scrollbar-thumb {
+          /*滚动条里面小方块*/
+          border-radius: 10px;
+          box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+          background   : #999;
+        }
+        .menus::-webkit-scrollbar-track {
+          /*滚动条里面轨道*/
+          box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          background   : #ededed;
+        }
         .menus {
           min-width: 1200px;
           border-bottom: 2px solid rgba(204, 204, 204, 0.5);
           display: flex;
           flex-direction: row;
           justify-content: center;
-
+          overflow-x: scroll;
           .menu {
+            flex-shrink:0;
             cursor: pointer;
             color: #343434;
             font-size: 20px;
@@ -169,6 +207,15 @@
           .selected {
             color: #3652B6;
             border-bottom: 2px solid #3652B6;
+          }
+        }
+        .tabs{
+          min-width: 1200px;
+          border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+
+          ::v-deep .van-tab__text{
+            padding: 20px 0;
+            font-size: 20px;
           }
         }
 

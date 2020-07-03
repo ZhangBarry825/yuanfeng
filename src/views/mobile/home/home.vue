@@ -61,9 +61,10 @@
         </div>
         <div class="border"></div>
       </div>
-      <div class="menus">
-        <div class="menu" @click="changeGroup(index,'product')" :class="{'selected':index==nowProductGroupIndex}" v-for="(item,index) in pcData.productGroupList">{{item}}</div>
-      </div>
+      <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeProductIndex" @click="changeGroup(activeProductIndex,'product')">
+        <Tab v-for="(item,index)  in pcData.productGroupList"  :title="item">
+        </Tab>
+      </Tabs>
       <div class="items">
         <div class="item" v-for="(item,index) in pcData.productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
           <div class="pic">
@@ -131,9 +132,10 @@
         </div>
         <div class="border"></div>
       </div>
-      <div class="menus">
-        <div class="menu" @click="changeGroup(index,'case')" :class="{'selected':index==nowCaseGroupIndex}" v-for="(item,index) in pcData.caseGroupList">{{item}}</div>
-      </div>
+      <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeCaseIndex" @click="changeGroup(activeCaseIndex,'case')">
+        <Tab v-for="(item,index)  in pcData.caseGroupList"  :title="item">
+        </Tab>
+      </Tabs>
       <div class="items">
         <div class="item" v-for="(item,index) in pcData.caseList" @click="$router.push({path:'/case-detail?id='+item.id})">
           <div class="pic">
@@ -277,19 +279,25 @@
   import MobileFooter from "../../../components/MobileFooter/index";
   import {fetchCaseList, fetchProductList} from "@/api/home";
 
+  import { Tab, Tabs } from 'vant';
+  import 'vant/lib/tabs/index.css';
+
   export default {
     name: "Home",
     components: {
       MobileBanner,
       MobileFooter,
       Swiper,
-      SwiperSlide
+      SwiperSlide,
+      Tab, Tabs
     },
     directives: {
       swiper: directive
     },
     data(){
       return{
+        activeProductIndex:0,
+        activeCaseIndex:0,
         baseUrl:this.$imgBaseUrl,
         nowProductGroupIndex:0,
         nowCaseGroupIndex:0,
@@ -313,13 +321,13 @@
     methods:{
       async changeGroup(index,type){
         if(type=='product'){
+          this.nowProductGroupIndex=index
           let productList= await fetchProductList({groupName:this.pcData.productGroupList[index]})
           this.pcData.productList=productList.data
-          this.nowProductGroupIndex=index
         }else if(type=='case'){
+          this.nowCaseGroupIndex=index
           let caseList= await fetchCaseList({groupName:this.pcData.caseGroupList[index]})
           this.pcData.caseList=caseList.data
-          this.nowCaseGroupIndex=index
         }else {
 
         }
@@ -1052,6 +1060,15 @@
             }
           }
         }
+      }
+    }
+
+    .tabs{
+      width: 100%;
+      border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+
+      ::v-deep .van-tab__text{
+        font-size: .65rem;
       }
     }
   }

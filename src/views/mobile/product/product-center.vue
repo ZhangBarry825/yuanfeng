@@ -2,15 +2,22 @@
   <div class="mobile-product">
     <MobileHeader title="产品中心" :menuId="2"></MobileHeader>
     <div class="center">
-      <div class="menus">
-        <div
-          class="menu"
-          @click="changeGroup(index)"
-          :class="{'selected':index==nowProductGroupIndex}"
-          v-for="(item,index) in productGroupList"
-          :key="index"
-        >{{item}}</div>
-      </div>
+<!--      <div class="menus">-->
+<!--        <div-->
+<!--          class="menu"-->
+<!--          @click="changeGroup(index)"-->
+<!--          :class="{'selected':index==nowProductGroupIndex}"-->
+<!--          v-for="(item,index) in productGroupList"-->
+<!--          :key="index"-->
+<!--        >{{item}}</div>-->
+<!--      </div>-->
+
+      <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeIndex" @click="changeGroup">
+        <Tab v-for="(item,index)  in productGroupList"  :title="item">
+        </Tab>
+      </Tabs>
+
+
       <div class="items">
         <div
           class="item"
@@ -51,14 +58,19 @@ import MobileFooter from "@/components/MobileFooter/index";
 import MobileHeader from "@/components/MobileHeader/index";
 import { fetchProductGroupList, fetchProductList } from "@/api/product";
 
+import { Tab, Tabs } from 'vant';
+import 'vant/lib/tabs/index.css';
+
 export default {
   name: "MobileProductCenter",
   components: {
     MobileFooter,
-    MobileHeader
+    MobileHeader,
+    Tab, Tabs
   },
   data () {
     return {
+      activeIndex:0,
       pageSize: 8,
       pageNum: 1,
       baseUrl: this.$imgBaseUrl,
@@ -121,7 +133,21 @@ export default {
     flex-direction: column;
 
     .menus::-webkit-scrollbar {
-      display: none;
+      /*滚动条整体样式*/
+      width : 1px;  /*高宽分别对应横竖滚动条的尺寸*/
+      height: 3px;
+    }
+    .menus::-webkit-scrollbar-thumb {
+      /*滚动条里面小方块*/
+      border-radius: 10px;
+      box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+      background   : #999;
+    }
+    .menus::-webkit-scrollbar-track {
+      /*滚动条里面轨道*/
+      box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background   : #ededed;
     }
     .menus {
       width: 100%;
@@ -147,6 +173,14 @@ export default {
       .selected {
         color: #3652b6;
         border-bottom: 2px solid #3652b6;
+      }
+    }
+    .tabs{
+      width: 100%;
+      border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+
+      ::v-deep .van-tab__text{
+        font-size: 0.75rem;
       }
     }
 
