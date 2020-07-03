@@ -1,6 +1,6 @@
 <template>
   <div class="list-box">
-    <el-row><h2>产品分类</h2></el-row>
+    <el-row><h2>案例分类</h2></el-row>
     <el-button-group class="buttons">
       <el-button size="small" type="primary" icon="el-icon-edit"  @click="dialogFormVisible = true;isCreate=true">
         新增
@@ -88,15 +88,12 @@
   import {
     addClass,
     deleteClass,
-    deleteProduct,
     getAllClass,
-    getProductList,
     updateClass,
-    updateProduct
-  } from "@/api/admin-product";
+  } from "@/api/admin-case";
 
   export default {
-    name: "ProductClassList",
+    name: "CaseClassList",
     data() {
       return {
         loading:false,

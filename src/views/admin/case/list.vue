@@ -1,8 +1,8 @@
 <template>
   <div class="list-box">
-    <el-row><h2>产品列表</h2></el-row>
+    <el-row><h2>案例列表</h2></el-row>
     <el-button-group class="buttons">
-      <el-button size="small" type="primary" icon="el-icon-edit" @click="goTo('/admin-product/create')">
+      <el-button size="small" type="primary" icon="el-icon-edit" @click="goTo('/admin-case/create')">
         新增
       </el-button>
       <el-button size="small" type="primary" icon="el-icon-delete" @click="deleteItems"
@@ -21,8 +21,8 @@
         width="55">
       </el-table-column>
       <el-table-column
-        prop="productName"
-        label="产品名称">
+        prop="title"
+        label="案例名称">
       </el-table-column>
       <el-table-column
         prop="groupName"
@@ -30,10 +30,6 @@
         <template slot-scope="scope">
           <el-tag size="medium">{{ scope.row.groupName }}</el-tag>
         </template>
-      </el-table-column>
-      <el-table-column
-        prop="productPre"
-        label="简述">
       </el-table-column>
       <el-table-column
         prop="imageUrl"
@@ -100,6 +96,7 @@
 
 <script>
   import {deleteProduct, getProductList, updateProduct} from "@/api/admin-product";
+  import {deleteCase, getCaseList, updateCase} from "@/api/admin-case";
 
   export default {
     name: "CaseList",
@@ -134,7 +131,7 @@
         }).then(() => {
           let formData=new FormData()
           formData.append('id',d)
-          deleteProduct(formData).then(res=>{
+          deleteCase(formData).then(res=>{
             if(res.code && res.code == 200){
               this.$message({
                 type: 'success',
@@ -155,7 +152,7 @@
         }).then(() => {
           let formData=new FormData()
           formData.append('id',id)
-          deleteProduct(formData).then(res=>{
+          deleteCase(formData).then(res=>{
             if(res.code && res.code == 200){
               this.$message({
                 type: 'success',
@@ -174,19 +171,18 @@
         //console.log(data)
         let formData=new FormData()
         formData.append('id',data.id)
-        formData.append('productPre',data.productPre)
         formData.append('groupName',data.groupName)
-        formData.append('productName',data.productName)
-        formData.append('productDetail',data.productDetail)
+        formData.append('title',data.title)
+        formData.append('text',data.text)
         formData.append('status',data.status)
-        formData.append('smallImages',data.smallImages)
         formData.append('imageUrl',data.imageUrl)
         formData.append('indexShow',data.indexShow)
-        updateProduct(formData).then(res=>{
-          //console.log(res,876)
+        updateCase(formData).then(res=>{
           if(res.code && res.code === 200){
             that.loading=false
           }
+        }).catch(()=>{
+          this.fetchData()
         })
 
       },
@@ -194,7 +190,7 @@
         this.multipleSelection = val;
       },
       handleClick(row) {
-        this.goTo('/admin-product/edit?id='+row.id)
+        this.goTo('/admin-case/edit?id='+row.id)
         //console.log(row);
       },
       changePage(currentPage, isDelete = false, deleteNum = 1) {
@@ -219,7 +215,7 @@
       },
       fetchData(page = this.pageNum) {
         this.loading=true
-        getProductList({
+        getCaseList({
           pageNum: page,
           pageSize: this.pageSize,
         }).then(res => {

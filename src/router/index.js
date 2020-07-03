@@ -166,10 +166,16 @@ export const constantRoutes = [
       component: () => import('@/views/admin/case/create'),
       meta: { title: '新增案例', icon: 'create' }
     },{
+      path: 'class',
+      name: 'CaseClassList',
+      component: () => import('@/views/admin/case/class-list'),
+      meta: { title: '案例分类', icon: 'list' },
+    },{
       path: 'edit',
       name: 'CaseEdit',
       component: () => import('@/views/admin/case/edit'),
-      meta: { title: '编辑案例', icon: 'create' }
+      meta: { title: '编辑案例', icon: 'create' },
+      hidden:true
     }]
   },
   {
