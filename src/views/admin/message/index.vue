@@ -1,6 +1,10 @@
 <template>
   <div class="Message">
-    <el-table :data="tableData" style="width: 100%">
+    <el-row>
+      <h2>留言列表</h2>
+    </el-row>
+    <el-table v-loading="loading" :data="tableData" style="width: 100%">
+      <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column align="center" prop="name" label="名称" />
       <el-table-column align="center" prop="detail" label="留言" />
       <el-table-column align="center" prop="email" label="邮箱" />
@@ -26,7 +30,8 @@ export default {
     return {
       tableData: [],
       pageNum: 1,
-      total: 0
+      total: 0,
+      loading: false
     }
   },
   //生命周期函数
@@ -36,9 +41,11 @@ export default {
   //方法
   methods: {
     async retrieveData () {
+      this.loading = true
       let res = await queryByPageList({ pageSize: 10, pageNum: this.pageNum })
       this.tableData = res.data.list
       this.total = res.data.total
+      this.loading = false
       console.log(res)
     },
     handleChange (val) {
@@ -57,6 +64,8 @@ export default {
 
 <style lang='scss' scoped>
 .Message {
+  width: 95%;
+  margin: 50px auto;
   .pagination {
     width: 100%;
     margin: 30px auto;

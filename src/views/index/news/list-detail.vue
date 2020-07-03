@@ -60,15 +60,15 @@ export default {
   props: ['isMobile'],
   data () {
     return {
-      details: {}
+      details: {},
     }
   },
   created () {
     console.log(this.$route.query, "111")
-    this.retrieveData()
+    this.retrieveData(JSON.parse(this.$route.query.item).id)
   },
   methods: {
-    async retrieveData () {
+    async retrieveData (id) {
       let { data } = await queryById({ id })
       this.details = data
       console.log(data, "110  ")
