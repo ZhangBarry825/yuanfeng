@@ -15,7 +15,7 @@
           class="menu menu2"
           :class="groupName=='新闻资讯'?'selected':''"
           @click="switchNews('新闻资讯')"
-        >新闻资讯</div>
+        >公司新闻</div>
         <div
           class="menu menu3"
           :class="groupName=='常见问题'?'selected':''"
@@ -104,7 +104,12 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 500)
-      this.newsobj = data
+      if (data) {
+        this.newsobj = data
+      } else {
+        this.newsobj.list = []
+        this.newsobj.total = 0
+      }
     },
     nextclick (e) {
       this.pageNum = e
