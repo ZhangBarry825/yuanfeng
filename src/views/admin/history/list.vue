@@ -41,7 +41,7 @@
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination layout="prev, pager, next" :total="total" @current-change="handleChange"></el-pagination>
+      <el-pagination background layout="prev, pager, next" :total="total" @current-change="handleChange"></el-pagination>
     </div>
   </div>
 </template>
@@ -128,6 +128,9 @@ export default {
   margin: 30px auto;
   .buttons {
     margin-top: 20px;
+  }
+  .pagination{
+    padding: 30px 0;
   }
 }
 </style>

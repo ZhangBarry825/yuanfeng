@@ -248,7 +248,8 @@ export const constantRoutes = [
       path: 'history-edit',
       name: 'HistoryEdit',
       component: () => import('@/views/admin/history/edit'),
-      meta: { title: '编辑历程', icon: 'create' }
+      meta: { title: '编辑历程', icon: 'create' },
+      hidden: true
     }]
   },
   {
@@ -267,7 +268,7 @@ export const constantRoutes = [
     children: [{
       path: 'about-us',
       name: 'AboutUs',
-      component: () => import('@/views/admin/news/list'),
+      component: () => import('@/views/admin/about-us/index'),
       meta: { title: '关于我们', icon: 'users' },
     }]
   },

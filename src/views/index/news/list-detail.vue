@@ -65,7 +65,7 @@ export default {
   },
   created () {
     console.log(this.$route.query, "111")
-    this.retrieveData(JSON.parse(this.$route.query.item).id)
+    this.retrieveData(this.$route.query.id)
   },
   methods: {
     async retrieveData (id) {
@@ -144,17 +144,13 @@ export default {
       }
 
       .content {
+        width: 100%;
         padding: 30px 10px;
         box-sizing: border-box;
 
         ::v-deep img {
           max-width: 100%;
         }
-
-        font-size: 16px;
-        font-weight: 400;
-        color: rgba(51, 51, 51, 1);
-        line-height: 28px;
       }
     }
 

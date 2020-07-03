@@ -78,9 +78,17 @@ export default {
   border: 1px solid #c4bdbd;
 }
 .Customer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  h2 {
+    padding: 10px 0;
+    padding-bottom: 30px;
+    font-size: 25px;
+  }
   ::v-deep .el-upload.el-upload--text {
     // width: 100%;
-    margin-top: 50pxc;
+    margin-top: 50px;
   }
 
   .block {
@@ -88,14 +96,9 @@ export default {
     display: flex;
     justify-content: center;
     ::v-deep.el-image.el-tooltip.item {
-      border: 1rpx solid #c4bdbd;
+      border: 1px solid #c4bdbd;
     }
   }
-}
-h2 {
-  padding: 10px;
-  padding-bottom: 30px;
-  font-size: 25px;
 }
 .asdsize {
   display: flex;

@@ -13,8 +13,8 @@
         >行业新闻</div>
         <div
           class="menu menu2"
-          :class="groupName=='新闻资讯'?'selected':''"
-          @click="switchNews('新闻资讯')"
+          :class="groupName=='公司新闻'?'selected':''"
+          @click="switchNews('公司新闻')"
         >公司新闻</div>
         <div
           class="menu menu3"
@@ -86,7 +86,7 @@ export default {
       this.$router.push({
         path: '/news-detail',
         query: {
-          item: JSON.stringify(item)
+          id: item.id
         }
       })
       console.log(item, "大")

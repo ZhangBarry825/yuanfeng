@@ -36,15 +36,15 @@
         <div class="white"></div>
         <div class="item">
           <div class="title">关于我们</div>
-          <div class="line">公司简介</div>
-          <div class="line">企业文化</div>
-          <div class="line">服务理念</div>
-          <div class="line">发展历程</div>
+          <div class="line" @click="$router.push({path:'/about-us'})">公司简介</div>
+          <div class="line" @click="$router.push({path:'/about-us'})">企业文化</div>
+          <div class="line" @click="$router.push({path:'/about-us'})">服务理念</div>
+          <div class="line" @click="$router.push({path:'/about-us'})">发展历程</div>
         </div>
         <div class="white"></div>
         <div class="item">
           <div class="title">联系我们</div>
-          <div class="line">提交留言</div>
+          <div class="line" @click="$router.push({path:'/contact-us'})">提交留言</div>
         </div>
       </div>
     </div>

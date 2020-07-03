@@ -65,7 +65,14 @@ export default {
 <style lang='scss' scoped>
 .Message {
   width: 95%;
-  margin: 50px auto;
+
+  padding: 20px;
+  box-sizing: border-box;
+  h2 {
+    padding: 10px 0;
+    padding-bottom: 30px;
+    font-size: 25px;
+  }
   .pagination {
     width: 100%;
     margin: 30px auto;

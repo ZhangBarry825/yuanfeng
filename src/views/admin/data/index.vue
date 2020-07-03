@@ -195,9 +195,11 @@ export default {
     width: 96%;
     margin: 0 auto;
   }
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
   h2 {
-    padding: 10px;
-    margin-top: 30px;
+    padding: 10px 0;
     padding-bottom: 30px;
     font-size: 25px;
   }
