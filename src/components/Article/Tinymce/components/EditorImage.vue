@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      uploadUrl:this.$imgBaseUrl+'/image-backend/up',
+      uploadUrl:this.$imgBaseUrl+'/background-imagesUp/up',
       baseImgUrl:this.$imgBaseUrl,
       dialogVisible: false,
       listObj: {},
@@ -103,7 +103,7 @@ export default {
       const objKeyArr = Object.keys(this.listObj)
       for (let i = 0, len = objKeyArr.length; i < len; i++) {
         if (this.listObj[objKeyArr[i]].uid === uid) {
-          this.listObj[objKeyArr[i]].url =this.baseImgUrl+response.data[0]
+          this.listObj[objKeyArr[i]].url =this.baseImgUrl+response.data
           this.listObj[objKeyArr[i]].hasSuccess = true
           console.log(this.listObj[objKeyArr[i]],i)
           return

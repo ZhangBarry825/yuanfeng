@@ -1,8 +1,8 @@
 <template>
   <div class="list-box">
-    <el-row><h2>产品列表</h2></el-row>
+    <el-row><h2>产品分类</h2></el-row>
     <el-button-group class="buttons">
-      <el-button size="small" type="primary" icon="el-icon-edit" @click="goTo('/admin-product/create')">
+      <el-button size="small" type="primary" icon="el-icon-edit"  @click="dialogFormVisible = true">
         新增
       </el-button>
       <el-button size="small" type="primary" icon="el-icon-delete" @click="deleteItems"
@@ -12,7 +12,7 @@
 
     <el-table
       v-loading="loading"
-      :data="productList"
+      :data="categoryList"
       style="width: 100%"
       @selection-change="handleSelectionChange">
       >
@@ -21,30 +21,8 @@
         width="55">
       </el-table-column>
       <el-table-column
-        prop="productName"
-        label="产品名称">
-      </el-table-column>
-      <el-table-column
         prop="groupName"
-        label="分类">
-        <template slot-scope="scope">
-          <el-tag size="medium">{{ scope.row.groupName }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="productPre"
-        label="简述">
-      </el-table-column>
-      <el-table-column
-        prop="imageUrl"
-        label="图片">
-        <template slot-scope="scope">
-          <el-image
-            class="miniImg"
-            :src="baseImgUrl+scope.row.imageUrl"
-            :preview-src-list="[baseImgUrl+scope.row.imageUrl]">
-          </el-image>
-        </template>
+        label="分类名称">
       </el-table-column>
       <el-table-column
         prop="status"
@@ -54,21 +32,6 @@
           <el-switch
             @change="switchState(scope.row)"
             v-model="scope.row.status"
-            :active-value="1"
-            :inactive-value="0"
-            active-color="#13ce66"
-            inactive-color="gainsboro">
-          </el-switch>
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="status"
-        width="100"
-        label="首页展示">
-        <template slot-scope="scope">
-          <el-switch
-            @change="switchState(scope.row)"
-            v-model="scope.row.indexShow"
             :active-value="1"
             :inactive-value="0"
             active-color="#13ce66"
@@ -95,14 +58,45 @@
         :total="totalNum">
       </el-pagination>
     </el-row>
+
+    <el-dialog title="新增分类" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="分类名称" :label-width="formLabelWidth">
+          <el-input maxlength="11" v-model="form.groupName" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="状态" :label-width="formLabelWidth">
+            <el-switch
+              @change="updateState(form.status)"
+              v-model="form.status"
+              :active-value="1"
+              :inactive-value="0"
+              active-color="#13ce66"
+              inactive-color="gainsboro">
+            </el-switch>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false;form={id:'',groupName:'',status:1}">取 消</el-button>
+        <el-button v-if="isCreate" type="primary" @click="createClass">确 定</el-button>
+        <el-button v-if="!isCreate" type="primary" @click="updateClass">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-  import {deleteProduct, getProductList, updateProduct} from "@/api/admin-product";
+  import {
+    addClass,
+    deleteClass,
+    deleteProduct,
+    getAllClass,
+    getProductList,
+    updateClass,
+    updateProduct
+  } from "@/api/admin-product";
 
   export default {
-    name: "CaseList",
+    name: "ProductClassList",
     data() {
       return {
         loading:false,
@@ -112,10 +106,82 @@
         hasNext: false,
         totalNum: 0,
         multipleSelection:[],//多选内容
-        productList: []
+        categoryList: [],
+
+        isCreate:true,
+        dialogFormVisible: false,
+        form: {
+          id:'',
+          groupName:'',
+          status:1
+        },
+        formLabelWidth: '120px'
       }
     },
     methods: {
+      createClass(){
+        let form= new FormData()
+        form.append('groupName',this.form.groupName)
+        form.append('status',this.form.status)
+        addClass(form).then(res=>{
+          if(res.code && res.code == 200 && res.msg=='添加失败,分组名已存在'){
+            this.$message({
+              type: 'error',
+              message: '分组名已存在!'
+            });
+          }else if(res.code && res.code == 200){
+            this.$message({
+              type: 'success',
+              message: '添加成功!'
+            });
+            this.fetchData()
+            this.dialogFormVisible=false
+            this.form={
+              id:'',
+              groupName:'',
+              status:''
+            }
+          }
+        })
+      },
+      updateClass(){
+        let form= new FormData()
+        form.append('id',this.form.id)
+        form.append('groupName',this.form.groupName)
+        form.append('status',this.form.status)
+        updateClass(form).then(res=>{
+          if(res.code && res.code == 200 && res.msg=='添加失败,分组名已存在'){
+            this.$message({
+              type: 'error',
+              message: '分组名已存在!'
+            });
+          }else if(res.code && res.code == 200){
+            this.$message({
+              type: 'success',
+              message: '修改成功!'
+            });
+            this.fetchData()
+            this.dialogFormVisible=false
+            this.form={
+              id:'',
+              groupName:'',
+              status:''
+            }
+          }
+        })
+      },
+      updateState(e){
+        e==1?this.form.status=1:this.form.status=0
+      },
+      handleClick(row) {
+        console.log(row);
+        this.dialogFormVisible=true
+        this.form={
+          id:row.id,
+          groupName:row.groupName,
+          status:row.status
+        }
+      },
       goTo(path){
         this.$router.push({path:path})
       },
@@ -134,7 +200,7 @@
         }).then(() => {
           let formData=new FormData()
           formData.append('id',d)
-          deleteProduct(formData).then(res=>{
+          deleteClass(formData).then(res=>{
             if(res.code && res.code == 200){
               this.$message({
                 type: 'success',
@@ -155,7 +221,7 @@
         }).then(() => {
           let formData=new FormData()
           formData.append('id',id)
-          deleteProduct(formData).then(res=>{
+          deleteClass(formData).then(res=>{
             if(res.code && res.code == 200){
               this.$message({
                 type: 'success',
@@ -174,15 +240,10 @@
         //console.log(data)
         let formData=new FormData()
         formData.append('id',data.id)
-        formData.append('productPre',data.productPre)
-        formData.append('groupName',data.groupName)
-        formData.append('productName',data.productName)
-        formData.append('productDetail',data.productDetail)
         formData.append('status',data.status)
-        formData.append('smallImages',data.smallImages)
-        formData.append('imageUrl',data.imageUrl)
-        formData.append('indexShow',data.indexShow)
-        updateProduct(formData).then(res=>{
+        formData.append('groupName',data.groupName)
+
+        updateClass(formData).then(res=>{
           //console.log(res,876)
           if(res.code && res.code === 200){
             that.loading=false
@@ -193,16 +254,10 @@
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
-      handleClick(row) {
-        this.goTo('/admin-product/edit?id='+row.id)
-        //console.log(row);
-      },
+
       changePage(currentPage, isDelete = false, deleteNum = 1) {
         if (isDelete) {
           let num = this.totalNum % this.pageSize
-          //console.log(this.totalNum, 'this.totalNum')
-          //console.log(this.pageSize, 'this.pageSize')
-          //console.log(num, 'num')
           if (num > deleteNum) {
             this.pageNum = currentPage
           } else {
@@ -219,16 +274,13 @@
       },
       fetchData(page = this.pageNum) {
         this.loading=true
-        getProductList({
-          pageNum: page,
-          pageSize: this.pageSize,
+        getAllClass({
+          pageSize:this.pageSize,
+          pageNum:page
         }).then(res => {
+          //console.log(res,1)
           if (res.code && res.code === 200) {
-            this.productList = res.data.list
-            this.totalNum = res.data.total
-            this.hasNext = res.data.hasNextPage
-            this.totalNum=res.data.total
-            this.pageNum=page
+            this.categoryList=res.data.list
           }
           this.loading=false
         })

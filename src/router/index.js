@@ -139,10 +139,16 @@ export const constantRoutes = [
       component: () => import('@/views/admin/product/create'),
       meta: { title: '新增产品', icon: 'create' }
     },{
+      path: 'class',
+      name: 'ProductClassList',
+      component: () => import('@/views/admin/product/class-list'),
+      meta: { title: '产品分类', icon: 'list' },
+    },{
       path: 'edit',
       name: 'ProductEdit',
       component: () => import('@/views/admin/product/edit'),
-      meta: { title: '编辑产品', icon: 'create' }
+      meta: { title: '编辑产品', icon: 'create' },
+      hidden:true
     }]
   },
   {

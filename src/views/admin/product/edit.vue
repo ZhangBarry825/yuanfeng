@@ -12,6 +12,12 @@
           :inactive-value="0"
           v-model="ruleForm.status"></el-switch>
       </el-form-item>
+      <el-form-item label="是否首页展示" prop="indexShow">
+        <el-switch
+          :active-value="1"
+          :inactive-value="0"
+          v-model="ruleForm.indexShow"></el-switch>
+      </el-form-item>
       <el-form-item label="分类" prop="groupName">
         <el-select v-model="ruleForm.groupName" placeholder="请选择">
           <el-option
@@ -23,11 +29,10 @@
         </el-select>
       </el-form-item>
       <el-form-item label="封面" prop="imageUrl">
-        <Uploader :limitNum="1" @handSubmit="imgSubmit" @handRemove="imgRemove"></Uploader>
+        <Uploader :backImg="baseImgUrl+ruleForm.imageUrl" :limitNum="1" @handSubmit="imgSubmit" @handRemove="imgRemove"></Uploader>
       </el-form-item>
-      <el-form-item label="图片" prop="imageUrlList">
-        <!--        <Uploader :backImg="baseImgUrl+ruleForm.imageUrlList[0].imageUrl" :limitNum="5" @handSubmit="imgSubmit" @handRemove="imgRemove"></Uploader>-->
-        <UploaderTwo :backImgs="smallImages" :limitNum="5" @handSubmit="imgSubmit"
+      <el-form-item label="图片" prop="smallImages">
+        <UploaderTwo :backImgs="smallImages" :limitNum="5" @handSubmit="imgsSubmit"
                      @handRemove="imgsRemove"></UploaderTwo>
       </el-form-item>
       <el-form-item label="简述" prop="productPre">
@@ -38,8 +43,8 @@
         <Editor v-model="ruleForm.productDetail" :height="300"></Editor>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">Update</el-button>
-        <el-button @click="resetForm('ruleForm')">Reset</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">修改</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
 
@@ -65,8 +70,9 @@
           smallImages: [{}],
           productName: '',
           status: '1',
-          introduction: '',
-          content: '',
+          indexShow: '1',
+          productPre: '',
+          productDetail: '',
           imageUrl: '',
           sort: '',
           classifyId: ''
@@ -106,7 +112,7 @@
     },
     methods: {
       imgSubmit(path) {
-        this.ruleForm.smallImages.push(path)
+        this.ruleForm.imageUrl=path
         //console.log(path, '成功提交！')
       },
       imgsSubmit(path) {
@@ -114,29 +120,32 @@
         this.ruleForm.smallImages.push(path)
       },
       imgRemove() {
-        this.ruleForm.smallImages=[]
-        this.smallImages=[]
+        this.ruleForm.imageUrl=[]
       },
       imgsRemove(e) {
         console.log(e)
+        this.ruleForm.smallImages=e
       },
       submitForm(formName) {
+        console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData = new FormData()
             formData.append('id', this.ruleForm.id)
             formData.append('productName', this.ruleForm.productName)
-            formData.append('imagesUrl', this.ruleForm.smallImages)
-            formData.append('sort', this.ruleForm.sort)
+            formData.append('groupName', this.ruleForm.groupName)
+            formData.append('smallImages', this.ruleForm.smallImages)
+            formData.append('imageUrl', this.ruleForm.imageUrl)
             formData.append('status', this.ruleForm.status)
-            formData.append('introduction', this.ruleForm.introduction)
-            formData.append('content', this.ruleForm.content)
+            formData.append('indexShow', this.ruleForm.indexShow)
+            formData.append('productPre', this.ruleForm.productPre)
+            formData.append('productDetail', this.ruleForm.productDetail)
 
             //console.log(this.ruleForm)
             updateProduct(formData).then(res=>{
               if(res.code && res.code==200){
                 this.$message({
-                  message:'update successfully!',
+                  message:'修改成功!',
                   type:'success'
                 })
               }
@@ -154,12 +163,12 @@
         getProduct({
           id: this.id
         }).then(res => {
-          //console.log(res, 864)
+          console.log(res, 864)
           this.ruleForm = res.data
           let smallImages = []
           let images = []
           for (let i = 0; i < this.ruleForm.smallImages.length; i++) {
-            images[i]= this.ruleForm.smallImages[i].imageUrl
+            images[i]= this.ruleForm.smallImages[i]
             smallImages[i] = {
               url: this.baseImgUrl + this.ruleForm.smallImages[i]
             }

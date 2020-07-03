@@ -42,24 +42,3 @@ export function getAllClass(data) {
     params: data
   })
 }
-export function deleteClass(data) {
-  return request({
-    url: '/background-product/deleteGroup',
-    method: 'post',
-    data
-  })
-}
-export function addClass(data) {
-  return request({
-    url: '/background-product/addGroup',
-    method: 'post',
-    data
-  })
-}
-export function updateClass(data) {
-  return request({
-    url: '/background-product/updateGroup',
-    method: 'post',
-    data
-  })
-}

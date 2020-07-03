@@ -62,6 +62,21 @@
         </template>
       </el-table-column>
       <el-table-column
+        prop="status"
+        width="100"
+        label="首页展示">
+        <template slot-scope="scope">
+          <el-switch
+            @change="switchState(scope.row)"
+            v-model="scope.row.indexShow"
+            :active-value="1"
+            :inactive-value="0"
+            active-color="#13ce66"
+            inactive-color="gainsboro">
+          </el-switch>
+        </template>
+      </el-table-column>
+      <el-table-column
         width="160"
         label="操作">
         <template slot-scope="scope">

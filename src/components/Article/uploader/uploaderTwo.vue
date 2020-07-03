@@ -22,6 +22,7 @@
         name: "Uploader",
       data(){
           return{
+            baseUrl:this.$imgBaseUrl,
             fileList:[],
             dialogImageUrl: '',
             dialogVisible: false,
@@ -75,12 +76,14 @@
           })
         },
         handleRemove(file, fileList) {
-          //console.log(123123)
-          //console.log(file, fileList);
-          this.$emit('handRemove')
+          let newList=[]
+          let length=this.baseUrl.length
+          for (let i = 0; i <fileList.length ; i++) {
+            newList.push(fileList[i].url.substring(length))
+          }
+          this.$emit('handRemove',newList)
         },
         handlePictureCardPreview(file) {
-          //console.log(file.url)
           this.dialogImageUrl = file.url;
           this.dialogVisible = true;
         },
