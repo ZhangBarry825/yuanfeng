@@ -196,7 +196,8 @@ export const constantRoutes = [
       path: 'edit',
       name: 'NewsEdit',
       component: () => import('@/views/admin/news/edit'),
-      meta: { title: '编辑新闻', icon: 'create' }
+      meta: { title: '编辑新闻', icon: 'create' },
+      hidden:true
     }]
   },
   {
