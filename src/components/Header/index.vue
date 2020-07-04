@@ -1,7 +1,10 @@
 <template>
   <div class="page">
     <div class="center">
-        <div class="left">河南沅奉机械设备有限公司</div>
+<!--        <div class="left">河南沅奉机械设备有限公司</div>-->
+        <div class="left">
+          <img src="../../../public/images/logo2.png" alt="">
+        </div>
         <div class="right">
           <div class="item" :class="{selected:menuId===1}" @click="goPage('/home')">网站首页 <div class="bottom"></div></div>
           <div class="item" :class="{selected:menuId===2}" @click="goPage('/product-center')">产品中心 <div class="bottom"></div></div>
@@ -57,6 +60,9 @@
       .left{
         font-size: 24px;
         color: #333;
+        img{
+          height: 45px;
+        }
       }
       .right{
         display: flex;
