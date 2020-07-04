@@ -5,7 +5,9 @@
       <Banner :bannerList="bannerList"></Banner>
       <div class="data">
         <div class="item" v-for="item in companyDataList" :key="companyDataList.id">
-          <div class="line1">{{item.detail}}</div>
+          <div class="line1">
+            <animate-number from="1" :to="item.detail"></animate-number>
+          </div>
           <div class="line2">{{item.title}}</div>
         </div>
       </div>
@@ -248,6 +250,9 @@
       }
     },
     methods:{
+      formatter: function (num) {
+        return num.toFixed(2)
+      },
       async fetchData(){
         let bannerList= await fetchBannerList()
         this.bannerList=bannerList.data

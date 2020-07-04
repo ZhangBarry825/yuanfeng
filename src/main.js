@@ -38,6 +38,9 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
+import VueAnimateNumber from 'vue-animate-number'
+Vue.use(VueAnimateNumber)
+
 Vue.prototype.$imgBaseUrl='http://39.98.80.223:8084'
 
 Vue.config.productionTip = false
