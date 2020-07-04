@@ -4,7 +4,7 @@
 
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="标题" prop="title">
-        <el-input v-model="ruleForm.title"></el-input>
+        <el-input v-model="ruleForm.title" :maxlength="20" show-word-limit></el-input>
       </el-form-item>
 <!--      <el-form-item label="状态" prop="status">-->
 <!--        <el-switch-->
@@ -19,7 +19,7 @@
         <Uploader :limitNum="1" @handSubmit="imgSubmit" @handRemove="imgRemove"></Uploader>
       </el-form-item>
       <el-form-item label="简述" prop="details">
-        <el-input type="textarea" :autosize="{ minRows: 4}" v-model="ruleForm.details"></el-input>
+        <el-input type="textarea" :autosize="{ minRows: 4}" :maxlength="100" show-word-limit v-model="ruleForm.details"></el-input>
       </el-form-item>
 <!--      <el-form-item label="Content" prop="content">-->
 <!--        &lt;!&ndash;        <el-input type="textarea"  v-model="ruleForm.content"></el-input>&ndash;&gt;-->

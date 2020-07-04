@@ -29,7 +29,7 @@
       <div class="border"></div>
     </div>
     <div class="items">
-      <div class="item" v-for="(item, index) in Culture" :key="index">
+      <div class="item" v-for="(item, index) in theCulture" :key="index">
         <img :src="baseUrl+item.imageUrl" alt />
         <div class="line1">{{item.title}}</div>
         <div class="line2">{{item.detail}}</div>
@@ -41,7 +41,7 @@
         <div class="border"></div>
       </div>
       <div class="service-item">
-        <div class="item" v-for="(item, index) in service" :key="index">
+        <div class="item" v-for="(item, index) in theService" :key="index">
           <img :src="baseUrl+item.imageUrl" alt />
           <div class="title">{{item.title}}</div>
         </div>
@@ -54,7 +54,7 @@
       </div>
       <div class="center">
         <div class="border"></div>
-        <div class="item" :class="'item'+index" v-for="(item, index) in Profile" :key="index">
+        <div class="item" :class="'item'+index" v-for="(item, index) in theHistory" :key="index">
           <img src="../../../../public/images/dotdot.png" alt />
           <div class="title">{{item.time}}</div>
           <div class="des">{{item.detail}}</div>
@@ -69,7 +69,7 @@
 <script>
 import MobileFooter from "@/components/MobileFooter/index";
 import MobileHeader from "@/components/MobileHeader/index";
-import { CompanyCulList, getDamn, getCulture, queryAboutUs } from '@/api/about';
+import {CompanyCulList, getDamn, getCulture, queryAboutUs, getUsInfo, getHistory} from '@/api/about';
 
 export default {
   name: "MobileAboutUs",
@@ -80,10 +80,12 @@ export default {
   data () {
     return {
       baseUrl: this.$imgBaseUrl,
-      service: [],
-      Culture: [],
-      Profile: [],
-      theCompany: {}
+
+      usInfo: [],
+      theCompany: {},
+      theCulture: [],
+      theService: [],
+      theHistory: [],
     }
   },
   created () {
@@ -91,21 +93,17 @@ export default {
   },
   methods: {
     async retrieveData () {
-      let res2 = await queryAboutUs()
-      console.log(res2, "123")
-      this.theCompany = res2.data[0]
-
-      // 企业文化
-      let res = await getDamn()
-      this.Culture = res.data
-
+      let res = await getUsInfo()
+      this.usInfo = res.data
+      this.theCompany=res.data.aboutUsList[0]
+      this.theCulture=res.data.companyInfoList
+      this.theService=res.data.serviceConList
+      console.log(this.theCompany,'theCompany')
+      console.log(this.theCulture,'theCulture')
+      console.log(this.theService,'theService')
       // 发展历程
-      let res1 = await getCulture()
-      this.Profile = res1.data.slice(-6)
-
-      // 服务理念
-      let { data } = await CompanyCulList()
-      this.service = data
+      let res1 = await getHistory()
+      this.theHistory = res1.data.slice(-6)
     },
   },
 }

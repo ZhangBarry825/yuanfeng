@@ -9,6 +9,7 @@
         type="primary"
         icon="el-icon-edit"
         @click="centerDialogVisible=true"
+        disabled
       >新增</el-button>
       <el-button
         size="small"
@@ -16,6 +17,7 @@
         @click="multiSelectDelete"
         icon="el-icon-delete"
         style="border-top-right-radius: 4px;border-bottom-right-radius: 4px"
+        disabled
       >删除</el-button>
     </el-button-group>
     <el-table
@@ -31,7 +33,7 @@
       <el-table-column align="center" label="操作">
         <template #default="{row}">
           <el-button type="primary" @click="AndModify(row)" size="small" plain>编辑</el-button>
-          <el-button type="danger" @click="deleteCurrent(row.id)" size="small" plain>删除</el-button>
+          <el-button type="danger" @click="deleteCurrent(row.id)" size="small" disabled plain>删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -41,8 +43,7 @@
     <el-dialog
       title="提示"
       :visible.sync="centerDialogVisible"
-      :before-close="handleClose"
-      width="30%"
+      width="50%"
       center
     >
       <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm">

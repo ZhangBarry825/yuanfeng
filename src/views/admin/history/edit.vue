@@ -10,6 +10,12 @@
       label-width="100px"
       class="demo-ruleForm"
     >
+      <el-form-item label="状态" prop="status">
+        <el-switch
+          :active-value="1"
+          :inactive-value="0"
+          v-model="ruleForm.status"></el-switch>
+      </el-form-item>
       <el-form-item label="年限" prop="time">
         <el-input v-model.number="ruleForm.time" maxlength="4" show-word-limit></el-input>
       </el-form-item>
@@ -17,8 +23,8 @@
         <el-input type="textarea" :autosize="{ minRows: 4}" v-model="ruleForm.detail"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">Create</el-button>
-        <el-button @click="resetForm('ruleForm')">Reset</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">保存</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
   </div>

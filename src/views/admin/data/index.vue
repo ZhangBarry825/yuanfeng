@@ -213,6 +213,8 @@
           this.DialogVisible = false
           this.ruleForm = this.$options.data().ruleForm;
           this.retrieveData()
+        }).catch(e=>{
+          this.retrieveData()
         })
       },
       // 打开新增

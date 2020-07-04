@@ -236,8 +236,8 @@
             }
 
             .text {
-              color: #FFF;
-              background-color: #3652B6;
+              color: #3652B6;
+              /*background-color: #3652B6;*/
             }
           }
         }

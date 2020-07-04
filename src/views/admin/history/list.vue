@@ -28,6 +28,21 @@
       <el-table-column align="center" prop="id" label="ID" />
       <el-table-column align="center" prop="detail" label="详情" />
       <el-table-column align="center" prop="time" label="年份" />
+      <el-table-column
+        prop="status"
+        width="100"
+        label="状态">
+        <template slot-scope="scope">
+          <el-switch
+            @change="switchState(scope.row)"
+            v-model="scope.row.status"
+            :active-value="1"
+            :inactive-value="0"
+            active-color="#13ce66"
+            inactive-color="gainsboro">
+          </el-switch>
+        </template>
+      </el-table-column>
       <el-table-column align="center" label="操作">
         <template #default="{row}">
           <el-button
@@ -47,7 +62,8 @@
 </template>
 
 <script>
-import { queryByPageList, deletevelopHis } from '@/api/admin/HistoryList';
+  import {queryByPageList, deletevelopHis, updateevelopHis} from '@/api/admin/HistoryList';
+import {updateCase} from "@/api/admin-case";
 export default {
   name: 'HistoryList',
 
@@ -66,6 +82,19 @@ export default {
   },
   //方法
   methods: {
+    switchState(data){
+      let that = this
+      this.loading=true
+      console.log(data)
+      updateevelopHis({id:data.id,detail:data.detail,time:data.time,status:data.status}).then(res=>{
+        if(res.code && res.code === 200){
+          that.loading=false
+        }
+      }).catch(()=>{
+        this.retrieveData()
+      })
+
+    },
     // 获取数据
     async retrieveData () {
       this.loading = true

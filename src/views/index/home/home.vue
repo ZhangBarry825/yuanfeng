@@ -38,7 +38,7 @@
           </div>
           <div class="border"></div>
         </div>
-        <div class="content">
+        <div class="content" >
           <div class="left">
             <div class="item" v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
               <div class="text0">
@@ -53,7 +53,9 @@
               <div :class="'img'+(index+1)"></div>
             </div>
           </div>
-          <div class="right"></div>
+          <div class="right" id="activePic">
+            <div class="rightPic" data-depth="0.2"></div>
+          </div>
         </div>
       </div>
       <div class="products"  id="product">
@@ -203,6 +205,8 @@
   import { Tab, Tabs } from 'vant';
   import 'vant/lib/tabs/index.css';
 
+  import Parallax from 'parallax-js'
+
   export default {
     name: "Home",
     components: {
@@ -298,6 +302,9 @@
         },100)
       }
       this.fetchData()
+
+      var scene = document.getElementById('activePic');
+      var parallaxInstance = new Parallax(scene);
     },
   }
 </script>
@@ -479,6 +486,7 @@
           flex-direction: row;
 
           .left {
+            z-index: 999;
             box-sizing: border-box;
 
             width: 50%;
@@ -575,9 +583,18 @@
             box-sizing: border-box;
             width: 50%;
             height: 100%;
-            background-image: url("../../../../public/images/advantage.png");
-            background-size: cover;
-            background-position: center center;
+            overflow: hidden;
+            .rightPic{
+              position: relative;
+              left: -10% !important;
+              top: -10% !important;
+              width: 120%;
+              height: 120%;
+              background-image: url("../../../../public/images/advantage.png");
+              background-size: cover;
+              background-position: center center;
+            }
+
           }
         }
       }
