@@ -108,6 +108,7 @@ export default {
     }
 
     .content {
+      min-height: 10rem;
       width: 100%;
       padding: 0.5rem 0.3rem;
       box-sizing: border-box;

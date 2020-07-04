@@ -2,8 +2,11 @@
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
+      <div class="logo-center">
+        <img src="../../../public/images/logo.png" alt="">
+      </div>
       <div class="title-container">
-        <h3 class="title">河南沅奉机械后台登录</h3>
+        <h3 class="title"></h3>
       </div>
 
       <el-form-item prop="username">
@@ -178,6 +181,15 @@ $light_gray:#eee;
   background-color: $bg;
   overflow: hidden;
 
+  .logo-center{
+    width: 450px;
+    text-align: center;
+    padding: 30px 0;
+    img{
+      width: 250px;
+      height: auto;
+    }
+  }
   .login-form {
     position: relative;
     width: 520px;

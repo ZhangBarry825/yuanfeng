@@ -163,6 +163,7 @@
           }
         }
         .content-box{
+          min-height: 5rem;
           padding: .5rem;
           box-sizing: border-box;
           color: #333333;
