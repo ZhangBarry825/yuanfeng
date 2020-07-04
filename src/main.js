@@ -39,8 +39,10 @@ Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)
 
 import VueAnimateNumber from 'vue-animate-number'
+import {scrollDom} from "@/utils";
 Vue.use(VueAnimateNumber)
 
+Vue.prototype.$scrollDom = scrollDom;
 Vue.prototype.$imgBaseUrl='http://39.98.80.223:8084'
 
 Vue.config.productionTip = false

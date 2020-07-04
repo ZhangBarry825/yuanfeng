@@ -3,10 +3,10 @@
     <div class="pc" v-if="!isMobile">
       <Header :menu-id="1"></Header>
       <Banner :bannerList="bannerList"></Banner>
-      <div class="data">
+      <div class="data reveal-top">
         <div class="item" v-for="item in companyDataList" :key="companyDataList.id">
           <div class="line1">
-            <animate-number from="1" :to="item.detail"></animate-number>
+            <animate-number duration="1000" from="1" :to="item.detail"></animate-number>
           </div>
           <div class="line2">{{item.title}}</div>
         </div>
@@ -19,7 +19,9 @@
           <div class="border"></div>
         </div>
         <div class="content">
-          <div class="left" ></div>
+          <div class="left reveal-us" id="activePic1">
+            <div class="leftPic" data-depth="0.3"></div>
+          </div>
           <div class="right">
             <div class="top">
               {{aboutUsList.detail}}
@@ -40,8 +42,8 @@
         </div>
         <div class="content" >
           <div class="left">
-            <div class="item" v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
-              <div class="text0">
+            <div class="item"  v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
+              <div class="text0" :class="'reveal-advantages'+index">
                 <div class="text1">
                   <div class="num">0{{index+1}}</div>
                   <div class="text">{{item.title}}</div>
@@ -53,8 +55,8 @@
               <div :class="'img'+(index+1)"></div>
             </div>
           </div>
-          <div class="right" id="activePic">
-            <div class="rightPic" data-depth="0.2"></div>
+          <div class="right" id="activePic2">
+            <div class="rightPic" data-depth="0.3"></div>
           </div>
         </div>
       </div>
@@ -86,22 +88,22 @@
       </div>
       <div class="banner">
         <div class="center">
-          <div class="item">
+          <div class="item reveal-banner1">
             <div class="line1">优质选材</div>
             <div class="line2"></div>
             <div class="line3">SELECTION</div>
           </div>
-          <div class="item">
+          <div class="item reveal-banner2">
             <div class="line1">做工精细</div>
             <div class="line2"></div>
             <div class="line3">WORKMANSHIP</div>
           </div>
-          <div class="item">
+          <div class="item reveal-banner3">
             <div class="line1">最佳原材</div>
             <div class="line2"></div>
             <div class="line3">MATERIALN</div>
           </div>
-          <div class="item">
+          <div class="item reveal-banner4">
             <div class="line1">专业制造</div>
             <div class="line2"></div>
             <div class="line3">PROFESSIONAL</div>
@@ -279,6 +281,17 @@
         let newsList= await fetchNewsList()
         this.newsList=newsList.data
 
+       this.$nextTick(()=>{
+          this.$scrollDom('.reveal-advantages0',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-advantages1',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-advantages2',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-advantages3',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-advantages4',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-banner1',300,0,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-banner2',300,200,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-banner3',300,400,'top','50px',0.1,true)
+          this.$scrollDom('.reveal-banner4',300,600,'top','50px',0.1,true)
+        })
       },
       async changeGroup(index,type){
         if(type==='product'){
@@ -303,8 +316,18 @@
       }
       this.fetchData()
 
-      var scene = document.getElementById('activePic');
+      var scene = document.getElementById('activePic1');
       var parallaxInstance = new Parallax(scene);
+      var scene2 = document.getElementById('activePic2');
+      var parallaxInstance = new Parallax(scene2);
+
+      this.$scrollDom('.reveal-top',1000,0,'top','50px',0.1,false)
+      this.$scrollDom('.reveal-us',500,0,'top','50px',0.1,true)
+
+
+      // this.$scrollDom('.reveal-top:nth-child(2)',500,300,'bottom','50px',0.9,true);
+      // this.$scrollDom('.reveal-top:nth-child(3)',500,600,'bottom','50px',0.9,true);
+      // this.$scrollDom('.reveal-top:nth-child(4)',500,900,'bottom','50px',0.9,true);
     },
   }
 </script>
@@ -398,10 +421,18 @@
             height: 498px;
             left: 0;
             top: -100px;
-            background-image: url("../../../../public/images/company.png");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            overflow: hidden;
+            .leftPic{
+              position: relative;
+              top: -5% !important;
+              left: -5% !important;
+              width: 110%;
+              height: 110%;
+              background-image: url("../../../../public/images/company.png");
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
           }
 
           .right {
