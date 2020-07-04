@@ -69,11 +69,11 @@
           })
         },
         handleRemove(file, fileList) {
-          console.log(file, fileList);
+          //console.log(file, fileList);
           this.$emit('handRemove')
         },
         handlePictureCardPreview(file) {
-          console.log(file.url)
+          //console.log(file.url)
           this.dialogImageUrl = file.url;
           this.dialogVisible = true;
         },

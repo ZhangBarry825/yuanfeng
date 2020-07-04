@@ -29,12 +29,12 @@
     methods: {
       handler ({BMap, map}) {
         let me = this;
-        console.log(BMap, map)
+        //console.log(BMap, map)
         // 鼠标缩放
         map.enableScrollWheelZoom(true);
         // 点击事件获取经纬度
         map.addEventListener('click', function (e) {
-          console.log(e.point.lng, e.point.lat)
+          //console.log(e.point.lng, e.point.lat)
         })
       }
     }

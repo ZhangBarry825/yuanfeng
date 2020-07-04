@@ -89,7 +89,7 @@ export default {
           id: item.id
         }
       })
-      console.log(item, "大")
+      //console.log(item, "大")
     },
     switchNews (text) {
       this.groupName = text
@@ -99,7 +99,7 @@ export default {
     async retrieveData () {
       this.loading = true
       let { data } = await newsAdvisory({ groupName: this.groupName, pageNum: this.pageNum, pageSize: this.pageSize })
-      console.log(data, "123")
+      //console.log(data, "123")
 
       setTimeout(() => {
         this.loading = false
@@ -114,17 +114,17 @@ export default {
     nextclick (e) {
       this.pageNum = e
       this.retrieveData()
-      console.log(e, "点击下一页")
+      //console.log(e, "点击下一页")
     },
     prevclick (e) {
       this.pageNum = e
       this.retrieveData()
-      console.log(e, "点击上一页")
+      //console.log(e, "点击上一页")
     },
     currentchange (e) {
       this.pageNum = e
       this.retrieveData()
-      console.log(e, "点击数字")
+      //console.log(e, "点击数字")
     }
   },
 }

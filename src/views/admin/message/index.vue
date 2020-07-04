@@ -46,7 +46,7 @@ export default {
       this.tableData = res.data.list
       this.total = res.data.total
       this.loading = false
-      console.log(res)
+      //console.log(res)
     },
     handleChange (val) {
       this.pageNum = val

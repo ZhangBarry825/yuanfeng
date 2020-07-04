@@ -121,7 +121,7 @@ export default {
           formData.append('phone', this.ruleForm.phoneNumber)
           formData.append('detail', this.ruleForm.detail)
           formData.append('name', this.ruleForm.name)
-          console.log(this.ruleForm)
+          //console.log(this.ruleForm)
           CompanyCulList(this.ruleForm).then(res => {
             //console.log(res,2222)
             this.$message({
@@ -130,14 +130,14 @@ export default {
             })
           })
         } else {
-          console.log('error submit!!');
+          //console.log('error submit!!');
           return false;
         }
       });
     },
     retrieveData () {
       CompanyCulList()
-      console.log(data, "123")
+      //console.log(data, "123")
     },
   },
   created () {

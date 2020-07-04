@@ -95,21 +95,21 @@
     methods: {
       imgSubmit(path) {
         this.ruleForm.imageUrl=path
-        //console.log(path, '成功提交！')
+        ////console.log(path, '成功提交！')
       },
       imgsSubmit(path) {
-        console.log(path)
+        //console.log(path)
         this.ruleForm.smallImages.push(path)
       },
       imgRemove() {
         this.ruleForm.imageUrl=[]
       },
       imgsRemove(e) {
-        console.log(e)
+        //console.log(e)
         this.ruleForm.smallImages=e
       },
       submitForm(formName) {
-        console.log(this.ruleForm)
+        //console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData = new FormData()
@@ -121,7 +121,7 @@
             formData.append('indexShow', this.ruleForm.indexShow)
             formData.append('text', this.ruleForm.text)
 
-            //console.log(this.ruleForm)
+            ////console.log(this.ruleForm)
             updateCase(formData).then(res=>{
               if(res.code && res.code==200){
                 this.$message({
@@ -131,7 +131,7 @@
               }
             })
           } else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         });
@@ -143,12 +143,12 @@
         getCase({
           id: this.id
         }).then(res => {
-          console.log(res, 864)
+          //console.log(res, 864)
           this.ruleForm = res.data
         })
 
         getAllClass({}).then(res => {
-          //console.log(res, 1)
+          ////console.log(res, 1)
           if (res.code && res.code === 200) {
             this.categoryList = res.data.list
           }

@@ -262,7 +262,7 @@
       document.documentElement.style.fontSize = '5vw'
       this.swiper.slideTo(2, 4000, false)
       this.fetchData()
-      console.log(this.pcData,9987)
+      //console.log(this.pcData,9987)
     },
   }
 </script>

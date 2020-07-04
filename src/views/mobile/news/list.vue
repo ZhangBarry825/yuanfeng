@@ -85,7 +85,7 @@ export default {
           id: item.id
         }
       })
-      console.log(item, "大")
+      //console.log(item, "大")
     },
     prevclick () {
       this.pageNum += 1
@@ -103,7 +103,7 @@ export default {
     async retrieveData () {
       this.loading = true
       let { data } = await newsAdvisory({ groupName: this.groupName, pageNum: this.pageNum, pageSize: this.pageSize })
-      console.log(data, "123")
+      //console.log(data, "123")
       setTimeout(() => {
         this.loading = false
       }, 500)

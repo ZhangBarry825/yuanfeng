@@ -173,7 +173,7 @@
       },
       handleClick(row) {
         this.isCreate=false
-        console.log(row);
+        //console.log(row);
         this.dialogFormVisible=true
         this.form={
           id:row.id,
@@ -236,7 +236,7 @@
       switchState(data){
         let that = this
         this.loading=true
-        //console.log(data)
+        ////console.log(data)
         let formData=new FormData()
         formData.append('id',data.id)
         formData.append('status',data.status)

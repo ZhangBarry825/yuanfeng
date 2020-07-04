@@ -82,14 +82,14 @@
     },
     methods:{
       imgSubmit(path){
-        console.log(path,123)
+        //console.log(path,123)
         this.ruleForm.imageUrl = path
       },
       imgRemove(){
         this.ruleForm.imageUrl = ''
       },
       submitForm(formName) {
-        console.log(this.ruleForm)
+        //console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData=new FormData()
@@ -109,7 +109,7 @@
               }
             })
           } else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         });

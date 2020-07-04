@@ -61,7 +61,7 @@ export default {
           // formData.append('detail', this.ruleForm.detail)
           // console.log(formData, "000")
           adddevelopHis(this.ruleForm).then(res => {
-            console.log(res, "20000")
+            //console.log(res, "20000")
             if (res.code && res.code == 200) {
               this.$message({
                 message: res.msg,
@@ -72,7 +72,7 @@ export default {
             }
           })
         } else {
-          console.log('error submit!!');
+          //console.log('error submit!!');
           return false;
         }
       });

@@ -55,7 +55,7 @@
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+        //console.log(tab, event);
       },
       async fetchData(){
         let caseGroupList=await fetchCaseGroupList()

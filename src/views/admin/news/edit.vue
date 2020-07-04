@@ -95,18 +95,18 @@
         //console.log(path, '成功提交！')
       },
       imgsSubmit(path) {
-        console.log(path)
+        //console.log(path)
         this.ruleForm.smallImages.push(path)
       },
       imgRemove() {
         this.ruleForm.imageUrl=[]
       },
       imgsRemove(e) {
-        console.log(e)
+        //console.log(e)
         this.ruleForm.smallImages=e
       },
       submitForm(formName) {
-        console.log(this.ruleForm)
+        //console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData = new FormData()
@@ -130,7 +130,7 @@
               }
             })
           } else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         });
@@ -142,7 +142,7 @@
         getNews({
           id: this.id
         }).then(res => {
-          console.log(res, 864)
+          //console.log(res, 864)
           this.ruleForm = res.data
         })
 

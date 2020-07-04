@@ -133,9 +133,9 @@ export default {
       this.theCompany=res.data.aboutUsList[0]
       this.theCulture=res.data.companyInfoList
       this.theService=res.data.serviceConList
-      console.log(this.theCompany,'theCompany')
-      console.log(this.theCulture,'theCulture')
-      console.log(this.theService,'theService')
+      //console.log(this.theCompany,'theCompany')
+      //console.log(this.theCulture,'theCulture')
+      //console.log(this.theService,'theService')
       // 发展历程
       let res1 = await getHistory()
       this.theHistory = res1.data.slice(-6)

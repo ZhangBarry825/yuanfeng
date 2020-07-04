@@ -80,11 +80,11 @@
     methods:{
       imgSubmit(path){
         this.ruleForm.imageUrl = path
-        //console.log(path,'成功提交！')
+        ////console.log(path,'成功提交！')
       },
       imgRemove(){
         this.ruleForm.imageUrl = ''
-        //console.log('成功删除！')
+        ////console.log('成功删除！')
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
@@ -106,7 +106,7 @@
               }
             })
           } else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         });
@@ -118,7 +118,7 @@
         getBannerDetail({
           id:this.id
         }).then(res=>{
-          //console.log(res,864)
+          ////console.log(res,864)
           this.ruleForm=res.data
         })
       }

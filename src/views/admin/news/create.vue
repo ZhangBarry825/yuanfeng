@@ -92,7 +92,7 @@
         this.ruleForm.imageUrl = ''
       },
       submitForm(formName) {
-        console.log(this.ruleForm)
+        //console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let formData = new FormData()
@@ -114,7 +114,7 @@
               }
             })
           } else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         });

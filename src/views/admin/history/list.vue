@@ -85,7 +85,7 @@ export default {
     switchState(data){
       let that = this
       this.loading=true
-      console.log(data)
+      //console.log(data)
       updateevelopHis({id:data.id,detail:data.detail,time:data.time,status:data.status}).then(res=>{
         if(res.code && res.code === 200){
           that.loading=false
@@ -102,7 +102,7 @@ export default {
       this.total = data.total
       this.tableData = data.list
       this.loading = false
-      console.log(data)
+      //console.log(data)
     },
     // 分页
     handleChange (val) {
@@ -111,14 +111,14 @@ export default {
     },
     // 删除
     deleteCurrent (id) {
-      console.log(id)
+      //console.log(id)
       this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         deletevelopHis({ id }).then(res => {
-          console.log(res)
+          //console.log(res)
           this.retrieveData()
           this.$message({
             type: 'success',

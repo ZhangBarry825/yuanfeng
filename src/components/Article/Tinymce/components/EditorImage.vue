@@ -72,9 +72,9 @@ export default {
       // 文件对象
       form.append("file", file);
       uploadFile(form).then(res => {
-        console.log(res, 123123)
+        //console.log(res, 123123)
         if (res.data || res.code == 200) {
-          console.log(res,987)
+          //console.log(res,987)
 
         }
       }).catch(() => {

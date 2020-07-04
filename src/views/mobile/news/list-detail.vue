@@ -51,14 +51,14 @@ export default {
     }
   },
   created () {
-    console.log(this.$route.query, "111")
+    //console.log(this.$route.query, "111")
     this.retrieveData(this.$route.query.id)
   },
   methods: {
     async retrieveData (id) {
       let { data } = await queryById({ id })
       this.details = data
-      console.log(data, "110  ")
+      //console.log(data, "110  ")
     },
     article (id) {
       this.retrieveData(id)

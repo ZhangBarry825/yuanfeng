@@ -67,7 +67,7 @@ export default {
           // formData.append('detail', this.ruleForm.detail)
           // console.log(formData, "000")
           updateevelopHis(this.ruleForm).then(res => {
-            console.log(res, "20000")
+            //console.log(res, "20000")
             if (res.code && res.code == 200) {
               this.$message({
                 message: res.msg,
@@ -78,7 +78,7 @@ export default {
             }
           })
         } else {
-          console.log('error submit!!');
+          //console.log('error submit!!');
           return false;
         }
       });
@@ -93,7 +93,7 @@ export default {
       this.ruleForm.time = data.time
       this.ruleForm.id = data.id
       this.ruleForm.status = data.status
-      console.log(data)
+      //console.log(data)
     },
   }
 }

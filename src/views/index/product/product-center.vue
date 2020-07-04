@@ -79,7 +79,7 @@
     },
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+        //console.log(tab, event);
       },
       async fetchData() {
         this.loading = true

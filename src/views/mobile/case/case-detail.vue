@@ -56,7 +56,7 @@
 
         let { data } = await queryById({ id })
         this.details = data
-        console.log(data, "110  ")
+        //console.log(data, "110  ")
       }
     }
   }

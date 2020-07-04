@@ -122,7 +122,7 @@
         this.loading = false
         this.tableData = data.list
         this.total = data.total
-        console.log(data, "00")
+        //console.log(data, "00")
       },
       // 多选删除
       handleSelectionChange(arrli) {
@@ -139,7 +139,7 @@
           type: 'warning'
         }).then(() => {
           deleteCompany({id}).then(res => {
-            console.log(res)
+            //console.log(res)
             this.retrieveData()
             this.$message({
               type: 'success',
@@ -166,7 +166,7 @@
         this.ruleForm.title = row.title
         this.ruleForm.detail = row.detail
         this.DialogVisible = true
-        console.log(row)
+        //console.log(row)
       },
       // 添加与修改
       addAndModify() {
@@ -174,7 +174,7 @@
           if (valid) {
             if (this.detail) {
               updateCompany({...this.ruleForm, id: this.detail.id, status: this.detail.status}).then(res => {
-                console.log(res, "修改")
+                //console.log(res, "修改")
                 this.$message({
                   message: res.msg,
                   type: 'success'
@@ -186,7 +186,7 @@
               })
             } else {
               addCompany(this.ruleForm).then(res => {
-                console.log(res, "添加")
+                //console.log(res, "添加")
                 this.$message({
                   message: res.msg,
                   type: 'success'
@@ -197,7 +197,7 @@
               this.ruleForm = this.$options.data().ruleForm;
             }
           }else {
-            console.log('error submit!!');
+            //console.log('error submit!!');
             return false;
           }
         })
