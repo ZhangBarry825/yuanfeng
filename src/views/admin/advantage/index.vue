@@ -1,7 +1,7 @@
 <template>
   <div class="Advantage">
     <el-row>
-      <h2>公司优势列表</h2>
+      <h2>公司优势</h2>
     </el-row>
     <el-button-group class="buttons">
       <el-button
@@ -36,7 +36,7 @@
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination layout="prev, pager, next" :total="total" @current-change="handleChange"></el-pagination>
+      <el-pagination background layout="prev, pager, next" :total="total" @current-change="handleChange"></el-pagination>
     </div>
     <el-dialog
       title="提示"
@@ -192,6 +192,9 @@ export default {
   margin: 30px auto;
   .buttons {
     margin-top: 20px;
+  }
+  .pagination {
+    padding: 30px 0;
   }
 }
 </style>

@@ -10,9 +10,17 @@
       </div>
     </div>
     <div class="pagination">
-      <div class="line1">上一篇：农田田地作业中实景</div>
-      <div class="line2">
-        <div class="left">下一篇：化工设备作业中实景</div>
+      <div class="line1"
+           v-if="details.beforeId!=null"
+           @click="fetchData(details.beforeId)"
+      >上一篇：{{details.beforeTitle}}</div>
+      <div class="line2"
+           v-if="details.nextId!=null"
+      >
+        <div class="left"
+             v-if="details.nextId!=null"
+             @click="fetchData(details.nextId)"
+        >下一篇：{{details.nextTitle}}</div>
         <div class="right" @click="$router.push({path:'/case-list'})">返回列表 ></div>
       </div>
     </div>
@@ -24,6 +32,7 @@
   import MobileFooter from "@/components/MobileFooter/index";
   import MobileHeader from "@/components/MobileHeader/index";
   import {fetchCaseDetail} from "@/api/case";
+  import {queryById} from "@/api/news";
 
   export default {
     name: "MobileCaseDetail",
@@ -33,7 +42,8 @@
     },
     data(){
       return{
-        caseDetail:{}
+        caseDetail:{},
+        details:{}
       }
     },
     mounted() {
@@ -43,6 +53,10 @@
       async fetchData(id){
         let caseDetail=await fetchCaseDetail({id:id})
         this.caseDetail=caseDetail.data
+
+        let { data } = await queryById({ id })
+        this.details = data
+        console.log(data, "110  ")
       }
     }
   }

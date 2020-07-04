@@ -17,7 +17,7 @@
       </el-form-item>
 
       <el-form-item label="公司简介" prop="companyDetail">
-        <el-input type="textarea" resize="none" show-word-limit :maxlength="300"
+        <el-input type="textarea"  :rows="5" show-word-limit :maxlength="300"
                   v-model="ruleForm.company.detail"></el-input>
       </el-form-item>
 
@@ -138,7 +138,7 @@
 </template>
 
 <script>
-  import {saveAboutUs} from "@/api/admin-us";
+  import {getAboutUs, saveAboutUs} from "@/api/admin-us";
   import {uploadFile} from "@/api/admin-banner";
 
   export default {
@@ -156,25 +156,25 @@
         imageUrl8: '',
         ruleForm: {
           company: {
-            id: '1',
+            id: 1,
             imageUrl: '1',
             detail: '1'
           },
           culture: [
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1',
               detail: '1'
             },
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1',
               detail: '1'
             },
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1',
               detail: '1'
@@ -182,22 +182,22 @@
           ],
           service: [
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1'
             },
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1'
             },
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1'
             },
             {
-              id: '1',
+              id: 1,
               imageUrl: '1',
               title: '1'
             }
@@ -420,17 +420,34 @@
         })
       },
       fetchData() {
-
+        getAboutUs().then(res=>{
+          console.log(res)
+          if(res.code && res.code== 200){
+            this.ruleForm.company=res.data.aboutUsList[0]
+            this.imageUrl1=this.baseUrl+res.data.aboutUsList[0].imageUrl
+            this.ruleForm.culture=res.data.companyInfoList
+            this.imageUrl2=this.baseUrl+res.data.companyInfoList[0].imageUrl
+            this.imageUrl3=this.baseUrl+res.data.companyInfoList[1].imageUrl
+            this.imageUrl4=this.baseUrl+res.data.companyInfoList[2].imageUrl
+            this.ruleForm.service=res.data.serviceConList
+            this.imageUrl5=this.baseUrl+res.data.serviceConList[0].imageUrl
+            this.imageUrl6=this.baseUrl+res.data.serviceConList[1].imageUrl
+            this.imageUrl7=this.baseUrl+res.data.serviceConList[2].imageUrl
+            this.imageUrl8=this.baseUrl+res.data.serviceConList[3].imageUrl
+          }
+        })
       },
       submitForm(formName) {
         console.log(this.ruleForm)
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            let formData = new FormData()
-            formData.append('company', JSON.stringify(this.ruleForm.company))
-            formData.append('culture', JSON.stringify(this.ruleForm.culture))
-            formData.append('service', JSON.stringify(this.ruleForm.service))
-            saveAboutUs(formData).then(res => {
+            let newData={
+              aboutUsList:[]
+            }
+            newData.aboutUsList=[this.ruleForm.company]
+            newData.companyInfoList=this.ruleForm.culture
+            newData.serviceConList=this.ruleForm.service
+            saveAboutUs(newData).then(res => {
               if (res.code && res.code == 200) {
                 this.$message({
                   message: '修改成功!',

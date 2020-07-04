@@ -37,6 +37,7 @@
 <script>
 import MobileFooter from "@/components/MobileFooter/index";
 import MobileHeader from "@/components/MobileHeader/index";
+import {queryById} from "@/api/news";
 
 export default {
   name: "MobileNewsDetail",
@@ -51,7 +52,7 @@ export default {
   },
   created () {
     console.log(this.$route.query, "111")
-    this.retrieveData(JSON.parse(this.$route.query.item).id)
+    this.retrieveData(this.$route.query.id)
   },
   methods: {
     async retrieveData (id) {
@@ -107,6 +108,7 @@ export default {
     }
 
     .content {
+      width: 100%;
       padding: 0.5rem 0.3rem;
       box-sizing: border-box;
 

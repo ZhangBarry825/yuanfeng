@@ -143,6 +143,7 @@
         }
       }
       .item{
+        background-color: #fff;
         margin: .5rem 0;
         width: 100%;
         border: 1px solid #E5E5E5;
@@ -167,18 +168,8 @@
           color: #333333;
           font-size: .55rem;
           line-height: 1.7;
-          .text{
-            width: 100%;
-            padding: 20px;
-          }
-          .pic{
-            width: 100%;
+          ::v-deep img{
             max-width: 100%;
-            height: 10rem;
-            background-image: url("../../../../public/images/product2.png");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
           }
         }
       }

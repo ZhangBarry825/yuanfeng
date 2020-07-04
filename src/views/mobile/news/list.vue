@@ -82,7 +82,7 @@ export default {
       this.$router.push({
         path: '/news-detail',
         query: {
-          item: JSON.stringify(item)
+          id: item.id
         }
       })
       console.log(item, "大")

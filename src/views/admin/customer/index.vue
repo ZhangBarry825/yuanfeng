@@ -1,7 +1,7 @@
 <template>
   <div class="Customer">
     <el-row>
-      <h2>新增发展历程</h2>
+      <h2>客户分布</h2>
     </el-row>
     <div class="actios">
       <div class="block" v-for="(item, index) in list" :key="index">

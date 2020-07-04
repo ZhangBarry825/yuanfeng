@@ -159,7 +159,7 @@
       </div>
 
       <swiper class="swiper-box" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide class="swiper-box-item" v-for="(item,index) in pcData.newsList" :key="item.id">
+        <swiper-slide class="swiper-box-item" v-if="index<3" v-for="(item,index) in pcData.newsList" :key="item.id">
           <div class="list">
             <div class="list-title">{{item.newsGroupName}}</div>
             <div class="items">
@@ -173,96 +173,6 @@
             </div>
             <div class="bottom">
               <img @click="$router.push({path:'/news-list'})" src="../../../../public/images/right_active.png" alt="">
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide class="swiper-box-item">
-          <div class="list">
-            <div class="list-title">行业新闻</div>
-            <div class="items">
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-            </div>
-            <div class="bottom">
-              <img src="../../../../public/images/right_active.png" alt="">
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide class="swiper-box-item">
-          <div class="list">
-            <div class="list-title">行业新闻</div>
-            <div class="items">
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-              <div class="item">
-                <img src="../../../../public/images/dot0.png" alt="">
-                <div class="right">
-                  <div class="text">助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力助力自主品牌 彰显制造实力</div>
-                  <div class="time">2020/6</div>
-                </div>
-              </div>
-            </div>
-            <div class="bottom">
-              <img src="../../../../public/images/right_active.png" alt="">
             </div>
           </div>
         </swiper-slide>
@@ -352,6 +262,7 @@
       document.documentElement.style.fontSize = '5vw'
       this.swiper.slideTo(2, 4000, false)
       this.fetchData()
+      console.log(this.pcData,9987)
     },
   }
 </script>

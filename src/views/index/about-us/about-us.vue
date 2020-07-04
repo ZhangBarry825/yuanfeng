@@ -61,7 +61,7 @@
           </div>
           <div class="item" :class="'item'+index" v-for="(item, index) in theHistory" :key="index">
             <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">{{item.time}}</div>
+            <div class="title">{{item.time}}年</div>
             <div class="des">{{item.detail}}</div>
           </div>
           <!-- <div class="item item1">
