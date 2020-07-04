@@ -62,17 +62,18 @@
         <div class="border"></div>
       </div>
       <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeProductIndex" @click="changeGroup(activeProductIndex,'product')">
-        <Tab v-for="(item,index)  in pcData.productGroupList"  :title="item">
+        <Tab v-for="(item,index)  in productGroupList"  :title="item">
         </Tab>
       </Tabs>
       <div class="items">
-        <div class="item" v-for="(item,index) in pcData.productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
+        <div class="item" v-if="index<3" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
           <div class="pic">
             <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
           </div>
           <div class="text">{{item.productName}}</div>
         </div>
       </div>
+      <div class="more" @click="$router.push({path:'/product-center'})">查看更多</div>
     </div>
     <div class="banner">
       <div class="center">
@@ -133,11 +134,11 @@
         <div class="border"></div>
       </div>
       <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeCaseIndex" @click="changeGroup(activeCaseIndex,'case')">
-        <Tab v-for="(item,index)  in pcData.caseGroupList"  :title="item">
+        <Tab v-for="(item,index)  in caseGroupList"  :title="item">
         </Tab>
       </Tabs>
       <div class="items">
-        <div class="item" v-for="(item,index) in pcData.caseList" @click="$router.push({path:'/case-detail?id='+item.id})">
+        <div class="item" v-for="(item,index) in caseList" @click="$router.push({path:'/case-detail?id='+item.id})">
           <div class="pic">
             <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
           </div>
@@ -277,7 +278,7 @@
   import 'swiper/css/swiper.css'
   import MobileBanner from "../../../components/MobileBanner/index";
   import MobileFooter from "../../../components/MobileFooter/index";
-  import {fetchCaseList, fetchProductList} from "@/api/home";
+  import {fetchCaseGroupList, fetchCaseList, fetchProductGroupList, fetchProductList} from "@/api/home";
 
   import { Tab, Tabs } from 'vant';
   import 'vant/lib/tabs/index.css';
@@ -299,9 +300,9 @@
         activeProductIndex:0,
         activeCaseIndex:0,
         baseUrl:this.$imgBaseUrl,
-        nowProductGroupIndex:0,
-        nowCaseGroupIndex:0,
+        productGroupList:[],
         productList:[],
+        caseGroupList:[],
         caseList:[],
         swiperOptions: {
           // Some Swiper option/callback...
@@ -319,20 +320,27 @@
       }
     },
     methods:{
+      async fetchData(){
+        let productGroupList= await fetchProductGroupList()
+        this.productGroupList=productGroupList.data
+        let productList= await fetchProductList({groupName:this.productGroupList[0]})
+        this.productList=productList.data
+        let caseGroupList= await fetchCaseGroupList()
+        this.caseGroupList=caseGroupList.data
+        let caseList= await fetchCaseList({groupName:this.caseGroupList[0]})
+        this.caseList=caseList.data
+      },
       async changeGroup(index,type){
-        if(type=='product'){
-          this.nowProductGroupIndex=index
+        if(type==='product'){
           let productList= await fetchProductList({groupName:this.pcData.productGroupList[index]})
-          this.pcData.productList=productList.data
-        }else if(type=='case'){
-          this.nowCaseGroupIndex=index
+          this.productList=productList.data
+        }else if(type==='case'){
+          this.activeCaseIndex=index
           let caseList= await fetchCaseList({groupName:this.pcData.caseGroupList[index]})
-          this.pcData.caseList=caseList.data
+          this.caseList=caseList.data
         }else {
 
         }
-        console.log(this.pcData.productList)
-        console.log(1)
       }
     },
     computed: {
@@ -343,6 +351,7 @@
     mounted() {
       document.documentElement.style.fontSize = '5vw'
       this.swiper.slideTo(2, 4000, false)
+      this.fetchData()
     },
   }
 </script>
@@ -693,6 +702,18 @@
             color: #3652B6;
           }
         }
+      }
+
+      .more {
+        font-size: .6rem;
+        color: #DE1F22;
+        border: 1px solid #DE1F22;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: .3rem 1rem;
+        cursor: pointer;
       }
     }
 
