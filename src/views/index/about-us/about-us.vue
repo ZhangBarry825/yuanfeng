@@ -35,7 +35,7 @@
         <div class="border"></div>
       </div>
       <div class="items">
-        <div class="item" v-for="(item, index) in theCulture" :key="index">
+        <div class="item reveal-top" v-for="(item, index) in theCulture" :key="index">
           <img :src="baseUrl+item.imageUrl" alt />
           <div class="line1">{{item.title}}</div>
           <div class="line2">{{item.detail}}</div>
@@ -47,7 +47,7 @@
           <div class="border"></div>
         </div>
         <div class="service-item">
-          <div class="item" v-for="(item, index) in theService" :key="index">
+          <div class="item " :class="'reveal-service'+index" v-for="(item, index) in theService" :key="index">
             <img :src="baseUrl+item.imageUrl" alt />
             <div class="title">{{item.title}}</div>
           </div>
@@ -64,31 +64,6 @@
             <div class="title">{{item.time}}年</div>
             <div class="des">{{item.detail}}</div>
           </div>
-          <!-- <div class="item item1">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">2006年</div>
-            <div class="des">公司刚成立，正在发展阶段</div>
-          </div>
-          <div class="item item2">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">2010年</div>
-            <div class="des">公司刚成立，正在发展阶段</div>
-          </div>
-          <div class="item item3">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">2013年</div>
-            <div class="des">公司刚成立，正在发展阶段</div>
-          </div>
-          <div class="item item4">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">2015年</div>
-            <div class="des">公司刚成立，正在发展阶段</div>
-          </div>
-          <div class="item item5">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">2020年</div>
-            <div class="des">公司发展成熟，服务过268+客户</div>
-          </div>-->
         </div>
       </div>
 
@@ -139,7 +114,13 @@ export default {
       // 发展历程
       let res1 = await getHistory()
       this.theHistory = res1.data.slice(-6)
-
+      this.$nextTick(() => {
+        this.$scrollDom('.reveal-top', 600, 0, 'top', '50px', 0.1, false)
+        this.$scrollDom('.reveal-service0', 300, 0, 'top', '50px', 0.1, true)
+        this.$scrollDom('.reveal-service1', 300, 200, 'top', '50px', 0.1, true)
+        this.$scrollDom('.reveal-service2', 300, 400, 'top', '50px', 0.1, true)
+        this.$scrollDom('.reveal-service3', 300, 600, 'top', '50px', 0.1, true)
+      })
     },
   },
 }

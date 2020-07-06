@@ -40,9 +40,9 @@
           </div>
           <div class="border"></div>
         </div>
-        <div class="content" >
+        <div class="content">
           <div class="left">
-            <div class="item"  v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
+            <div class="item" v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
               <div class="text0" :class="'reveal-advantages'+index">
                 <div class="text1">
                   <div class="num">0{{index+1}}</div>
@@ -60,7 +60,7 @@
           </div>
         </div>
       </div>
-      <div class="products"  id="product">
+      <div class="products" id="product">
         <div class="title">
           <div class="text1">
             产品中心
@@ -70,12 +70,15 @@
           </div>
           <div class="border"></div>
         </div>
-        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeProductIndex" @click="changeGroup(activeProductIndex,'product')">
-          <Tab v-for="(item,index)  in productGroupList"  :title="item">
+        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5"
+              color="#3652B6" :swipeable="true" v-model="activeProductIndex"
+              @click="changeGroup(activeProductIndex,'product')">
+          <Tab v-for="(item,index)  in productGroupList" :title="item">
           </Tab>
         </Tabs>
         <div class="items">
-          <div class="item" v-for="(item,index) in productList" :key="item.id" @click="$router.push({path:'/product-detail?id='+item.id})">
+          <div class="item" v-for="(item,index) in productList" :key="item.id"
+               @click="$router.push({path:'/product-detail?id='+item.id})">
             <div class="pic">
               <div class="img" :style="'background-image: url('+baseUrl+item.imageUrl+')'"></div>
             </div>
@@ -110,7 +113,7 @@
           </div>
         </div>
       </div>
-      <div class="customer"  id="customer">
+      <div class="customer" id="customer">
         <div class="title">
           <div class="text1">
             客户分布
@@ -121,16 +124,16 @@
           <div class="border"></div>
         </div>
         <div class="map" :style="'background-image: url('+baseUrl+customerMap+')'">
-<!--          <div class="map-data">-->
-<!--            <div class="line">-->
-<!--              <img src="../../../../public/images/dot1.png" alt="">-->
-<!--              <div class="text">服务过的客户</div>-->
-<!--            </div>-->
-<!--            <div class="line">-->
-<!--              <img src="../../../../public/images/dot2.png" alt="">-->
-<!--              <div class="text">正在洽谈的合作</div>-->
-<!--            </div>-->
-<!--          </div>-->
+          <!--          <div class="map-data">-->
+          <!--            <div class="line">-->
+          <!--              <img src="../../../../public/images/dot1.png" alt="">-->
+          <!--              <div class="text">服务过的客户</div>-->
+          <!--            </div>-->
+          <!--            <div class="line">-->
+          <!--              <img src="../../../../public/images/dot2.png" alt="">-->
+          <!--              <div class="text">正在洽谈的合作</div>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
       </div>
       <div class="case" id="case">
@@ -143,8 +146,9 @@
           </div>
           <div class="border"></div>
         </div>
-        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5" color="#3652B6" :swipeable="true" v-model="activeCaseIndex" @click="changeGroup(activeCaseIndex,'case')">
-          <Tab v-for="(item,index)  in caseGroupList"  :title="item">
+        <Tabs class="tabs" title-active-color="#3652B6" title-inactive-color="#343434" background="#f5f5f5"
+              color="#3652B6" :swipeable="true" v-model="activeCaseIndex" @click="changeGroup(activeCaseIndex,'case')">
+          <Tab v-for="(item,index)  in caseGroupList" :title="item">
           </Tab>
         </Tabs>
         <div class="items">
@@ -157,7 +161,7 @@
         </div>
         <div class="more" @click="$router.push({path:'/case-list'})">查看更多</div>
       </div>
-      <div class="news"  id="news">
+      <div class="news" id="news">
         <div class="title">
           <div class="text1">
             新闻资讯
@@ -171,7 +175,8 @@
           <div class="list" v-for="(item,index) in newsList" :key="item.id">
             <div class="list-title">{{item.newsGroupName}}</div>
             <div class="items">
-              <div class="item" v-for="(item2,index2) in item.newsTitle" v-if="index2<5" @click="$router.push({path:'/news-detail?id='+item2.id})">
+              <div class="item" v-for="(item2,index2) in item.newsTitle" v-if="index2<5"
+                   @click="$router.push({path:'/news-detail?id='+item2.id})">
                 <img src="../../../../public/images/dot0.png" alt="">
                 <div class="right">
                   <div class="text">{{item2.title}}</div>
@@ -185,7 +190,7 @@
           </div>
         </div>
       </div>
-      <Footer ></Footer>
+      <Footer></Footer>
     </div>
     <MobileHome :pcData="pcData" v-if="isMobile"></MobileHome>
   </div>
@@ -204,7 +209,7 @@
     fetchProductGroupList, fetchProductList, fetchNewsList, fetchFooterList
   } from "@/api/home";
 
-  import { Tab, Tabs } from 'vant';
+  import {Tab, Tabs} from 'vant';
   import 'vant/lib/tabs/index.css';
 
   import Parallax from 'parallax-js'
@@ -219,100 +224,103 @@
       Tab, Tabs
     },
     props: ['isMobile'],
-    data(){
-      return{
-        activeProductIndex:0,
-        activeCaseIndex:0,
-        baseUrl:this.$imgBaseUrl,
-        nowProductGroupIndex:0,
-        nowCaseGroupIndex:0,
-        bannerList:[],
-        companyDataList:[],
-        aboutUsList:[],
-        advantageList:[],
-        productList:[],
-        productGroupList:[],
-        customerMap:'',
-        caseList:[],
-        caseGroupList:[],
-        newsList:[],
+    data() {
+      return {
+        activeProductIndex: 0,
+        activeCaseIndex: 0,
+        baseUrl: this.$imgBaseUrl,
+        nowProductGroupIndex: 0,
+        nowCaseGroupIndex: 0,
+        bannerList: [],
+        companyDataList: [],
+        aboutUsList: [],
+        advantageList: [],
+        productList: [],
+        productGroupList: [],
+        customerMap: '',
+        caseList: [],
+        caseGroupList: [],
+        newsList: [],
         footerList: {},
       }
     },
-    computed:{
-      pcData:function (){
+    computed: {
+      pcData: function () {
         return {
-          bannerList:this.bannerList,
-          companyDataList:this.companyDataList,
-          aboutUsList:this.aboutUsList,
-          advantageList:this.advantageList,
-          productGroupList:this.productGroupList,
-          productList:this.productList,
-          customerMap:this.customerMap,
-          caseList:this.caseList,
-          caseGroupList:this.caseGroupList,
-          newsList:this.newsList,
+          bannerList: this.bannerList,
+          companyDataList: this.companyDataList,
+          aboutUsList: this.aboutUsList,
+          advantageList: this.advantageList,
+          productGroupList: this.productGroupList,
+          productList: this.productList,
+          customerMap: this.customerMap,
+          caseList: this.caseList,
+          caseGroupList: this.caseGroupList,
+          newsList: this.newsList,
         }
       }
     },
-    methods:{
+    methods: {
       formatter: function (num) {
         return num.toFixed(2)
       },
-      async fetchData(){
-        let bannerList= await fetchBannerList()
-        this.bannerList=bannerList.data
-        let companyDataList= await fetchDataList()
-        this.companyDataList=companyDataList.data
-        let aboutUsList= await fetchAboutUsList()
-        this.aboutUsList=aboutUsList.data[0]
-        let advantageList= await fetchAdvantageList()
-        this.advantageList=advantageList.data
-        let productGroupList= await fetchProductGroupList()
-        this.productGroupList=productGroupList.data
-        let productList= await fetchProductList({groupName:this.productGroupList[0]})
-        this.productList=productList.data
-        let customerMap= await fetchCustomerList()
-        this.customerMap=customerMap.data
-        let caseGroupList= await fetchCaseGroupList()
-        this.caseGroupList=caseGroupList.data
-        let caseList= await fetchCaseList({groupName:this.caseGroupList[0]})
-        this.caseList=caseList.data
-        let newsList= await fetchNewsList()
-        this.newsList=newsList.data
+      async fetchData() {
+        let bannerList = await fetchBannerList()
+        this.bannerList = bannerList.data
+        let companyDataList = await fetchDataList()
+        this.companyDataList = companyDataList.data
+        let aboutUsList = await fetchAboutUsList()
+        this.aboutUsList = aboutUsList.data[0]
+        let advantageList = await fetchAdvantageList()
+        this.advantageList = advantageList.data
+        let productGroupList = await fetchProductGroupList()
+        this.productGroupList = productGroupList.data
+        let productList = await fetchProductList({groupName: this.productGroupList[0]})
+        this.productList = productList.data
+        let customerMap = await fetchCustomerList()
+        this.customerMap = customerMap.data
+        let caseGroupList = await fetchCaseGroupList()
+        this.caseGroupList = caseGroupList.data
+        let caseList = await fetchCaseList({groupName: this.caseGroupList[0]})
+        this.caseList = caseList.data
+        let newsList = await fetchNewsList()
+        this.newsList = newsList.data
 
-       this.$nextTick(()=>{
-          this.$scrollDom('.reveal-advantages0',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-advantages1',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-advantages2',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-advantages3',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-advantages4',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-banner1',300,0,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-banner2',300,200,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-banner3',300,400,'top','50px',0.1,true)
-          this.$scrollDom('.reveal-banner4',300,600,'top','50px',0.1,true)
+        this.$nextTick(() => {
+          this.$scrollDom('.reveal-advantages0', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-advantages1', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-advantages2', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-advantages3', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-advantages4', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-banner1', 300, 0, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-banner2', 300, 200, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-banner3', 300, 400, 'top', '50px', 0.1, true)
+          this.$scrollDom('.reveal-banner4', 300, 600, 'top', '50px', 0.1, true)
+
+          this.$scrollDom('.reveal-top', 1000, 0, 'top', '50px', 0.1, false)
+          this.$scrollDom('.reveal-us', 500, 0, 'top', '50px', 0.1, true)
         })
       },
-      async changeGroup(index,type){
-        if(type==='product'){
-          this.nowProductGroupIndex=index
-          let productList= await fetchProductList({groupName:this.productGroupList[index]})
-          this.productList=productList.data
-        }else if(type==='case'){
-          this.nowCaseGroupIndex=index
-          let caseList= await fetchCaseList({groupName:this.caseGroupList[index]})
-          this.caseList=caseList.data
-        }else {
+      async changeGroup(index, type) {
+        if (type === 'product') {
+          this.nowProductGroupIndex = index
+          let productList = await fetchProductList({groupName: this.productGroupList[index]})
+          this.productList = productList.data
+        } else if (type === 'case') {
+          this.nowCaseGroupIndex = index
+          let caseList = await fetchCaseList({groupName: this.caseGroupList[index]})
+          this.caseList = caseList.data
+        } else {
 
         }
       }
     },
     mounted() {
       let that = this
-      if(that.$route.query.selector){
-        setTimeout(()=>{
-          document.querySelector("#"+that.$route.query.selector).scrollIntoView(true);
-        },100)
+      if (that.$route.query.selector) {
+        setTimeout(() => {
+          document.querySelector("#" + that.$route.query.selector).scrollIntoView(true);
+        }, 100)
       }
       this.fetchData()
 
@@ -321,13 +329,7 @@
       var scene2 = document.getElementById('activePic2');
       var parallaxInstance = new Parallax(scene2);
 
-      this.$scrollDom('.reveal-top',1000,0,'top','50px',0.1,false)
-      this.$scrollDom('.reveal-us',500,0,'top','50px',0.1,true)
 
-
-      // this.$scrollDom('.reveal-top:nth-child(2)',500,300,'bottom','50px',0.9,true);
-      // this.$scrollDom('.reveal-top:nth-child(3)',500,600,'bottom','50px',0.9,true);
-      // this.$scrollDom('.reveal-top:nth-child(4)',500,900,'bottom','50px',0.9,true);
     },
   }
 </script>
@@ -335,7 +337,8 @@
 <style scoped lang="scss">
   .home-page {
     width: 100%;
-    .pc{
+
+    .pc {
       width: 100%;
       min-width: 1200px;
       display: flex;
@@ -422,7 +425,8 @@
             left: 0;
             top: -100px;
             overflow: hidden;
-            .leftPic{
+
+            .leftPic {
               position: relative;
               top: -5% !important;
               left: -5% !important;
@@ -615,7 +619,8 @@
             width: 50%;
             height: 100%;
             overflow: hidden;
-            .rightPic{
+
+            .rightPic {
               position: relative;
               left: -10% !important;
               top: -10% !important;
@@ -695,7 +700,7 @@
           flex-direction: row;
 
           .item {
-            border-top: 3px solid rgba(255,255,255,0);
+            border-top: 3px solid rgba(255, 255, 255, 0);
             box-sizing: border-box;
             width: 272px;
             height: 349px;
@@ -918,6 +923,7 @@
             border-bottom: 4px solid #3652B6;
           }
         }
+
         .menus {
           min-width: 1200px;
           border-bottom: 2px solid rgba(204, 204, 204, 0.5);
@@ -938,6 +944,7 @@
             border-bottom: 2px solid #3652B6;
           }
         }
+
         .items {
           min-width: 1200px;
           padding: 50px 0;
@@ -1141,11 +1148,11 @@
         }
       }
 
-      .tabs{
+      .tabs {
         min-width: 1200px;
         border-bottom: 2px solid rgba(204, 204, 204, 0.5);
 
-        ::v-deep .van-tab__text{
+        ::v-deep .van-tab__text {
           padding: 20px 0;
           font-size: 20px;
         }
