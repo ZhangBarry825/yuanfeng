@@ -9,7 +9,7 @@
         <div class="line">地址：{{footerList.contactUs.address}}</div>
       </div>
     </div>
-    <div class="bottom">豫ICP备06100159号技术支持:正尚科技</div>
+    <a class="bottom" href="http://www.beian.miit.gov.cn/" target="_blank">豫ICP备20020696号 技术支持:正尚科技</a>
   </div>
 </template>
 
