@@ -6,7 +6,7 @@
       <div class="data reveal-top">
         <div class="item" v-for="item in companyDataList" :key="companyDataList.id">
           <div class="line1">
-            <animate-number duration="1000" from="1" :to="item.detail"></animate-number>
+            <animate-number duration="1300" from="1" :to="item.detail"></animate-number>
           </div>
           <div class="line2">{{item.title}}</div>
         </div>
@@ -287,6 +287,10 @@
         this.newsList = newsList.data
 
         this.$nextTick(() => {
+          // this.$scrollDom('.reveal-top', 500, 0, 'top', '50px', 0.1, false)
+          this.$scrollDom('.reveal-us', 500, 0, 'top', '50px', 0.1, true)
+
+
           this.$scrollDom('.reveal-advantages0', 300, 0, 'top', '50px', 0.1, true)
           this.$scrollDom('.reveal-advantages1', 300, 0, 'top', '50px', 0.1, true)
           this.$scrollDom('.reveal-advantages2', 300, 0, 'top', '50px', 0.1, true)
@@ -297,8 +301,7 @@
           this.$scrollDom('.reveal-banner3', 300, 400, 'top', '50px', 0.1, true)
           this.$scrollDom('.reveal-banner4', 300, 600, 'top', '50px', 0.1, true)
 
-          this.$scrollDom('.reveal-top', 1000, 0, 'top', '50px', 0.1, false)
-          this.$scrollDom('.reveal-us', 500, 0, 'top', '50px', 0.1, true)
+
         })
       },
       async changeGroup(index, type) {
