@@ -43,7 +43,7 @@ import {scrollDom} from "@/utils";
 Vue.use(VueAnimateNumber)
 
 Vue.prototype.$scrollDom = scrollDom;
-Vue.prototype.$imgBaseUrl='http://39.98.80.223:8084'
+Vue.prototype.$imgBaseUrl='https://www.runfeelmach.com'
 
 Vue.config.productionTip = false
 
