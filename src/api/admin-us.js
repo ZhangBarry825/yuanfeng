@@ -15,3 +15,18 @@ export function saveAboutUs(data) {
   })
 }
 
+
+export function getInformation(data) {
+  return request({
+    url: '/webfront-index/queryBottomInfo',
+    method: 'post',
+    data
+  })
+}
+export function saveInformation(data) {
+  return request({
+    url: '/background-aboutUs/updateContactUs',
+    method: 'post',
+    data
+  })
+}

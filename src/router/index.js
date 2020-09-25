@@ -230,28 +230,28 @@ export const constantRoutes = [
       meta: { title: '公司优势', icon: 'advantage' }
     }]
   },
-  {
-    path: '/admin-history',
-    component: Layout,
-    meta: { title: '发展历程', icon: 'history' },
-    children: [{
-      path: 'history-list',
-      name: 'HistoryList',
-      component: () => import('@/views/admin/history/list'),
-      meta: { title: '历程列表', icon: 'list' },
-    },{
-      path: 'history-create',
-      name: 'HistoryCreate',
-      component: () => import('@/views/admin/history/create'),
-      meta: { title: '新增历程', icon: 'create' }
-    },{
-      path: 'history-edit',
-      name: 'HistoryEdit',
-      component: () => import('@/views/admin/history/edit'),
-      meta: { title: '编辑历程', icon: 'create' },
-      hidden: true
-    }]
-  },
+  // {
+  //   path: '/admin-history',
+  //   component: Layout,
+  //   meta: { title: '发展历程', icon: 'history' },
+  //   children: [{
+  //     path: 'history-list',
+  //     name: 'HistoryList',
+  //     component: () => import('@/views/admin/history/list'),
+  //     meta: { title: '历程列表', icon: 'list' },
+  //   },{
+  //     path: 'history-create',
+  //     name: 'HistoryCreate',
+  //     component: () => import('@/views/admin/history/create'),
+  //     meta: { title: '新增历程', icon: 'create' }
+  //   },{
+  //     path: 'history-edit',
+  //     name: 'HistoryEdit',
+  //     component: () => import('@/views/admin/history/edit'),
+  //     meta: { title: '编辑历程', icon: 'create' },
+  //     hidden: true
+  //   }]
+  // },
   {
     path: '/admin-message',
     component: Layout,
@@ -270,6 +270,16 @@ export const constantRoutes = [
       name: 'AboutUs',
       component: () => import('@/views/admin/about-us/index'),
       meta: { title: '关于我们', icon: 'users' },
+    }]
+  },
+  {
+    path: '/admin-info',
+    component: Layout,
+    children: [{
+      path: 'info',
+      name: 'Info',
+      component: () => import('@/views/admin/information/index'),
+      meta: { title: '公司信息', icon: 'building' },
     }]
   },
   // 404 page must be placed at the end !!!
