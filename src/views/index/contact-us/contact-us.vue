@@ -86,7 +86,11 @@ export default {
         phoneNumber: '',
         detail: '',
       },
-      footerList:{},
+      footerList:{
+        contactUs:{
+          phoneNumber:''
+        }
+      },
       rules: {
         name: [
           { required: true, message: '请输入姓名', trigger: 'blur' }

@@ -82,6 +82,7 @@
       async fetchData(){
         let footerList=await fetchFooterList()
         this.footerList=footerList.data
+        localStorage.setItem('footerList',JSON.stringify(footerList.data))
       }
     },
     mounted() {

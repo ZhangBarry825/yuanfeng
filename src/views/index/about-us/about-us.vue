@@ -53,19 +53,19 @@
           </div>
         </div>
       </div>
-      <div class="experience">
-        <div class="center">
-          <div class="experience-title">
-            <div class="text">发展历程</div>
-            <div class="border"></div>
-          </div>
-          <div class="item" :class="'item'+index" v-for="(item, index) in theHistory" :key="index">
-            <img src="../../../../public/images/dotdot.png" alt />
-            <div class="title">{{item.time}}年</div>
-            <div class="des">{{item.detail}}</div>
-          </div>
-        </div>
-      </div>
+<!--      <div class="experience">-->
+<!--        <div class="center">-->
+<!--          <div class="experience-title">-->
+<!--            <div class="text">发展历程</div>-->
+<!--            <div class="border"></div>-->
+<!--          </div>-->
+<!--          <div class="item" :class="'item'+index" v-for="(item, index) in theHistory" :key="index">-->
+<!--            <img src="../../../../public/images/dotdot.png" alt />-->
+<!--            <div class="title">{{item.time}}年</div>-->
+<!--            <div class="des">{{item.detail}}</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <Footer></Footer>
     </div>

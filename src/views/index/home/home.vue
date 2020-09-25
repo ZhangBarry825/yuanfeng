@@ -3,14 +3,14 @@
     <div class="pc" v-if="!isMobile">
       <Header :menu-id="1"></Header>
       <Banner :bannerList="bannerList"></Banner>
-      <div class="data reveal-top">
-        <div class="item" v-for="item in companyDataList" :key="companyDataList.id">
-          <div class="line1">
-            <animate-number duration="1300" from="1" :to="item.detail"></animate-number>
-          </div>
-          <div class="line2">{{item.title}}</div>
-        </div>
-      </div>
+<!--      <div class="data reveal-top">-->
+<!--        <div class="item" v-for="item in companyDataList" :key="companyDataList.id">-->
+<!--          <div class="line1">-->
+<!--            <animate-number duration="1300" from="1" :to="item.detail"></animate-number>-->
+<!--          </div>-->
+<!--          <div class="line2">{{item.title}}</div>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="aboutUs" id="about-us">
         <div class="title">
           <div class="text">公司简介/
@@ -386,6 +386,7 @@
 
       .aboutUs {
         min-width: 1200px;
+        margin-top: 150px;
         display: flex;
         align-items: center;
         flex-direction: column;

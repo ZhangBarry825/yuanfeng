@@ -12,6 +12,13 @@
           <div class="item" :class="{selected:menuId===4}" @click="goPage('/news-list')">新闻动态 <div class="bottom"></div></div>
           <div class="item" :class="{selected:menuId===5}" @click="goPage('/about-us')">关于我们 <div class="bottom"></div></div>
           <div class="item" :class="{selected:menuId===6}" @click="goPage('/contact-us')">联系我们 <div class="bottom"></div></div>
+          <div class="tel">
+            <el-image
+              style="width: 28px; height: 28px"
+              :src="require('../../../public/images/tel.png')"
+              :fit="'contain'"></el-image>
+            <div class="text">{{footerList.contactUs.phoneNumber}}</div>
+          </div>
         </div>
     </div>
   </div>
@@ -24,7 +31,11 @@
     name: "Header",
     data(){
       return{
-
+        footerList:{
+          contactUs:{
+            phoneNumber:''
+          }
+        }
       }
     },
     props:{
@@ -38,6 +49,13 @@
         this.$router.push({
           path:path
         })
+      }
+    },
+    mounted() {
+      this.footerList=JSON.parse(localStorage.getItem('footerList'))||{
+        contactUs:{
+          phoneNumber:''
+        }
       }
     }
 
@@ -67,8 +85,11 @@
       .right{
         display: flex;
         justify-content: flex-end;
-        font-size: 16px;
+        align-items: center;
+        font-size: 18px;
         color: #333;
+        position: relative;
+        padding-right: 100px;
         .item{
           cursor: pointer;
           padding: 0 20px;
@@ -95,6 +116,17 @@
         .item:hover>.bottom{
           color: #3652B6;
           display: block;
+        }
+        .tel{
+          display: flex;
+          align-items: center;
+          position: absolute;
+          right: -70px;
+          .text{
+            margin-left: 3px;
+            color: #444444;
+            font-size: 20px;
+          }
         }
 
       }

@@ -1,12 +1,12 @@
 <template>
   <div class="mobile-home">
     <MobileBanner :bannerList="pcData.bannerList"></MobileBanner>
-    <div class="data">
-      <div class="item" v-for="item in pcData.companyDataList" :key="pcData.companyDataList.id">
-        <div class="line1">{{item.detail}}</div>
-        <div class="line2">{{item.title}}</div>
-      </div>
-    </div>
+<!--    <div class="data">-->
+<!--      <div class="item" v-for="item in pcData.companyDataList" :key="pcData.companyDataList.id">-->
+<!--        <div class="line1">{{item.detail}}</div>-->
+<!--        <div class="line2">{{item.title}}</div>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="about-us">
       <div class="title">
         <div class="text1">
@@ -311,6 +311,7 @@
 
     .about-us {
       background-color: #fff;
+      margin-top: 1rem;
       padding: 1rem 0;
       width: 100%;
       display: flex;
