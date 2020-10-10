@@ -81,7 +81,10 @@ export default {
       tableData: [],
       total: 0,
       centerDialogVisible: false,
-      ruleForm: {},
+      ruleForm: {
+        detail:'',
+        title:'',
+      },
       detail: null,
       arrid: []
     }
