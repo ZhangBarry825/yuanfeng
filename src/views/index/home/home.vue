@@ -46,11 +46,11 @@
               <div class="text0" :class="'reveal-advantages'+index">
                 <div class="text1">
                   <div class="text">{{item.title}}</div>
+                  <div class="num">0{{index+1}}</div>
                 </div>
                 <div class="text2">
                   {{item.detail}}
                 </div>
-                <div class="num">0{{index+1}}</div>
               </div>
               <div :class="'img'+(index+1)"></div>
             </div>
@@ -595,6 +595,13 @@
                   position: relative;
                   padding-bottom: 10px;
                   color: rgba(255, 255, 255, 0.9);
+                  .num {
+                    position: absolute;
+                    font-size: 40px;
+                    color: rgba(239, 239, 239, 0.5);
+                    right: -60px;
+                    top: 15px;
+                  }
                 }
 
                 .text2 {
@@ -607,13 +614,7 @@
                   -webkit-line-clamp: 2;
                   overflow: hidden;
                 }
-                .num {
-                  position: absolute;
-                  font-size: 40px;
-                  color: rgba(239, 239, 239, 0.5);
-                  right: 70px;
-                  top: 15px;
-                }
+
               }
             }
           }
