@@ -120,27 +120,27 @@ export function param2Obj(url) {
 
 
 
-// import scrollReveal from 'scrollreveal';
-// export function scrollDom(className,duration,delayTime,originDirection,distanceLength,scaleRatio,resetAgain){
-//   scrollReveal().reveal(className, {
-//     // 动画的时长
-//     duration: duration,
-//     // 延迟时间
-//     delay: delayTime,
-//     // 动画开始的位置，'bottom', 'left', 'top', 'right'
-//     origin: originDirection,
-//     // 回滚的时候是否再次触发动画
-//     reset: resetAgain,
-//     // 在移动端是否使用动画
-//     mobile: false,
-//     // 滚动的距离，单位可以用%，rem等
-//     distance: distanceLength,
-//     // 其他可用的动画效果
-//     opacity: 0.01,
-//     easing: 'linear',
-//     scale: scaleRatio,
-//   })
-// }
+import scrollReveal from 'scrollreveal';
+export function scrollDom(className,duration,delayTime,originDirection,distanceLength,scaleRatio,resetAgain){
+  scrollReveal().reveal(className, {
+    // 动画的时长
+    duration: duration,
+    // 延迟时间
+    delay: delayTime,
+    // 动画开始的位置，'bottom', 'left', 'top', 'right'
+    origin: originDirection,
+    // 回滚的时候是否再次触发动画
+    reset: resetAgain,
+    // 在移动端是否使用动画
+    mobile: false,
+    // 滚动的距离，单位可以用%，rem等
+    distance: distanceLength,
+    // 其他可用的动画效果
+    opacity: 0.01,
+    easing: 'linear',
+    scale: scaleRatio,
+  })
+}
 export function animateDes(){
   //scrollReveal().destroy();
   scrollReveal().sync();
