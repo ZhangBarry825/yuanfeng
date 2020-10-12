@@ -45,12 +45,12 @@
             <div class="item" v-for="(item,index) in advantageList" v-if="index<4" :key="advantageList.id">
               <div class="text0" :class="'reveal-advantages'+index">
                 <div class="text1">
-                  <div class="num">0{{index+1}}</div>
                   <div class="text">{{item.title}}</div>
                 </div>
                 <div class="text2">
                   {{item.detail}}
                 </div>
+                <div class="num">0{{index+1}}</div>
               </div>
               <div :class="'img'+(index+1)"></div>
             </div>
@@ -525,6 +525,7 @@
           flex-direction: row;
 
           .left {
+            flex-shrink: 0;
             z-index: 999;
             box-sizing: border-box;
 
@@ -587,21 +588,13 @@
               .text0 {
                 width: 60%;
                 text-align: right;
-
+                padding-right: 20px;
                 .text1 {
                   font-size: 22px;
                   color: #fff;
                   position: relative;
                   padding-bottom: 10px;
                   color: rgba(255, 255, 255, 0.9);
-
-                  .num {
-                    position: absolute;
-                    font-size: 40px;
-                    color: rgba(239, 239, 239, 0.5);
-                    right: -30px;
-                    top: -25px;
-                  }
                 }
 
                 .text2 {
@@ -613,6 +606,13 @@
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 2;
                   overflow: hidden;
+                }
+                .num {
+                  position: absolute;
+                  font-size: 40px;
+                  color: rgba(239, 239, 239, 0.5);
+                  right: 70px;
+                  top: 15px;
                 }
               }
             }
